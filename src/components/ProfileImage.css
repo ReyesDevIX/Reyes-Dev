@@ -1,0 +1,42 @@
+.portrait-frame {
+  position: relative;
+  width: 100%;
+  padding: 11px 11px 18px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  box-shadow: 5px 5px 0 var(--tag);
+}
+
+/* Two opposing registration marks sit on the mount, clear of the photograph. */
+.portrait-frame::before,
+.portrait-frame::after {
+  content: '';
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-color: var(--accent);
+  border-style: solid;
+  pointer-events: none;
+}
+.portrait-frame::before { top: -1px; left: -1px; border-width: 3px 0 0 3px; }
+.portrait-frame::after { bottom: -1px; right: -1px; border-width: 0 3px 3px 0; }
+
+.portrait-frame .portrait {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: cover;
+  border: 1px solid var(--line);
+}
+.portrait-frame .initials {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 320 / 380;
+  background: var(--tag);
+  font: 60px var(--serif);
+}
+@media (max-width: 680px) {
+  .portrait-frame { max-width: 190px; padding: 8px 8px 13px; }
+  .portrait-frame .portrait { max-height: 200px; }
+}

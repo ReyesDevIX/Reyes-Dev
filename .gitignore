@@ -1,0 +1,13 @@
+node_modules
+dist
+*.local
+.env*
+!.env.example
+.DS_Store
+*.tsbuildinfo
+.vercel
+
+# Copias locales del proyecto anterior y del CV sustituido
+/Proyecto.zip
+/public/cv-ismael-reyes.md
+/Reyes-Dev-fuentes.zip

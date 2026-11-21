@@ -1,0 +1,22 @@
+.massif {
+  position:relative; isolation:isolate; overflow:hidden; border-radius:8px;
+  background:radial-gradient(ellipse at 42% 34%,#305571 0%,#19384e 55%,#102839 100%);
+  color:#e7f2ef;
+}
+.massif::before {
+  content:'';position:absolute;inset:0;pointer-events:none;z-index:-1;
+  background-image:linear-gradient(#c0e0df12 1px,transparent 1px),linear-gradient(90deg,#c0e0df12 1px,transparent 1px);
+  background-size:32px 32px;
+}
+.massif canvas,.massif-fallback {display:block;width:100%;height:clamp(340px,35vw,550px)}
+.massif canvas {cursor:grab;touch-action:pan-y;user-select:none}
+.massif canvas:active {cursor:grabbing}
+.massif-fallback {object-fit:cover}
+.massif-title {position:absolute;left:20px;top:17px;display:flex;align-items:center;gap:8px;font:600 11px/1.5 var(--mono);letter-spacing:.1em;text-transform:uppercase;pointer-events:none}
+.massif-controls {position:absolute;inset:auto 16px 13px;display:flex;align-items:center;gap:14px;padding-top:7px;border-top:1px solid #a9c5cb66}
+.massif-controls label {display:flex;gap:8px;align-items:center;color:#fff;font-size:13px;font-weight:600}
+.massif-controls label span {min-width:4ch;color:#ddfba9;font:12px var(--mono)}
+.massif-controls input {flex:1;min-width:45px;height:36px;margin:0;accent-color:#ddfba9;cursor:pointer}
+.massif-controls button {width:40px;height:40px;display:grid;place-items:center;background:#17384d;color:white;border:1px solid #9db6bf;border-radius:50%}
+.massif-controls :is(input,button):focus-visible {outline:3px solid #ddfba9;outline-offset:2px}
+@media(max-width:680px){.massif canvas,.massif-fallback {height:clamp(255px,70vw,340px)}}
