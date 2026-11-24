@@ -29,7 +29,7 @@ export const Header = () => {
   }}><div className="wrap bar">
     <Link className="brand" to="/" onClick={() => setOpen(false)}><MountainSnow aria-hidden="true" />Reyes-Dev<span>.</span></Link>
     <nav id="nav" className={open ? 'nav open' : 'nav'} aria-label="Navegación principal">
-      {[['Proyectos','proyectos'], ['Sobre mí','sobre-mi'], ['Trayectoria','experiencia']].map(([label,id]) =>
+      {[['Proyectos','proyectos'], ['Sobre mí','sobre-mi'], ['Trayectoria','experiencia'], ['Relieve','relieve']].map(([label,id]) =>
         <Link key={id} to={'/#'+id} onClick={() => setOpen(false)}>{label}</Link>)}
     </nav>
     <div className="tools"><button className="switch" aria-label={'Activar modo '+(theme === 'dark' ? 'claro' : 'oscuro')} onClick={switchTheme}>{theme === 'dark' ? <Sun/> : <Moon/>}</button>

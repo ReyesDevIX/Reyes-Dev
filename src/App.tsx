@@ -20,6 +20,7 @@ const Layout = () => {
     <Header />
     <main id="contenido" tabIndex={-1}><Routes>
       <Route index element={<HomePage />} />
+      <Route path="/index.html" element={<HomePage />} />
       <Route path="/proyectos/:slug" element={<ProjectPage />} />
       <Route path="*" element={<MissingPage />} />
     </Routes></main>

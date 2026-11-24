@@ -1,80 +1,82 @@
-import { useLayoutEffect, useRef } from 'react';
+import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-gsap.registerPlugin(ScrollTrigger);
 
-export const MotionEnhancer = () => {
-  const cursor = useRef<HTMLDivElement>(null);
-  useLayoutEffect(() => {
+import developPicture from '../../.agents/skills/design-taste-frontend/assets/moments/picture-develops/moment.js';
+import * as momentLib from '../../.agents/skills/design-taste-frontend/assets/moments/lib.js';
+import '../../.agents/skills/design-taste-frontend/assets/moments/picture-develops/moment.css';
+
+gsap.registerPlugin(useGSAP, ScrollTrigger);
+
+export function MotionEnhancer() {
+  useGSAP(() => {
     const media = gsap.matchMedia();
     media.add('(prefers-reduced-motion: no-preference)', () => {
-      const intro = document.querySelector('.intro');
-      if (intro) {
-        const opening = gsap.timeline({ defaults: { ease: 'power3.out' } });
-        opening.from(intro.querySelector('.line'), { scaleX: 0, transformOrigin: 'left', duration: .5 })
-          .from(intro.querySelectorAll('.name-mask > *'), {
-            yPercent: 112, rotation: 5, transformOrigin: 'left bottom', stagger: .17, duration: 1.0,
-            clearProps: 'transform'
-          }, .06)
-          .from(intro.querySelectorAll('.lead,.summary,.actions'), {
-            y: 22, opacity: .25, stagger: .09, duration: .65, clearProps: 'transform,opacity'
-          }, .32);
-      }
-      document.querySelectorAll<HTMLElement>('.section-title,.contact h2,.detail h1').forEach(title => {
-        gsap.from(title, {
-          x: -40, opacity: .35, duration: .8, ease: 'power3.out', clearProps:'transform,opacity',
-          scrollTrigger: { trigger: title, start: 'top 94%', once: true }
-        });
+      if (!document.querySelector('.cover')) return;
+      gsap
+        .timeline({ defaults: { ease: 'power3.out' } })
+        .from('.vista img', {
+          scale: 1.09,
+          clipPath: 'inset(0 0 16% 0)',
+          duration: 1.35,
+        })
+        .from(
+          '.name-mask > span',
+          { yPercent: 112, stagger: 0.13, duration: 0.92 },
+          0.12,
+        );
+      const portrait = document.querySelector('.portrait-frame');
+      const picture: { destroy?: () => void } | null = portrait
+        ? developPicture(portrait, { look: 'film' }, momentLib)
+        : null;
+      gsap.from('.contact h2 span', {
+        yPercent: 106,
+        rotation: 3,
+        transformOrigin: 'left bottom',
+        scrollTrigger: {
+          trigger: '.contact',
+          start: 'top 92%',
+          end: 'top 65%',
+          scrub: true,
+        },
       });
-      document.querySelectorAll<HTMLElement>('.board').forEach(board => {
-        const pieces = board.querySelectorAll('.yard i');
+      return () => picture?.destroy?.();
+    });
+    media.add(
+      '(min-width: 900px) and (min-height: 640px) and (prefers-reduced-motion: no-preference)',
+      () => {
+        const stage = document.querySelector<HTMLElement>('.project-stage');
+        if (!stage || stage.offsetHeight > innerHeight - 60) return;
         const sequence = gsap.timeline({
-          scrollTrigger: { trigger: board.parentElement, start: 'top 90%', once: true }
+          scrollTrigger: {
+            trigger: stage,
+            start: 'top 64px',
+            end: '+=65%',
+            pin: true,
+            scrub: 0.35,
+            invalidateOnRefresh: true,
+          },
         });
-        sequence.from(board, {
-          rotation: -32, scale: .74, y: 45, duration: 1, ease: 'power3.out', clearProps: 'transform'
-        }).from(pieces, {
-          y: -28, scale: 1.35, opacity: 0, stagger: .055, duration: .5,
-          ease: 'bounce.out', clearProps: 'transform,opacity'
-        }, .24);
-      });
-      document.querySelectorAll<HTMLElement>('.feature-copy,.history,.about').forEach(group => {
-        gsap.from(group.children, {
-          y: 28, opacity: .35, duration: .7, stagger: .09, ease: 'power2.out', clearProps:'transform,opacity',
-          scrollTrigger: { trigger: group, start: 'top 94%', once: true }
-        });
-      });
-    });
-    media.add('(hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)', () => {
-      const ring = cursor.current;
-      if (!ring) return;
-      const move = (event: PointerEvent) => {
-        const link = (event.target as Element).closest('a,button,summary');
-        gsap.set(ring, { x:event.clientX, y:event.clientY, opacity:link ? 0 : .8 });
-      };
-      const hide = () => gsap.set(ring, {opacity:0});
-      const card = document.querySelector<HTMLElement>('.project-visual');
-      const tilt = (event: PointerEvent) => {
-        if (!card) return;
-        const box = card.getBoundingClientRect();
-        gsap.to(card, { rotationY: ((event.clientX-box.left)/box.width-.5)*8, rotationX: (.5-(event.clientY-box.top)/box.height)*8, transformPerspective:900, duration:.25, overwrite:true });
-      };
-      const reset = () => gsap.to(card, { rotationX:0, rotationY:0, duration:.4, overwrite:true });
-      document.addEventListener('pointermove', move);
-      document.documentElement.addEventListener('pointerleave', hide);
-      card?.addEventListener('pointermove',tilt);
-      card?.addEventListener('pointerleave',reset);
-      return () => {
-        document.removeEventListener('pointermove',move);
-        document.documentElement.removeEventListener('pointerleave',hide);
-        card?.removeEventListener('pointermove',tilt);
-        card?.removeEventListener('pointerleave',reset);
-        if (card) { gsap.killTweensOf(card); card.style.removeProperty('transform'); }
-        ring.style.opacity='0';
-      };
-    });
-    return () => media.revert();
-  }, []);
-  return <div ref={cursor} className="cursor" aria-hidden="true"/>;
-};
-
+        sequence
+          .fromTo(
+            stage.querySelector('.board'),
+            { rotation: -18, scale: 0.85 },
+            { rotation: 0, scale: 1.12, ease: 'none' },
+          )
+          .from(
+            stage.querySelectorAll('.yard i'),
+            { y: -25, scale: 0.72, stagger: 0.018, ease: 'power2.out' },
+            0,
+          );
+      },
+    );
+    const details = document.querySelectorAll('details');
+    const refresh = () => ScrollTrigger.refresh();
+    details.forEach((item) => item.addEventListener('toggle', refresh));
+    return () => {
+      details.forEach((item) => item.removeEventListener('toggle', refresh));
+      media.revert();
+    };
+  });
+  return null;
+}
