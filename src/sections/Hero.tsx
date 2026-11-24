@@ -5,7 +5,7 @@ export const Hero = () => (
   <section id="inicio" className="hero wrap" aria-labelledby="nombre">
     <div className="hero-meta">
       <span>Portfolio de desarrollo web</span>
-      <span>{profile.location}</span>
+      <span>2.º de DAW · {profile.location}</span>
     </div>
     <div className="cover">
       <picture className="vista">

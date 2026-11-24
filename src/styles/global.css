@@ -183,7 +183,7 @@ summary:hover {
   flex-wrap: wrap;
 }
 .hero {
-  padding-bottom: 22px;
+  padding-bottom: 24px;
 }
 .hero-meta,
 .project-caption,
@@ -218,7 +218,7 @@ summary:hover {
   border-radius: 8px;
   display: grid;
   align-items: end;
-  min-height: clamp(590px, calc(100svh - 132px), 940px);
+  min-height: clamp(590px, calc(100svh - 134px), 940px);
   background: #143646;
 }
 .vista,
@@ -523,7 +523,7 @@ details p,
     gap: 5%;
   }
   .cover {
-    min-height: calc(100svh - 132px);
+    min-height: calc(100svh - 134px);
   }
 }
 @media (max-width: 680px) {
@@ -671,4 +671,8 @@ details p,
 .about-stack {
   margin: -10px 0 25px;
   color: var(--muted);
+}
+
+@media (max-width: 680px) {
+  .board { transform: none; }
 }
