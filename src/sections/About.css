@@ -1,0 +1,24 @@
+.about-bio { position: relative; }
+.about-bio .bio-sentence { display: block; }
+.about-bio .bio-scan { display: none; }
+@media (min-width: 641px) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  @supports (mask-image: radial-gradient(black, transparent)) {
+    .about-bio .bio-scan {
+      --scan-x: 0px;
+      --scan-y: 0px;
+      display: block;
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      user-select: none;
+      color: var(--art-ink);
+      background: var(--art);
+      mask-image: radial-gradient(circle 96px at var(--scan-x) var(--scan-y), black 66%, transparent);
+      opacity: 0;
+      transition: opacity .16s ease;
+    }
+    .about-bio.scanning .bio-scan { opacity: 1; }
+    .bio-scan mark { background: transparent; color: inherit; text-decoration: underline; text-underline-offset: .13em; -webkit-text-stroke: .45px currentColor; }
+  }
+}
+.about-bio .scan-line { display: block; }

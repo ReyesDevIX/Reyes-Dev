@@ -8,7 +8,7 @@ export const Hero = () => (
     <div className="hero-meta"><span>Diseño de interfaces / Frontend</span><span>{profile.location}</span></div>
     <h1 id="nombre" aria-label={profile.shortName}>
       {profile.shortName.split(' ').map(word => (
-        <span className="word-mask" key={word}><span className="hero-word">{word}</span></span>
+        <span className="word-mask" aria-hidden="true" key={word}><span className="hero-word">{Array.from(word, (letter, index) => <span className="hero-letter" key={index}>{letter}</span>)}</span></span>
       ))}
     </h1>
     <div className="hero-bottom">
