@@ -1,0 +1,528 @@
+consistency  C:\DAW\Reyes-Dev\dist\index.html
+--quick: not checked: scroll-linked (stepping), scroll-reveal (the reveal walk; IntersectionObserver reveals are read), hover-spill, hidden-visual, loop-pause, forms, reduced-motion, the dead-IntersectionObserver walk (hidden content is read with scripts off and under reduced motion), hover-move. Still told: IntersectionObserver reveals (scroll-reveal), held sections (pinned) and CSS scroll timelines (scroll-linked); faults inside held or [data-big-scene] sections are WARNs
+
+1440x900  9 screens, 1 held section  44 FAIL  17 WARN
+  FAIL scroll-reveal   section#sobre-mi > div.portrait-frame.mo-pd
+       starts an animation (1.6 s) the moment it is scrolled into view (an IntersectionObserver) on img.portrait  [1440-18-scroll-reveal.jpg]
+       fix: show it at rest: no fade, rise or unmask when it is scrolled into view
+  FAIL pinned          section#proyectos > div.pin-spacer > article.project-stage.wrap  "PROYECTO SELECCIONADO EN DESARROLLO Parc"
+       held on screen for 0.7 screens of scroll (a pin-spacer) while the page moves on  [1440-31-pinned.jpg]
+       fix: let the section scroll with the page
+  FAIL no-visual       section#proyectos  "Parchís multijugador"
+       no picture, effect or mock in this section; a feature section needs a visual  [1440-17-no-visual.jpg]
+       fix: give the section a visual: a UI fragment on a ground, real icons, or a photograph that fits
+  FAIL text-only       section#experiencia  "Trayectoria."
+       the section is only text: no picture, icon, mock or effect in it (2 sections like it at this width)  [1440-23-text-only.jpg]
+       fix: give the section a visual: a photograph that fits, the real icons, or a UI fragment on a ground
+  FAIL text-only       section#contacto  "¿Hablamos?"
+       the closing section is only text: no picture, icon, mock or effect in it (2 sections like it at this width)  [1440-25-text-only.jpg]
+       fix: give the section a visual: a photograph that fits, the real icons, or a UI fragment on a ground
+  FAIL copy-headline   h1#nombre  "Ismael Reyes."
+       "Ismael Reyes." does not name what is sold (desarrollo web, desarrollo, web, from flags)  [1440-01-copy-headline.jpg]
+       fix: put the category noun in the h1 (and who it is for, or where), in 2 to 8 words
+  FAIL copy-headings   article.project-stage.wrap > div.project-spread > div.feature-copy > h2  "Parchís multijugador"
+       "Parchís multijugador" names no product, part, place or section (7 headings like it; at most one brand line per page) (and 6 more like it: "Sobre mí.", "Relieve alpino.", "Trayectoria.", "Experiencia", ...)  [1440-07-copy-headings.jpg]
+       fix: name the thing in every heading: the product, a part, the place or a section noun
+  FAIL heading-scale   section#contacto > div.wrap.section > h2  "¿Hablamos?"
+       an h2 at 180px, as large as the h1 (144px) or larger  [1440-26-heading-scale.jpg]
+       fix: size headings by level: the h1 largest, one size per level, each level below the one above
+  FAIL heading-scale   section#contacto > div.wrap.section > h2  "¿Hablamos?"
+       h2 headings in 4 sizes, 86.4px ("Reyes Dev") to 180px (x2.08)  [1440-27-heading-scale.jpg]
+       fix: size headings by level: the h1 largest, one size per level, each level below the one above
+  FAIL heading-scale   div#habilidades > h3  "Diseño y desarrollo"
+       h3 headings in 2 sizes, 26.4px ("Experiencia") to 63.4px (x2.40)  [1440-19-heading-scale.jpg]
+       fix: size headings by level: the h1 largest, one size per level, each level below the one above
+  FAIL off-grid        section#inicio > div.hero-meta > span:nth-of-type(1)  "PORTFOLIO DE DESARROLLO WEB"
+       left edge at 59px, 16px off the page margin at 43px (27 elements, like div.cover)  [1440-02-off-grid.jpg]
+       fix: move it onto the page margin, or the column edge its section uses
+  FAIL off-grid        section#sobre-mi > div:nth-of-type(2) > details > summary  "Cómo trabajo e idiomas"
+       left edge at 692px, 17px off a common edge of its section at 675px (3 elements, like p.body-lead); 2 more in this section off the grid too (span:nth-of-type(9) at 658px, span:nth-of-type(10) at 742px)  [1440-20-off-grid.jpg]
+       fix: move it onto the page margin, or the column edge its section uses
+  FAIL off-grid        div#formacion > details > summary  "Formación complementaria"
+       left edge at 792px, 18px off a common edge of its section at 774px (7 elements)  [1440-28-off-grid.jpg]
+       fix: move it onto the page margin, or the column edge its section uses
+  FAIL text-contrast   section#contacto > div.wrap.section > p.contact-lead  "Busco mi próxima oportunidad en desarrol"
+       body text in #ffffff on #2456d6 reads 6.22:1 (needs 7:1)  [1440-29-text-contrast.jpg]
+       fix: body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels
+  FAIL visual-caption  section#relieve > figure.massif > figcaption.massif-controls  "Girar montaña 28°"
+       a figcaption under the canvas: "Girar montaña 28°"; no caption or description under any image, render or visual (house rule)  [1440-24-visual-caption.jpg]
+       fix: take the line away: no caption or description under, over or on any image, render or visual; a licence credit goes in one footer line
+  FAIL effect-kind     section#sobre-mi > div.portrait-frame.mo-pd
+       1 [data-moment] mark that never runs: picture-develops on section#sobre-mi > div.portrait-frame.mo-pd (assets/moments/picture-develops/moment.js was never loaded); a moment is judged as one only when it runs
+       fix: load assets/moments/moments.js (system.js does it for a page with [data-moment]) and keep the dealt id, or take the data-moment mark off the section
+  FAIL effect-kind     (the page)
+       a service page (--type) moves with the scroll: scroll libraries or timelines (ScrollTrigger, ScrollSmoother): effects fit tech, gaming and software pages and a product with a technical subject, never a place, shop or service page (house rule)
+       fix: take the scroll-driven motion off: on a place, shop or service page the page scrolls plainly and the parts sit still
+  FAIL empty-area      section#proyectos  "Parchís multijugador"
+       67% of the section is empty: 656px above its first content, 224px of empty rows between its content, 64px under its last (a.text-action:nth-of-type(1)), 15% beside content that covers under half the container, in its 1797px of rows (WARN over 35%, FAIL over 50%)  [1440-08-empty-area.jpg]
+       fix: fill the section: a picture or a second column beside the words, or more of its own content; the section stays one or two screens tall (T-height)
+  WARN spill           div.project-spread > div.project-visual > div.board > div.board-lane.east
+       runs 58px past the bottom edge of the panel it sits on (div.project-spread > div.project-visual > div.board > div.yard.sky) (inside a held section or scroll scene, whose motion --quick does not check)  [1440-09-spill.jpg]
+       fix: keep the box inside the panel it starts on: shrink it, or grow the panel to hold it
+  WARN spill           div.project-spread > div.project-visual > div.board > div.board-lane.west
+       runs 60px past the bottom edge of the panel it sits on (div.project-spread > div.project-visual > div.board > div.yard.coral) (inside a held section or scroll scene, whose motion --quick does not check)  [1440-10-spill.jpg]
+       fix: keep the box inside the panel it starts on: shrink it, or grow the panel to hold it
+  WARN spill           div.project-spread > div.project-visual > div.board > span.board-center
+       runs 57px past the bottom edge of the panel it sits on (div.project-spread > div.project-visual > div.board > div.board-lane.north) (inside a held section or scroll scene, whose motion --quick does not check)  [1440-11-spill.jpg]
+       fix: keep the box inside the panel it starts on: shrink it, or grow the panel to hold it
+  WARN cut-text        h1#nombre > span.name-mask:nth-of-type(1) > span  "Ismael"
+       sits across the edge of a panel behind it  [1440-03-cut-text.jpg]
+       fix: give the text room: no overflow clipping a line, no line past its box
+  WARN no-visual       section#sobre-mi  "Sobre mí."
+       pictures, effects and mocks cover 21% of this section; a feature section needs a visual (about 25% or more)  [1440-21-no-visual.jpg]
+       fix: give the section a visual: a UI fragment on a ground, real icons, or a photograph that fits
+  WARN cta             section#sobre-mi  "Sobre mí."
+       a section over 1.5 screens long with no link or button in it  [1440-22-cta.jpg]
+       fix: add the action: a button in the hero, one on every priced item, one in the closing section
+  WARN copy-buttons    header.top > div.wrap.bar > div.tools > a.pill.small  "Contacto"
+       "Contacto" does not start with a verb (book, buy, try, start, get, see...) (and 4 more like it: "Explorar relieve", "Ver proyectos", "Explorar proyecto", "Escríbeme")  [1440-04-copy-buttons.jpg]
+       fix: label buttons with a verb and what the visitor gets ("Book a room", "Start free trial")
+  WARN copy-actions    (the page)
+       the main action "Ver proyectos" does not read word for word the same in the closing section
+       fix: few actions, one wording: at most 2 in the hero, the main action word for word in nav, hero and close
+  WARN tilt            article.project-stage.wrap > div.project-spread > div.project-visual > div.board
+       rotated -18.0° (inside a held section or scroll scene, whose motion --quick does not check)  [1440-12-tilt.jpg]
+       fix: set it straight
+  WARN section-gaps    section#inicio / section#proyectos
+       133px between these sections, -39% against the median 219px of gaps at a change of ground  [1440-13-section-gaps.jpg]
+       fix: use one gap between sections (all within 25% of each other)
+  WARN section-gaps    section#inicio / section#proyectos
+       uneven space at the edge of a band: 24px outside its edge, 109px inside it (the space on either side of a change of ground reads as one gap only when the two match)  [1440-14-section-gaps.jpg]
+       fix: use one gap between sections (all within 25% of each other)
+  WARN links           article.project-stage.wrap > div.project-spread > div.feature-copy > a.pill  "Explorar proyecto"
+       "Explorar proyecto" goes to /proyectos/parchis-multijugador, which does not exist here  [1440-15-links.jpg]
+       fix: point every link at a real section, page or file
+  WARN nav-family      div#root > header.top
+       the nav's links come in 2 sizes (15, 17px)  [1440-05-nav-family.jpg]
+       fix: keep one nav on every screen: the same bar, fill, links and type
+  WARN grounds         section#proyectos  "PROYECTO SELECCIONADO EN DESARROLLO Parc"
+       4 flat grounds across the page (#1a1e23 section x3, #152d69 section, #272d33 section, #2456d6 section): three at most (the base, a surface, an inverse)  [1440-16-grounds.jpg]
+       fix: three flat grounds at most (the base, one surface, one inverse): lay the other bands on one of them
+  WARN hero-enter      section#inicio
+       the hero does not enter on load: no data-enter on the hero and no head line setting html.m-enter (motion.md, The hero's entrance)  [1440-06-hero-enter.jpg]
+       fix: put data-enter on the hero <section> and keep the head line from starter.html that sets html.m-enter
+  WARN empty-area      section#contacto  "¿Hablamos?"
+       44% of the section is empty: 96px above its first content, 96px under its last (a.pill), 14% beside content that covers under half the container, in its 630px of rows (WARN over 35%, FAIL over 50%)  [1440-30-empty-area.jpg]
+       fix: fill the section: a picture or a second column beside the words, or more of its own content; the section stays one or two screens tall (T-height)
+  WARN share-meta      head
+       the head lacks twitter:card: a shared link shows no picture or title of its own
+       fix: copy the head block of starter.html: og tags, twitter:card, the icon and theme-color (references/system.md, Head)
+  FAIL section-height  div#root > footer.wrap.footer  "Reyes-Dev.© 2026 Ismael Reyes PérezVolve"
+       the section is 92px tall (0.1 screens), 808px short of one screen (900px): every section after the hero is one screen or two, 2px either way (SR-2)  [1440-rhythm-01-section-height.jpg]
+       fix: set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit
+  FAIL section-height  section#sobre-mi  "Ismael Reyes PérezSobre mí.Estudio 2.º d"
+       the section is 1472px tall (1.6 screens), 328px short of two screens (1800px): every section after the hero is one screen or two, 2px either way (SR-2)
+       fix: set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit
+  FAIL section-height  section#contacto  "¿Hablamos?Busco mi próxima oportunidad e"
+       the section is 612px tall (0.7 screens), 288px short of one screen (900px): every section after the hero is one screen or two, 2px either way (and 3 more like it: "Trayectoria.ExperienciaS", "Estudio interactivoRelie", "Proyecto seleccionadoEn ") (SR-2)
+       fix: set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit
+  FAIL section-height  section#experiencia  "Trayectoria.ExperienciaSerendipiumDesarr"
+       the section starts at 4963px, 437px above the screen grid (6 x 900px): sections start on whole screens (SR-2)
+       fix: make every section above it exactly one or two screens tall, so this one starts on a whole screen
+  FAIL section-height  section#relieve  "Estudio interactivoRelieve alpino.Arrast"
+       the section starts at 4168px, 332px above the screen grid (5 x 900px): sections start on whole screens (SR-2)
+       fix: make every section above it exactly one or two screens tall, so this one starts on a whole screen
+  FAIL section-height  section#contacto  "¿Hablamos?Busco mi próxima oportunidad e"
+       the section starts at 5678px, 278px below the screen grid (6 x 900px): sections start on whole screens (and 3 more like it: "Portfolio de desarrollo ", "Reyes-Dev.© 2026 Ismael ", "Ismael Reyes PérezSobre ") (SR-2)
+       fix: make every section above it exactly one or two screens tall, so this one starts on a whole screen
+  FAIL section-height  div#root > footer.wrap.footer  "Reyes-Dev.© 2026 Ismael Reyes PérezVolve"
+       the section's content does not fit it: its lowest content ends 68px below its top, past 20px (the section less 72px of bottom padding) (SR-2)
+       fix: fit the content above the section's bottom padding (--padb), or make it two screens (.g2) in two groups
+  FAIL section-air     section#proyectos  "Proyecto seleccionadoEn desarrolloParchí"
+       the content fills 11.4% of the section's height (206 of 1797px): 55% or more (40% WARN) (SR-3)  [1440-rhythm-02-section-air.jpg]
+       fix: fill the section to 55%: more content, a picture or a background layer, or merge it into the section above as its last block
+  FAIL section-air     section#contacto  "¿Hablamos?Busco mi próxima oportunidad e"
+       the content fills 26.8% of the section's height (164 of 612px): 55% or more (40% WARN) (SR-3)
+       fix: fill the section to 55%: more content, a picture or a background layer, or merge it into the section above as its last block
+  FAIL section-air     section#proyectos > div.pin-spacer > article.project-stage.wrap > div.project-caption  "Proyecto seleccionadoEn desarrollo"
+       a bottom border across 100% of the container, between the section's content: sections and their parts are told apart by air and ground, not lines (SR-3)
+       fix: take the rule out: sections and their parts are parted by their ground and the air between them
+  FAIL one-section     section#relieve  "Estudio interactivoRelieve alpino.Arrast"
+       the screen at scroll 3600px (stride 4) shows 332px of section 4 and the content of 2 sections, over 24px each beside section 3: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)  [1440-rhythm-03-one-section.jpg]
+       fix: make each section exactly one screen or two, so a screen shows one section and no neighbour peeks
+  FAIL one-section     section#experiencia  "Trayectoria.ExperienciaSerendipiumDesarr"
+       the screen at scroll 5400px (stride 6) shows 213px of section 5 and the content of 2 sections, over 24px each beside section 6: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)
+       fix: make each section exactly one screen or two, so a screen shows one section and no neighbour peeks
+  FAIL one-section     section#contacto  "¿Hablamos?Busco mi próxima oportunidad e"
+       the screen at scroll 4963px (the top of section 5) shows 185px of section 6 beside section 5: a screen shows one section (another may peek 8px, 24px WARN) (and 3 more like it: scroll 5481px, scroll 4168px, scroll 65px) (SR-4)
+       fix: make each section exactly one screen or two, so a screen shows one section and no neighbour peeks
+  FAIL one-heading     section#proyectos > article.portfolio-case.wrap > div:nth-of-type(1) > h2  "Reyes Dev"
+       the section holds 2 h2 headings: one per section, first in its .wrap (SR-5)  [1440-rhythm-04-one-heading.jpg]
+       fix: give each section one h2, first in its .wrap, and the hero only its h1
+  FAIL one-heading     section#sobre-mi > div:nth-of-type(2) > h2.section-title  "Sobre mí."
+       headings of two sections show whole on one screen at 7 of 110 scroll positions (6.4%; at scroll 2150, 2200, 2250, 2300px), here with "Reyes Dev": at most 3% on a desktop (SR-5)
+       fix: make the sections one screen tall so their headings sit a screen apart and two never share one
+  FAIL container-edges div#root > header.top  "Reyes-Dev.ProyectosSobre míTrayectoriaRe"
+       the nav's content runs 43px from the left and 43px from the right: the margin is 64-120px at 1440px (one container, equal margins, 2px either way) (SR-6)  [1440-rhythm-05-container-edges.jpg]
+       fix: use one container on every section and the nav (.wrap): one margin left and right, 64-120px on a desktop, 16-24px on a phone
+  FAIL container-edges section#inicio  "Portfolio de desarrollo web2.º de DAW · "
+       the content of section 1 runs 43px from the left and 43px from the right (read from its outermost blocks: no .wrap): the margin is 64-120px at 1440px (one container, equal margins, 2px either way) (and 6 more like it: "Proyecto seleccionadoEn ", "Ismael Reyes PérezSobre ", "Estudio interactivoRelie") (SR-6)
+       fix: use one container on every section and the nav (.wrap): one margin left and right, 64-120px on a desktop, 16-24px on a phone
+  FAIL container-edges div#root  "Saltar al contenidoReyes-Dev.ProyectosSo"
+       a <div> at the top of the page, outside header.nav, main, footer.closing and nav.actionbar (SR-6)
+       fix: build the page as header.nav, a main of sections (each one in-flow .wrap plus background layers) and footer.closing
+  FAIL container-edges section#inicio  "Portfolio de desarrollo web2.º de DAW · "
+       the section needs exactly one in-flow child .wrap (it has 2 in-flow children, 0 .wrap) (and 5 more like it: "Proyecto seleccionadoEn ", "Caso de estudioReyes Dev", "Ismael Reyes PérezSobre ") (SR-6)
+       fix: build the page as header.nav, a main of sections (each one in-flow .wrap plus background layers) and footer.closing
+  FAIL container-edges figure.massif > figcaption.massif-controls > label > span  "28°"
+       1 text block starts on a left line at x 784, 741px from the container's left: text starts on the container's left, or on one split line (x 617, 732, 847) (SR-6)
+       fix: start the text on the container's left, or on the one split line every split shares
+  FAIL container-edges section#relieve > figure.massif > figcaption.massif-controls  "Girar montaña 28°"
+       2 text blocks start on a left line at x 691, 647px from the container's left: text starts on the container's left, or on one split line (x 617, 732, 847) (also "Girar montaña 28°") (and 2 more like it: "Sobre mí.", x 59) (SR-6)
+       fix: start the text on the container's left, or on the one split line every split shares
+  FAIL container-edges section#sobre-mi > div:nth-of-type(2) > details  "Cómo trabajo e idiomasTrabajo en equipo."
+       a box over half the container wide runs 675-1397px, not on the container's lines at 43-1397px (SR-6)
+       fix: run the picture or box from the container's left line to its right line, or put it in a row or a split
+  FAIL container-edges section#relieve > figure.massif  "Girar montaña 28°"
+       a box over half the container wide runs 675-1397px, not on the container's lines at 43-1397px (SR-6)
+       fix: run the picture or box from the container's left line to its right line, or put it in a row or a split
+  FAIL row-lines       section#experiencia > div.wrap.section > div.history  "ExperienciaSerendipiumDesarrollo web · J"
+       a row of 2 items: its items are 343/319px tall, not one height (2px either way) (SR-7)  [1440-rhythm-06-row-lines.jpg]
+       fix: start the row's first item on the container's left line and end its last on the right line, every item one height
+  FAIL split-pair      section#proyectos > div.pin-spacer > article.project-stage.wrap > div.project-spread  "Parchís multijugadorUn proyecto colabora"
+       the two columns of the split start 61px apart at the top (centred on each other): a split's columns are top-aligned, 8px either way (SR-8)  [1440-rhythm-07-split-pair.jpg]
+       fix: top-align both columns of the split (align-items: start)
+  FAIL split-pair      section#proyectos > div.pin-spacer > article.project-stage.wrap > div.project-spread  "Parchís multijugadorUn proyecto colabora"
+       the split's columns are off the page's one pair of lines: its right column starts at x 709, on none of the split lines 617 (k=5), 732 (k=6), 847 (k=7) (SR-8)
+       fix: start every split's right column on one shared line (wrap.left + k x (width + 24) / 12, k 5, 6 or 7; 6 on a place page) and end the left one 24px before it
+
+1024x768  8 screens, 1 held section  13 FAIL  11 WARN
+  FAIL scroll-reveal   section#sobre-mi > div.portrait-frame.mo-pd
+       starts an animation (1.6 s) the moment it is scrolled into view (an IntersectionObserver) on img.portrait  [1024-11-scroll-reveal.jpg]
+       fix: show it at rest: no fade, rise or unmask when it is scrolled into view
+  FAIL pinned          section#proyectos > div.pin-spacer > article.project-stage.wrap  "PROYECTO SELECCIONADO EN DESARROLLO Parc"
+       held on screen for 0.6 screens of scroll (a pin-spacer) while the page moves on  [1024-24-pinned.jpg]
+       fix: let the section scroll with the page
+  FAIL no-visual       section#proyectos  "Parchís multijugador"
+       no picture, effect or mock in this section; a feature section needs a visual  [1024-12-no-visual.jpg]
+       fix: give the section a visual: a UI fragment on a ground, real icons, or a photograph that fits
+  FAIL text-only       section#experiencia  "Trayectoria."
+       the section is only text: no picture, icon, mock or effect in it (2 sections like it at this width)  [1024-18-text-only.jpg]
+       fix: give the section a visual: a photograph that fits, the real icons, or a UI fragment on a ground
+  FAIL text-only       section#contacto  "¿Hablamos?"
+       the closing section is only text: no picture, icon, mock or effect in it (2 sections like it at this width)  [1024-20-text-only.jpg]
+       fix: give the section a visual: a photograph that fits, the real icons, or a UI fragment on a ground
+  FAIL heading-scale   section#contacto > div.wrap.section > h2  "¿Hablamos?"
+       an h2 at 128px, as large as the h1 (107.2px) or larger  [1024-21-heading-scale.jpg]
+       fix: size headings by level: the h1 largest, one size per level, each level below the one above
+  FAIL heading-scale   section#contacto > div.wrap.section > h2  "¿Hablamos?"
+       h2 headings in 4 sizes, 61.4px ("Reyes Dev") to 128px (x2.08)  [1024-22-heading-scale.jpg]
+       fix: size headings by level: the h1 largest, one size per level, each level below the one above
+  FAIL heading-scale   div#habilidades > h3  "Diseño y desarrollo"
+       h3 headings in 2 sizes, 26.4px ("Experiencia") to 45.1px (x1.71)  [1024-13-heading-scale.jpg]
+       fix: size headings by level: the h1 largest, one size per level, each level below the one above
+  FAIL off-grid        section#inicio > div.hero-meta > span:nth-of-type(1)  "PORTFOLIO DE DESARROLLO WEB"
+       left edge at 46.5px, 15.5px off the page margin at 31px (27 elements, like div.cover)  [1024-01-off-grid.jpg]
+       fix: move it onto the page margin, or the column edge its section uses
+  FAIL off-grid        section#sobre-mi > div:nth-of-type(2) > details > summary  "Cómo trabajo e idiomas"
+       left edge at 497.5px, 17.5px off a common edge of its section at 480px (3 elements, like p.body-lead); 1 more in this section off the grid too (span:nth-of-type(7) at 504px)  [1024-14-off-grid.jpg]
+       fix: move it onto the page margin, or the column edge its section uses
+  FAIL off-grid        div#formacion > details > summary  "Formación complementaria"
+       left edge at 568px, 17px off a common edge of its section at 551px (7 elements, like p)  [1024-19-off-grid.jpg]
+       fix: move it onto the page margin, or the column edge its section uses
+  FAIL text-contrast   section#contacto > div.wrap.section > p.contact-lead  "Busco mi próxima oportunidad en desarrol"
+       body text in #ffffff on #2456d6 reads 6.22:1 (needs 7:1)  [1024-23-text-contrast.jpg]
+       fix: body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels
+  FAIL empty-area      section#proyectos  "Parchís multijugador"
+       64% of the section is empty: 576px above its first content, 160px of empty rows between its content, 48px under its last (a.text-action:nth-of-type(1)), 14% beside content that covers under half the container, in its 1558px of rows (WARN over 35%, FAIL over 50%)  [1024-04-empty-area.jpg]
+       fix: fill the section: a picture or a second column beside the words, or more of its own content; the section stays one or two screens tall (T-height)
+  WARN spill           div.project-spread > div.project-visual > div.board > div.board-lane.east
+       runs 49px past the bottom edge of the panel it sits on (div.project-spread > div.project-visual > div.board > div.yard.sky) (inside a held section or scroll scene, whose motion --quick does not check)  [1024-05-spill.jpg]
+       fix: keep the box inside the panel it starts on: shrink it, or grow the panel to hold it
+  WARN spill           div.project-spread > div.project-visual > div.board > div.board-lane.west
+       runs 50px past the bottom edge of the panel it sits on (div.project-spread > div.project-visual > div.board > div.yard.coral) (inside a held section or scroll scene, whose motion --quick does not check)  [1024-06-spill.jpg]
+       fix: keep the box inside the panel it starts on: shrink it, or grow the panel to hold it
+  WARN spill           div.project-spread > div.project-visual > div.board > span.board-center
+       runs 48px past the bottom edge of the panel it sits on (div.project-spread > div.project-visual > div.board > div.board-lane.north) (inside a held section or scroll scene, whose motion --quick does not check)  [1024-07-spill.jpg]
+       fix: keep the box inside the panel it starts on: shrink it, or grow the panel to hold it
+  WARN cut-text        h1#nombre > span.name-mask:nth-of-type(1) > span  "Ismael"
+       sits across the edge of a panel behind it  [1024-02-cut-text.jpg]
+       fix: give the text room: no overflow clipping a line, no line past its box
+  WARN no-visual       section#sobre-mi  "Sobre mí."
+       pictures, effects and mocks cover 18% of this section; a feature section needs a visual (about 25% or more)  [1024-15-no-visual.jpg]
+       fix: give the section a visual: a UI fragment on a ground, real icons, or a photograph that fits
+  WARN cta             section#sobre-mi  "Sobre mí."
+       a section over 1.5 screens long with no link or button in it  [1024-16-cta.jpg]
+       fix: add the action: a button in the hero, one on every priced item, one in the closing section
+  WARN tilt            article.project-stage.wrap > div.project-spread > div.project-visual > div.board
+       rotated -18.0° (inside a held section or scroll scene, whose motion --quick does not check)  [1024-08-tilt.jpg]
+       fix: set it straight
+  WARN section-gaps    section#inicio / section#proyectos
+       uneven space at the edge of a band: 24px outside its edge, 116px inside it (the space on either side of a change of ground reads as one gap only when the two match)  [1024-09-section-gaps.jpg]
+       fix: use one gap between sections (all within 25% of each other)
+  WARN nav-family      div#root > header.top
+       the nav's links come in 2 sizes (15, 17px)  [1024-03-nav-family.jpg]
+       fix: keep one nav on every screen: the same bar, fill, links and type
+  WARN grounds         section#proyectos  "PROYECTO SELECCIONADO EN DESARROLLO Parc"
+       4 flat grounds across the page (#1a1e23 section x3, #152d69 section, #272d33 section, #2456d6 section): three at most (the base, a surface, an inverse)  [1024-10-grounds.jpg]
+       fix: three flat grounds at most (the base, one surface, one inverse): lay the other bands on one of them
+  WARN one-screen      section#relieve  "Relieve alpino."
+       1 section is shorter than the screen, so the next one's heading or picture shows with it: "Relieve alpino." is 582px of the 703px under the nav, and "Trayectoria." shows below it  [1024-17-one-screen.jpg]
+       fix: give each section the screen (min-height: 100svh less the nav, its content centred), or join two short ones into one
+
+768x1024  6 screens  14 FAIL  8 WARN
+  FAIL spill           div.project-spread > div.project-visual > div.board > div.board-lane.east
+       runs 45px past the bottom edge of the panel it sits on (div.project-spread > div.project-visual > div.board > div.yard.sky)  [768-04-spill.jpg]
+       fix: keep the box inside the panel it starts on: shrink it, or grow the panel to hold it
+  FAIL spill           div.project-spread > div.project-visual > div.board > div.board-lane.west
+       runs 45px past the bottom edge of the panel it sits on (div.project-spread > div.project-visual > div.board > div.yard.coral)  [768-05-spill.jpg]
+       fix: keep the box inside the panel it starts on: shrink it, or grow the panel to hold it
+  FAIL scroll-reveal   section#sobre-mi > div.portrait-frame.mo-pd
+       starts an animation (1.6 s) the moment it is scrolled into view (an IntersectionObserver) on img.portrait  [768-12-scroll-reveal.jpg]
+       fix: show it at rest: no fade, rise or unmask when it is scrolled into view
+  FAIL no-visual       section#sobre-mi  "Sobre mí."
+       pictures, effects and mocks cover 14% of this section; a feature section needs a visual (about 25% or more)  [768-13-no-visual.jpg]
+       fix: give the section a visual: a UI fragment on a ground, real icons, or a photograph that fits
+  FAIL text-only       section#experiencia  "Trayectoria."
+       the section is only text: no picture, icon, mock or effect in it (2 sections like it at this width)  [768-18-text-only.jpg]
+       fix: give the section a visual: a photograph that fits, the real icons, or a UI fragment on a ground
+  FAIL text-only       section#contacto  "¿Hablamos?"
+       the closing section is only text: no picture, icon, mock or effect in it (2 sections like it at this width)  [768-22-text-only.jpg]
+       fix: give the section a visual: a photograph that fits, the real icons, or a UI fragment on a ground
+  FAIL heading-scale   section#contacto > div.wrap.section > h2  "¿Hablamos?"
+       h2 headings in 4 sizes, 46.1px ("Reyes Dev") to 96px (x2.08)  [768-19-heading-scale.jpg]
+       fix: size headings by level: the h1 largest, one size per level, each level below the one above
+  FAIL heading-scale   div#habilidades > h3  "Diseño y desarrollo"
+       h3 headings in 2 sizes, 26.4px ("Experiencia") to 36.8px (x1.39)  [768-14-heading-scale.jpg]
+       fix: size headings by level: the h1 largest, one size per level, each level below the one above
+  FAIL off-grid        section#inicio > div.hero-meta > span:nth-of-type(1)  "PORTFOLIO DE DESARROLLO WEB"
+       left edge at 39px, 16px off the page margin at 23px (32 elements, like div.cover)  [768-01-off-grid.jpg]
+       fix: move it onto the page margin, or the column edge its section uses
+  FAIL off-grid        section#proyectos > article.project-stage.wrap > div.project-spread > div.project-visual
+       left edge at 371.5px, 6.5px off a common edge of its section at 378px (3 elements, like p:nth-of-type(1))  [768-06-off-grid.jpg]
+       fix: move it onto the page margin, or the column edge its section uses
+  FAIL off-grid        section#sobre-mi > div:nth-of-type(2) > details > summary  "Cómo trabajo e idiomas"
+       left edge at 377.5px, 17.5px off a common edge of its section at 360px (3 elements, like p.body-lead); 1 more in this section off the grid too (span:nth-of-type(5) at 366px)  [768-15-off-grid.jpg]
+       fix: move it onto the page margin, or the column edge its section uses
+  FAIL off-grid        div#formacion > details > summary  "Formación complementaria"
+       left edge at 430.5px, 17.5px off a common edge of its section at 413px (7 elements, like p)  [768-20-off-grid.jpg]
+       fix: move it onto the page margin, or the column edge its section uses
+  FAIL tilt            article.project-stage.wrap > div.project-spread > div.project-visual > div.board
+       rotated -10.0°  [768-07-tilt.jpg]
+       fix: set it straight
+  FAIL text-contrast   section#contacto > div.wrap.section > p.contact-lead  "Busco mi próxima oportunidad en desarrol"
+       body text in #ffffff on #2456d6 reads 6.22:1 (needs 7:1)  [768-21-text-contrast.jpg]
+       fix: body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels
+  WARN cut-text        h1#nombre > span.name-mask:nth-of-type(1) > span  "Ismael"
+       sits across the edge of a panel behind it  [768-02-cut-text.jpg]
+       fix: give the text room: no overflow clipping a line, no line past its box
+  WARN no-visual       section#proyectos  "Parchís multijugador"
+       pictures, effects and mocks cover 20% of this section; a feature section needs a visual (about 25% or more)  [768-08-no-visual.jpg]
+       fix: give the section a visual: a UI fragment on a ground, real icons, or a photograph that fits
+  WARN section-gaps    section#inicio / section#proyectos
+       67px between these sections, -46% against the median 124px of gaps at a change of ground  [768-09-section-gaps.jpg]
+       fix: use one gap between sections (all within 25% of each other)
+  WARN section-gaps    section#sobre-mi / section#relieve
+       158px between these sections, +25% against the median 126px  [768-17-section-gaps.jpg]
+       fix: use one gap between sections (all within 25% of each other)
+  WARN photo-set       section#sobre-mi > div.portrait-frame.mo-pd > img.portrait  "perfil-mobile.webp"
+       2 photographs in more than one look: warm and cool photographs mixed (b* -15 to +7); the odd one out is perfil-mobile.webp  [768-16-photo-set.jpg]
+       fix: grade the photographs to one look (light, colour, warmth), or replace the odd one out
+  WARN nav-family      div#root > header.top
+       the nav's links come in 2 sizes (15, 17px)  [768-03-nav-family.jpg]
+       fix: keep one nav on every screen: the same bar, fill, links and type
+  WARN grounds         section#proyectos  "PROYECTO SELECCIONADO EN DESARROLLO Parc"
+       4 flat grounds across the page (#1a1e23 section x3, #152d69 section, #272d33 section, #2456d6 section): three at most (the base, a surface, an inverse)  [768-10-grounds.jpg]
+       fix: three flat grounds at most (the base, one surface, one inverse): lay the other bands on one of them
+  WARN empty-area      section#proyectos  "Parchís multijugador"
+       36% of the section is empty: 80px of empty rows between its content, 32px under its last (a.text-action:nth-of-type(1)), 24% beside content that covers under half the container, in its 916px of rows (WARN over 35%, FAIL over 50%)  [768-11-empty-area.jpg]
+       fix: fill the section: a picture or a second column beside the words, or more of its own content; the section stays one or two screens tall (T-height)
+
+390x844  9 screens  10 FAIL  12 WARN
+  FAIL cut-text        section#contacto > div.wrap.section > h2 > span  "¿Hablamos?"
+       cut 11px at the bottom by the overflow of section#contacto > div.wrap.section > h2  [390-17-cut-text.jpg]
+       fix: give the text room: no overflow clipping a line, no line past its box
+  FAIL scroll-reveal   section#sobre-mi > div.portrait-frame.mo-pd
+       starts an animation (1.6 s) the moment it is scrolled into view (an IntersectionObserver) on img.portrait  [390-09-scroll-reveal.jpg]
+       fix: show it at rest: no fade, rise or unmask when it is scrolled into view
+  FAIL text-only       section#experiencia  "Trayectoria."
+       the section is only text: no picture, icon, mock or effect in it (2 sections like it at this width)  [390-18-text-only.jpg]
+       fix: give the section a visual: a photograph that fits, the real icons, or a UI fragment on a ground
+  FAIL text-only       section#contacto  "¿Hablamos?"
+       the closing section is only text: no picture, icon, mock or effect in it (2 sections like it at this width)  [390-21-text-only.jpg]
+       fix: give the section a visual: a photograph that fits, the real icons, or a UI fragment on a ground
+  FAIL heading-scale   section#contacto > div.wrap.section > h2  "¿Hablamos?"
+       h2 headings in 4 sizes, 44.8px ("Reyes Dev") to 59.2px (x1.32)  [390-19-heading-scale.jpg]
+       fix: size headings by level: the h1 largest, one size per level, each level below the one above
+  FAIL heading-scale   div#habilidades > h3  "Diseño y desarrollo"
+       h3 headings in 2 sizes, 26.4px ("Experiencia") to 36.8px (x1.39)  [390-11-heading-scale.jpg]
+       fix: size headings by level: the h1 largest, one size per level, each level below the one above
+  FAIL off-grid        section#inicio > div.hero-meta > span:nth-of-type(1)  "PORTFOLIO DE DESARROLLO WEB"
+       left edge at 31.5px, 13.5px off the page margin at 18px (55 elements, like div.cover)  [390-01-off-grid.jpg]
+       fix: move it onto the page margin, or the column edge its section uses
+  FAIL off-grid        section#sobre-mi > div:nth-of-type(2) > details > summary  "Cómo trabajo e idiomas"
+       left edge at 35px, 17px off the page margin at 18px (55 elements, like p.body-lead)  [390-10-off-grid.jpg]
+       fix: move it onto the page margin, or the column edge its section uses
+  FAIL off-grid        div#formacion > details > summary  "Formación complementaria"
+       left edge at 35px, 17px off the page margin at 18px (55 elements, like p)  [390-20-off-grid.jpg]
+       fix: move it onto the page margin, or the column edge its section uses
+  FAIL text-contrast   section#contacto > div.wrap.section > p.contact-lead  "Busco mi próxima oportunidad en desarrol"
+       body text in #ffffff on #2456d6 reads 6.22:1 (needs 7:1)  [390-22-text-contrast.jpg]
+       fix: body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels
+  WARN flush           div.cover > div.intro > div.actions > a.pill  "Ver proyectos"
+       its button sits 16px above the lower edge of section#inicio, where the ground changes to section#proyectos  [390-03-flush.jpg]
+       fix: give the section its padding at the edge where the ground changes (the closing call keeps a clear gap above the footer)
+  WARN tap-size        div#root > header.top > div.wrap.bar > a.brand  "Reyes-Dev ."
+       a 118x30px tap target: under the 44px a phone needs  [390-02-tap-size.jpg]
+       fix: make every link and control outside running text 44px tall on a phone: display: inline-flex; align-items: center; min-height: 44px (a footer list then needs no gap), a 44px small button, or a transparent ::before laid past the box
+  WARN tap-size        input#mountain-angle
+       a 135x36px tap target: under the 44px a phone needs  [390-15-tap-size.jpg]
+       fix: make every link and control outside running text 44px tall on a phone: display: inline-flex; align-items: center; min-height: 44px (a footer list then needs no gap), a 44px small button, or a transparent ::before laid past the box
+  WARN tap-size        section#relieve > figure.massif > figcaption.massif-controls > button
+       a 40x40px tap target: under the 44px a phone needs  [390-16-tap-size.jpg]
+       fix: make every link and control outside running text 44px tall on a phone: display: inline-flex; align-items: center; min-height: 44px (a footer list then needs no gap), a 44px small button, or a transparent ::before laid past the box
+  WARN no-visual       section#sobre-mi  "Sobre mí."
+       pictures, effects and mocks cover 16% of this section; a feature section needs a visual (about 25% or more)  [390-12-no-visual.jpg]
+       fix: give the section a visual: a UI fragment on a ground, real icons, or a photograph that fits
+  WARN cta             section#sobre-mi  "Sobre mí."
+       a section over 1.5 screens long with no link or button in it  [390-13-cta.jpg]
+       fix: add the action: a button in the hero, one on every priced item, one in the closing section
+  WARN tilt            div.project-spread > div.project-visual > div.board > div.board-lane.east
+       rotated 90.0°  [390-04-tilt.jpg]
+       fix: set it straight
+  WARN tilt            div.project-spread > div.project-visual > div.board > div.board-lane.west
+       rotated -90.0° (and 1 more like it: div.board-lane.south)  [390-05-tilt.jpg]
+       fix: set it straight
+  WARN section-gaps    section#inicio / section#proyectos
+       59px between these sections, -47% against the median 112px of gaps at a change of ground  [390-06-section-gaps.jpg]
+       fix: use one gap between sections (all within 25% of each other)
+  WARN section-gaps    section#sobre-mi / section#relieve
+       147px between these sections, +28% against the median 115px  [390-14-section-gaps.jpg]
+       fix: use one gap between sections (all within 25% of each other)
+  WARN section-gaps    section#inicio / section#proyectos
+       uneven space at the edge of a band: 16px outside its edge, 43px inside it (the space on either side of a change of ground reads as one gap only when the two match)  [390-07-section-gaps.jpg]
+       fix: use one gap between sections (all within 25% of each other)
+  WARN grounds         section#proyectos  "PROYECTO SELECCIONADO EN DESARROLLO Parc"
+       4 flat grounds across the page (#1a1e23 section x4, #152d69 section, #272d33 section, #2456d6 section): three at most (the base, a surface, an inverse)  [390-08-grounds.jpg]
+       fix: three flat grounds at most (the base, one surface, one inverse): lay the other bands on one of them
+
+320x640  12 screens  11 FAIL  11 WARN
+  FAIL nav             div#root > header.top > div.wrap.bar > a.brand  "Reyes-Dev ."
+       nav link wraps to a second line  [320-01-nav.jpg]
+       fix: make the nav one bar from the content's left edge to its right edge, with every link and action inside it
+  FAIL scroll-reveal   section#sobre-mi > div.portrait-frame.mo-pd
+       starts an animation (1.6 s) the moment it is scrolled into view (an IntersectionObserver) on img.portrait  [320-13-scroll-reveal.jpg]
+       fix: show it at rest: no fade, rise or unmask when it is scrolled into view
+  FAIL no-visual       section#sobre-mi  "Sobre mí."
+       pictures, effects and mocks cover 12% of this section; a feature section needs a visual (about 25% or more)  [320-10-no-visual.jpg]
+       fix: give the section a visual: a UI fragment on a ground, real icons, or a photograph that fits
+  FAIL text-only       section#experiencia  "Trayectoria."
+       the section is only text: no picture, icon, mock or effect in it (2 sections like it at this width)  [320-18-text-only.jpg]
+       fix: give the section a visual: a photograph that fits, the real icons, or a UI fragment on a ground
+  FAIL text-only       section#contacto  "¿Hablamos?"
+       the closing section is only text: no picture, icon, mock or effect in it (2 sections like it at this width)  [320-21-text-only.jpg]
+       fix: give the section a visual: a photograph that fits, the real icons, or a UI fragment on a ground
+  FAIL heading-scale   section#sobre-mi > div:nth-of-type(2) > h2.section-title  "Sobre mí."
+       an h2 at 54.4px, as large as the h1 (54.4px) or larger (and 2 more like it: "Relieve alpino.", "Trayectoria.")  [320-09-heading-scale.jpg]
+       fix: size headings by level: the h1 largest, one size per level, each level below the one above
+  FAIL heading-scale   section#contacto > div.wrap.section > h2  "¿Hablamos?"
+       h2 headings in 4 sizes, 44.8px ("Reyes Dev") to 59.2px (x1.32)  [320-19-heading-scale.jpg]
+       fix: size headings by level: the h1 largest, one size per level, each level below the one above
+  FAIL heading-scale   div#habilidades > h3  "Diseño y desarrollo"
+       h3 headings in 2 sizes, 26.4px ("Experiencia") to 36.8px (x1.39)  [320-14-heading-scale.jpg]
+       fix: size headings by level: the h1 largest, one size per level, each level below the one above
+  FAIL off-grid        section#sobre-mi > div:nth-of-type(2) > details > summary  "Cómo trabajo e idiomas"
+       left edge at 32px, 17px off the page margin at 15px (57 elements, like p.body-lead)  [320-11-off-grid.jpg]
+       fix: move it onto the page margin, or the column edge its section uses
+  FAIL off-grid        div#formacion > details > summary  "Formación complementaria"
+       left edge at 32px, 17px off the page margin at 15px (57 elements, like p)  [320-20-off-grid.jpg]
+       fix: move it onto the page margin, or the column edge its section uses
+  FAIL text-contrast   section#contacto > div.wrap.section > p.contact-lead  "Busco mi próxima oportunidad en desarrol"
+       body text in #ffffff on #2456d6 reads 6.22:1 (needs 7:1)  [320-22-text-contrast.jpg]
+       fix: body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels
+  WARN flush           div.cover > div.intro > div.actions > a.pill  "Ver proyectos"
+       its button sits 16px above the lower edge of section#inicio, where the ground changes to section#proyectos  [320-02-flush.jpg]
+       fix: give the section its padding at the edge where the ground changes (the closing call keeps a clear gap above the footer)
+  WARN tap-size        input#mountain-angle
+       a 71x36px tap target: under the 44px a phone needs  [320-16-tap-size.jpg]
+       fix: make every link and control outside running text 44px tall on a phone: display: inline-flex; align-items: center; min-height: 44px (a footer list then needs no gap), a 44px small button, or a transparent ::before laid past the box
+  WARN tap-size        section#relieve > figure.massif > figcaption.massif-controls > button
+       a 40x40px tap target: under the 44px a phone needs  [320-17-tap-size.jpg]
+       fix: make every link and control outside running text 44px tall on a phone: display: inline-flex; align-items: center; min-height: 44px (a footer list then needs no gap), a 44px small button, or a transparent ::before laid past the box
+  WARN no-visual       section#proyectos  "Parchís multijugador"
+       pictures, effects and mocks cover 25% of this section; a feature section needs a visual (about 25% or more)  [320-05-no-visual.jpg]
+       fix: give the section a visual: a UI fragment on a ground, real icons, or a photograph that fits
+  WARN cta             section#sobre-mi  "Sobre mí."
+       a section over 1.5 screens long with no link or button in it  [320-12-cta.jpg]
+       fix: add the action: a button in the hero, one on every priced item, one in the closing section
+  WARN tilt            div.project-spread > div.project-visual > div.board > div.board-lane.east
+       rotated 90.0°  [320-06-tilt.jpg]
+       fix: set it straight
+  WARN tilt            div.project-spread > div.project-visual > div.board > div.board-lane.south
+       rotated -180.0° (and 1 more like it: div.board-lane.west)  [320-07-tilt.jpg]
+       fix: set it straight
+  WARN section-gaps    section#inicio / section#proyectos
+       59px between these sections, -47% against the median 112px of gaps at a change of ground  [320-03-section-gaps.jpg]
+       fix: use one gap between sections (all within 25% of each other)
+  WARN section-gaps    section#sobre-mi / section#relieve
+       147px between these sections, +28% against the median 115px  [320-15-section-gaps.jpg]
+       fix: use one gap between sections (all within 25% of each other)
+  WARN section-gaps    section#inicio / section#proyectos
+       uneven space at the edge of a band: 16px outside its edge, 43px inside it (the space on either side of a change of ground reads as one gap only when the two match)  [320-04-section-gaps.jpg]
+       fix: use one gap between sections (all within 25% of each other)
+  WARN grounds         section#proyectos  "PROYECTO SELECCIONADO EN DESARROLLO Parc"
+       4 flat grounds across the page (#1a1e23 section x4, #152d69 section, #272d33 section, #2456d6 section): three at most (the base, a surface, an inverse)  [320-08-grounds.jpg]
+       fix: three flat grounds at most (the base, one surface, one inverse): lay the other bands on one of them
+
+first screen at 1280, 1152, 896  0 FAIL  0 WARN
+
+the page at 320x640, walked for what runs past the screen's edge  0 FAIL
+  WARN tap-size        [320] input#mountain-angle
+       a 71x36px tap target: under the 44px a phone needs  [narrow-320-01-tap-size.jpg]
+       fix: make every link and control outside running text 44px tall on a phone: display: inline-flex; align-items: center; min-height: 44px (a footer list then needs no gap), a 44px small button, or a transparent ::before laid past the box
+  WARN tap-size        [320] section#relieve > figure.massif > figcaption.massif-controls > button
+       a 40x40px tap target: under the 44px a phone needs  [narrow-320-02-tap-size.jpg]
+       fix: make every link and control outside running text 44px tall on a phone: display: inline-flex; align-items: center; min-height: 44px (a footer list then needs no gap), a 44px small button, or a transparent ::before laid past the box
+
+checks
+  PASS assets                 PASS shader-lint            PASS gl-fallback
+  PASS empty-visual           PASS hero-fill              WARN flush
+  PASS placeholder            PASS sample-label           PASS caption
+  PASS credit-wall            FAIL nav                    PASS nav-covers
+  FAIL spill                  PASS off-viewport           PASS fold-card
+  SKIP hover-spill            PASS overlap-text           PASS collide
+  WARN tap-size               PASS row-gap                FAIL cut-text
+  PASS fold-cut               PASS marquee                SKIP scroll-linked
+  FAIL scroll-reveal          FAIL pinned                 SKIP loop-pause
+  SKIP reduced-motion         PASS hidden-content         PASS webgl
+  FAIL no-visual              FAIL text-only              PASS card-visual
+  SKIP hidden-visual          PASS card-family            PASS card-layout
+  PASS nesting                PASS effect-repeat          PASS ui-fit
+  PASS ui-centre              PASS dark-ground            PASS button-styles
+  PASS button-shape           PASS same-action            PASS button-picture
+  WARN cta                    PASS pricing-tiers          FAIL copy-headline
+  PASS copy-fact              FAIL copy-headings          WARN copy-buttons
+  WARN copy-actions           FAIL heading-scale          PASS stagger
+  PASS top-stagger            FAIL off-grid               PASS col-edge
+  PASS right-edge             PASS centre-axis            FAIL tilt
+  PASS contrast               FAIL text-contrast          PASS body-size
+  PASS busy-ground            WARN section-gaps           PASS proximity
+  PASS hole                   WARN links                  SKIP forms
+  PASS photo-upscale          WARN photo-set              PASS photo-credit
+  WARN nav-family             PASS nav-labels             PASS link-styles
+  PASS heading-align          PASS label-centre           PASS fake-button
+  PASS stranded-action        PASS orphan                 PASS unit-break
+  PASS tab-wrap               PASS effects-fit            PASS fade-cut
+  PASS photo-weight           PASS copy-length            PASS nav-current
+  PASS progress-bar           PASS photo-repeat           PASS button-contrast
+  PASS photo-print            WARN grounds                PASS split-align
+  PASS fact-agree             PASS fold-action            PASS action-count
+  WARN one-screen             SKIP hover                  SKIP hover-move
+  PASS product-shown          PASS same-object            PASS font-load
+  FAIL visual-caption         PASS visual-empty           FAIL effect-kind
+  WARN hero-enter             PASS moment-none            PASS street-number
+  PASS postcode               PASS coordinates            PASS company-number
+  PASS phone-number           PASS hero-screen            FAIL section-height
+  FAIL section-air            FAIL one-section            FAIL one-heading
+  FAIL container-edges        FAIL row-lines              FAIL split-pair
+  PASS motion-layer           PASS count-text             PASS loop-cycle
+  PASS section-tile           FAIL empty-area             PASS a11y-name
+  PASS img-alt                PASS field-label            PASS heading-order
+  PASS tabindex               PASS focus-ring             PASS focus-visible
+  PASS focus-hidden           PASS skip-link              PASS menu-toggle
+  PASS lang                   PASS page-meta              WARN share-meta
+  PASS action-repeat          PASS map-link               PASS open-now
+  PASS assumed                PASS run-on                 PASS form-fields
+  PASS form-send
+
+total  92 FAIL  61 WARN  (crops and report.json in C:\DAW\Reyes-Dev\.taste-skill\continuacion\consistency-proof)

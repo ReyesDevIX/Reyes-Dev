@@ -1,0 +1,173 @@
+gate: checking dist/index.html (service); this takes a few minutes on a CPU Chrome
+gate: 56 FAIL open
+  FAIL scroll-reveal    section#sobre-mi > div.portrait-frame.mo-pd  [1440, 390]
+       starts an animation (1.6 s) the moment it is scrolled into view (an IntersectionObserver) on img.portrait
+       fix: show it at rest: no fade, rise or unmask when it is scrolled into view
+  FAIL pinned           section#proyectos > div.pin-spacer > article.project-stage.wrap "PROYECTO SELECCIONADO EN   [1440]
+       held on screen for 0.7 screens of scroll (a pin-spacer) while the page moves on
+       fix: let the section scroll with the page
+  FAIL no-visual        section#proyectos "Parchís multijugador"  [1440]
+       no picture, effect or mock in this section; a feature section needs a visual
+       fix: give the section a visual: a UI fragment on a ground, real icons, or a photograph that fits
+  FAIL text-only        section#experiencia "Trayectoria."  [1440, 390]
+       the section is only text: no picture, icon, mock or effect in it (2 sections like it at this width)
+       fix: give the section a visual: a photograph that fits, the real icons, or a UI fragment on a ground
+  FAIL text-only        section#contacto "¿Hablamos?"  [1440, 390]
+       the closing section is only text: no picture, icon, mock or effect in it (2 sections like it at this width)
+       fix: give the section a visual: a photograph that fits, the real icons, or a UI fragment on a ground
+  FAIL copy-headings    article.project-stage.wrap > div.project-spread > div.feature-copy > h2 "Parchís multijuga  [1440]
+       "Parchís multijugador" names no product, part, place or section (7 headings like it; at most one brand line per page) (and 6 more like it: "Sobre mí.", "Relieve alpino.", "Trayectoria.", "Experiencia", ...)
+       fix: name the thing in every heading: the product, a part, the place or a section noun
+  FAIL heading-scale    section#contacto > div.wrap.section > h2 "¿Hablamos?"  [1440, 390]
+       an h2 at 180px, as large as the h1 (144px) or larger
+       fix: size headings by level: the h1 largest, one size per level, each level below the one above
+  FAIL heading-scale    div#habilidades > h3 "Diseño y desarrollo"  [1440, 390]
+       h3 headings in 2 sizes, 26.4px ("Experiencia") to 63.4px (x2.40)
+       fix: size headings by level: the h1 largest, one size per level, each level below the one above
+  FAIL off-grid         section#inicio > div.hero-meta > span:nth-of-type(1) "PORTFOLIO DE DESARROLLO WEB"  [1440, 390]
+       left edge at 59px, 16px off the page margin at 43px (26 elements, like div.cover)
+       fix: move it onto the page margin, or the column edge its section uses
+  FAIL off-grid         section#sobre-mi > div:nth-of-type(2) > details > summary "Cómo trabajo e idiomas"  [1440, 390]
+       left edge at 692px, 17px off a common edge of its section at 675px (3 elements, like p.body-lead); 2 more in this section off the grid too (span:nth-of-type(9) at 658px, span:nth-of-type(10) at 742px)
+       fix: move it onto the page margin, or the column edge its section uses
+  FAIL off-grid         div#formacion > details > summary "Formación complementaria"  [1440, 390]
+       left edge at 792px, 18px off a common edge of its section at 774px (7 elements)
+       fix: move it onto the page margin, or the column edge its section uses
+  FAIL text-contrast    section#contacto > div.wrap.section > p.contact-lead "Busco mi próxima oportunidad en desa  [1440]
+       body text in #ffffff on #2456d6 reads 6.22:1 (needs 7:1)
+       fix: body text in the ink at 7:1 or more; grey (4.5:1 or more) only for captions and labels
+  FAIL visual-caption   section#relieve > figure.massif > figcaption.massif-controls "Girar montaña 28°"  [1440]
+       a figcaption under the canvas: "Girar montaña 28°"; no caption or description under any image, render or visual (house rule)
+       fix: take the line away: no caption or description under, over or on any image, render or visual; a licence credit goes in one footer line
+  FAIL effect-kind      section#sobre-mi > div.portrait-frame.mo-pd  [1440]
+       1 [data-moment] mark that never runs: picture-develops on section#sobre-mi > div.portrait-frame.mo-pd (assets/moments/picture-develops/moment.js was never loaded); a moment is judged as one only when it runs
+       fix: load assets/moments/moments.js (system.js does it for a page with [data-moment]) and keep the dealt id, or take the data-moment mark off the section
+  FAIL effect-kind      (the page)  [1440]
+       a service page (--type) moves with the scroll: scroll libraries or timelines (ScrollTrigger, ScrollSmoother): effects fit tech, gaming and software pages and a product with a technical subject, never a place, shop or ser
+       fix: take the scroll-driven motion off: on a place, shop or service page the page scrolls plainly and the parts sit still
+  FAIL empty-area       section#proyectos "Parchís multijugador"  [1440]
+       67% of the section is empty: 656px above its first content, 224px of empty rows between its content, 64px under its last (a.text-action:nth-of-type(1)), 15% beside content that covers under half the container, in its 179
+       fix: fill the section: a picture or a second column beside the words, or more of its own content; the section stays one or two screens tall (T-height)
+  FAIL hero-enter       section#inicio  [1440]
+       the hero does not enter on load: no data-enter on the hero and no head line setting html.m-enter (motion.md, The hero's entrance)
+       fix: put data-enter on the hero <section> and keep the head line from starter.html that sets html.m-enter
+  FAIL section-height   div#root > footer.wrap.footer "Reyes-Dev.© 2026 Ismael Reyes PérezVolve"  [1440]
+       the section is 92px tall (0.1 screens), 808px short of one screen (900px): every section after the hero is one screen or two, 2px either way (SR-2)
+       fix: set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit
+  FAIL section-height (screen-height) section#sobre-mi "Ismael Reyes PérezSobre mí.Estudio 2.º d"  [1440, 390]
+       the section is 1472px tall (1.6 screens), 328px short of two screens (1800px): every section after the hero is one screen or two, 2px either way (SR-2)
+       fix: set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit
+  FAIL section-height (screen-short, screen-height) section#contacto "¿Hablamos?Busco mi próxima oportunidad e"  [1440, 390]
+       the section is 612px tall (0.7 screens), 288px short of one screen (900px): every section after the hero is one screen or two, 2px either way (and 3 more like it: "Trayectoria.ExperienciaS", "Estudio interactivoRelie", "
+       fix: set the section to one screen or two (height: calc(var(--h,1) * 100vh), --h 1 or 2) and cut or split its content to fit
+  FAIL section-height (screen-short, screen-height) section#experiencia "Trayectoria.ExperienciaSerendipiumDesarr"  [1440]
+       the section starts at 4963px, 437px above the screen grid (6 x 900px): sections start on whole screens (SR-2)
+       fix: make every section above it exactly one or two screens tall, so this one starts on a whole screen
+  FAIL section-height (screen-short, screen-height) section#relieve "Estudio interactivoRelieve alpino.Arrast"  [1440, 390]
+       the section starts at 4168px, 332px above the screen grid (5 x 900px): sections start on whole screens (SR-2)
+       fix: make every section above it exactly one or two screens tall, so this one starts on a whole screen
+  FAIL section-air      section#proyectos "Proyecto seleccionadoEn desarrolloParchí"  [1440]
+       the content fills 11.4% of the section's height (206 of 1797px): 55% or more (40% WARN) (SR-3)
+       fix: fill the section to 55%: more content, a picture or a background layer, or merge it into the section above as its last block
+  FAIL section-air      section#contacto "¿Hablamos?Busco mi próxima oportunidad e"  [1440]
+       the content fills 26.8% of the section's height (164 of 612px): 55% or more (40% WARN) (SR-3)
+       fix: fill the section to 55%: more content, a picture or a background layer, or merge it into the section above as its last block
+  FAIL section-air      section#proyectos > div.pin-spacer > article.project-stage.wrap > div.project-caption "Pro  [1440]
+       a bottom border across 100% of the container, between the section's content: sections and their parts are told apart by air and ground, not lines (SR-3)
+       fix: take the rule out: sections and their parts are parted by their ground and the air between them
+  FAIL one-section (neighbour) section#relieve "Estudio interactivoRelieve alpino.Arrast"  [1440, 390]
+       the screen at scroll 3600px (stride 4) shows 332px of section 4 and the content of 2 sections, over 24px each beside section 3: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)
+       fix: make each section exactly one screen or two, so a screen shows one section and no neighbour peeks
+  FAIL one-section (neighbour) section#experiencia "Trayectoria.ExperienciaSerendipiumDesarr"  [1440]
+       the screen at scroll 5400px (stride 6) shows 213px of section 5 and the content of 2 sections, over 24px each beside section 6: a screen shows one section (another may peek 8px, 24px WARN) (SR-4)
+       fix: make each section exactly one screen or two, so a screen shows one section and no neighbour peeks
+  FAIL one-section (neighbour) section#contacto "¿Hablamos?Busco mi próxima oportunidad e"  [1440, 390]
+       the screen at scroll 4963px (the top of section 5) shows 185px of section 6 beside section 5: a screen shows one section (another may peek 8px, 24px WARN) (and 3 more like it: scroll 5481px, scroll 4168px, scroll 65px) (
+       fix: make each section exactly one screen or two, so a screen shows one section and no neighbour peeks
+  FAIL one-heading      section#proyectos > article.portfolio-case.wrap > div:nth-of-type(1) > h2 "Reyes Dev"  [1440]
+       the section holds 2 h2 headings: one per section, first in its .wrap (SR-5)
+       fix: give each section one h2, first in its .wrap, and the hero only its h1
+  FAIL one-heading      section#sobre-mi > div:nth-of-type(2) > h2.section-title "Sobre mí."  [1440]
+       headings of two sections show whole on one screen at 7 of 110 scroll positions (6.4%; at scroll 2150, 2200, 2250, 2300px), here with "Reyes Dev": at most 3% on a desktop (SR-5)
+       fix: make the sections one screen tall so their headings sit a screen apart and two never share one
+  FAIL container-edges  div#root > header.top "Reyes-Dev.ProyectosSobre míTrayectoriaRe"  [1440]
+       the nav's content runs 43px from the left and 43px from the right: the margin is 64-120px at 1440px (one container, equal margins, 2px either way) (SR-6)
+       fix: use one container on every section and the nav (.wrap): one margin left and right, 64-120px on a desktop, 16-24px on a phone
+  FAIL container-edges  section#inicio "Portfolio de desarrollo web2.º de DAW · "  [1440]
+       the content of section 1 runs 43px from the left and 43px from the right (read from its outermost blocks: no .wrap): the margin is 64-120px at 1440px (one container, equal margins, 2px either way) (and 6 more like it: "P
+       fix: use one container on every section and the nav (.wrap): one margin left and right, 64-120px on a desktop, 16-24px on a phone
+  FAIL container-edges  div#root "Saltar al contenidoReyes-Dev.ProyectosSo"  [1440]
+       a <div> at the top of the page, outside header.nav, main, footer.closing and nav.actionbar (SR-6)
+       fix: build the page as header.nav, a main of sections (each one in-flow .wrap plus background layers) and footer.closing
+  FAIL container-edges  figure.massif > figcaption.massif-controls > label > span "28°"  [1440]
+       1 text block starts on a left line at x 784, 741px from the container's left: text starts on the container's left, or on one split line (x 617, 732, 847) (SR-6)
+       fix: start the text on the container's left, or on the one split line every split shares
+  FAIL container-edges  section#relieve > figure.massif > figcaption.massif-controls "Girar montaña 28°"  [1440]
+       2 text blocks start on a left line at x 691, 647px from the container's left: text starts on the container's left, or on one split line (x 617, 732, 847) (also "Girar montaña 28°") (and 2 more like it: "Sobre mí.", x 59)
+       fix: start the text on the container's left, or on the one split line every split shares
+  FAIL container-edges  section#sobre-mi > div:nth-of-type(2) > details "Cómo trabajo e idiomasTrabajo en equipo."  [1440]
+       a box over half the container wide runs 675-1397px, not on the container's lines at 43-1397px (SR-6)
+       fix: run the picture or box from the container's left line to its right line, or put it in a row or a split
+  FAIL container-edges  section#relieve > figure.massif "Girar montaña 28°"  [1440]
+       a box over half the container wide runs 675-1397px, not on the container's lines at 43-1397px (SR-6)
+       fix: run the picture or box from the container's left line to its right line, or put it in a row or a split
+  FAIL row-lines        section#experiencia > div.wrap.section > div.history "ExperienciaSerendipiumDesarrollo web  [1440]
+       a row of 2 items: its items are 343/319px tall, not one height (2px either way) (SR-7)
+       fix: start the row's first item on the container's left line and end its last on the right line, every item one height
+  FAIL split-pair       section#proyectos > div.pin-spacer > article.project-stage.wrap > div.project-spread "Parc  [1440]
+       the two columns of the split start 61px apart at the top (centred on each other): a split's columns are top-aligned, 8px either way (SR-8)
+       fix: top-align both columns of the split (align-items: start)
+  FAIL cut-text         section#contacto > div.wrap.section > h2 > span "¿Hablamos?"  [390]
+       cut 11px at the bottom by the overflow of section#contacto > div.wrap.section > h2
+       fix: give the text room: no overflow clipping a line, no line past its box
+  FAIL edge-left        #proyectos div "Quería que el mismo sitio mostra"  [1440]
+       starts at x 709; the lines are 43.2 and the column starts
+       fix: start it on the .wrap left line
+  FAIL edge-left        #proyectos p "Quería que el mismo sitio mostra"  [1440]
+       starts at x 709; the lines are 43.2 and the column starts
+       fix: start it on the .wrap left line
+  FAIL edge-left        #proyectos p.stack-line "React / TypeScript / Vite / GSAP"  [1440]
+       starts at x 709; the lines are 43.2 and the column starts
+       fix: start it on the .wrap left line
+  FAIL edge-left        #sobre-mi p.eyebrow "Ismael Reyes Pérez"  [1440]
+       starts at x 674.5; the lines are 43.2 and the column starts
+       fix: start it on the .wrap left line
+  FAIL edge-left        #sobre-mi h2.section-title "Sobre mí."  [1440]
+       starts at x 674.5; the lines are 43.2 and the column starts
+       fix: start it on the .wrap left line
+  FAIL edge-left        #sobre-mi p.body-lead "Estudio 2.º de Desarrollo de Apl"  [1440]
+       starts at x 674.5; the lines are 43.2 and the column starts
+       fix: start it on the .wrap left line
+  FAIL edge-left        #relieve figure.massif "Girar montaña 28°"  [1440]
+       starts at x 674.5; the lines are 43.2 and the column starts
+       fix: start it on the .wrap left line
+  FAIL edge-left        #experiencia h3 "Formación"  [1440]
+       starts at x 774.1; the lines are 43.2 and the column starts
+       fix: start it on the .wrap left line
+  FAIL edge-left        #experiencia p "IES Poeta Paco Mollà · Grado Sup"  [1440]
+       starts at x 774.1; the lines are 43.2 and the column starts
+       fix: start it on the .wrap left line
+  FAIL edge-left        #experiencia p "IES Poeta Paco Mollà · Grado Med"  [1440]
+       starts at x 774.1; the lines are 43.2 and the column starts
+       fix: start it on the .wrap left line
+  FAIL screen-short     #inicio section.hero.wrap "Portfolio de desarrollo web2.º d"  [1440, 390]
+       835px tall; one screen under the nav is 900px
+       fix: make the section one full screen (--h: 1, layout-v4.md section 2)
+  FAIL screen-height    #proyectos section.project-scene "Proyecto seleccionadoEn desarrol"  [1440]
+       1797px, 2.00 screens; a section is exactly one or two (--h)
+       fix: make the section exactly one or two screens (--h: 1 or 2)
+  FAIL neighbour        #sobre-mi section.wrap.section "Ismael Reyes PérezSobre mí.Estud"  [1440]
+       framed, 261px of #relieve section.wrap.section "Estudio interactivoRelieve alpin" shows
+       fix: keep the next section's heading and picture out of this screen
+  FAIL neighbour-ground #relieve section.wrap.section "Estudio interactivoRelieve alpin"  [1440]
+       framed, 106px of #experiencia section.paper "Trayectoria.ExperienciaSerendipi"'s ground shows
+       fix: end the ground with the section
+  FAIL hero-fold        #inicio section.hero.wrap "Portfolio de desarrollo web2.º d"  [1440, 390]
+       starts at y 65, not under the nav
+       fix: the hero fills the first screen alone, its button inside it
+  FAIL neighbour        #proyectos section.project-scene "Proyecto seleccionadoEn desarrol"  [390]
+       framed, 209px of #sobre-mi section.wrap.section "Ismael Reyes PérezSobre mí.Estud" shows
+       fix: keep the next section's heading and picture out of this screen
+  22 WARN (not blocking), first: spill div.project-spread > div.project-visual ; spill div.project-spread > div.project-visual ; spill div.project-spread > div.project-visual ; cut-text h1#nombre > span.name-mask:nth-of-type(1; no-visual section#sobre-mi "Sobre mí."
+A FAIL you judge false: add {"check": "<id>", "target": "<its where, enough to name that one finding>", "reason": "<why, 12+ characters>"} to .taste-skill/waivers.json (one finding each, 5 at most, never for kit-edited or checker-gaming); it goes in your report. Never edit the kit's files or hide the page from the checker.
+GATE: FAIL 56 (round 1 of 3)

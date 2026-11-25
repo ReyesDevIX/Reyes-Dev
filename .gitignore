@@ -11,3 +11,23 @@ dist
 /Proyecto.zip
 /public/cv-ismael-reyes.md
 /Reyes-Dev-fuentes.zip
+# Evidencias seleccionadas de la revisión. Los validadores generan archivos locales adicionales.
+/.taste-skill/*
+!/.taste-skill/INFORME.md
+!/.taste-skill/before/
+/.taste-skill/before/*
+!/.taste-skill/before/vercel-1440.png
+!/.taste-skill/before/original-390.png
+!/.taste-skill/continuacion/
+/.taste-skill/continuacion/*
+!/.taste-skill/continuacion/portada-*.png
+!/.taste-skill/continuacion/completa-*.png
+!/.taste-skill/continuacion/ficha-parchis.png
+!/.taste-skill/continuacion/parchis-*.png
+!/.taste-skill/continuacion/browser.txt
+!/.taste-skill/continuacion/copy.txt
+!/.taste-skill/continuacion/perf-final.txt
+!/.taste-skill/continuacion/layout.txt
+!/.taste-skill/continuacion/consistency.txt
+!/.taste-skill/continuacion/gate.txt
+!/.taste-skill/continuacion/gate-final.txt

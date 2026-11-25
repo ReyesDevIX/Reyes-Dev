@@ -1,0 +1,132 @@
+
+1440x900  lines x 43.2 and 1396.8, nav 0px, one screen 900px
+  hero 835 tall; h1 144px/0.8, 2 lines, 371x274 at 43,403; lead -; buttons -; visual -
+  section #inicio section.hero.wrap "Portfolio de desarrollo web2.º d" y    65  h   835  content 798
+  section #proyectos section.project-scene "Proyecto seleccionadoEn de y   900  h  1797  content 1606
+  section #sobre-mi section.wrap.section "Ismael Reyes PérezSobre mí.E y  2696  h  1424  content 1166
+  section #relieve section.wrap.section "Estudio interactivoRelieve al y  4120  h   794  content 564
+  section #experiencia section.paper "Trayectoria.ExperienciaSerendipi y  4915  h   715  content 667
+  section #contacto section.contact "Contacto¿Hablamos?Busco mi próxi" y  5630  h   630  content 400
+  edge-left        #proyectos div "Quería que el mismo sitio mostra": starts at x 709; the lines are 43.2 and the column starts
+  edge-left        #proyectos p "Quería que el mismo sitio mostra": starts at x 709; the lines are 43.2 and the column starts
+  edge-left        #proyectos p.stack-line "React / TypeScript / Vite / GSAP": starts at x 709; the lines are 43.2 and the column starts
+  edge-left        #sobre-mi p.eyebrow "Ismael Reyes Pérez": starts at x 674.5; the lines are 43.2 and the column starts
+  edge-left        #sobre-mi h2.section-title "Sobre mí.": starts at x 674.5; the lines are 43.2 and the column starts
+  edge-left        #sobre-mi p.body-lead "Estudio 2.º de Desarrollo de Apl": starts at x 674.5; the lines are 43.2 and the column starts
+  edge-left        #relieve figure.massif "Girar montaña 28°": starts at x 674.5; the lines are 43.2 and the column starts
+  edge-left        #experiencia h3 "Formación": starts at x 774.1; the lines are 43.2 and the column starts
+  edge-left        #experiencia p "IES Poeta Paco Mollà · Grado Sup": starts at x 774.1; the lines are 43.2 and the column starts
+  edge-left        #experiencia p "IES Poeta Paco Mollà · Grado Med": starts at x 774.1; the lines are 43.2 and the column starts
+  screen-short     #inicio section.hero.wrap "Portfolio de desarrollo web2.º d": 835px tall; one screen under the nav is 900px
+  screen-height    #proyectos section.project-scene "Proyecto seleccionadoEn desarrol": 1797px, 2.00 screens; a section is exactly one or two (--h)
+  screen-height    #sobre-mi section.wrap.section "Ismael Reyes PérezSobre mí.Estud": 1424px, 1.58 screens; a section is exactly one or two (--h)
+  neighbour        #sobre-mi section.wrap.section "Ismael Reyes PérezSobre mí.Estud": framed, 261px of #relieve section.wrap.section "Estudio interactivoRelieve alpin" shows
+  screen-short     #relieve section.wrap.section "Estudio interactivoRelieve alpin": 794px tall; one screen under the nav is 900px
+  screen-height    #relieve section.wrap.section "Estudio interactivoRelieve alpin": 794px, 0.88 screens; a section is exactly one or two (--h)
+  neighbour-ground #relieve section.wrap.section "Estudio interactivoRelieve alpin": framed, 106px of #experiencia section.paper "Trayectoria.ExperienciaSerendipi"'s ground shows
+  screen-short     #experiencia section.paper "Trayectoria.ExperienciaSerendipi": 715px tall; one screen under the nav is 900px
+  screen-height    #experiencia section.paper "Trayectoria.ExperienciaSerendipi": 715px, 0.79 screens; a section is exactly one or two (--h)
+  neighbour        #experiencia section.paper "Trayectoria.ExperienciaSerendipi": framed, 51px of #contacto section.contact "Contacto¿Hablamos?Busco mi próxi" shows
+  screen-short     #contacto section.contact "Contacto¿Hablamos?Busco mi próxi": 630px tall; one screen under the nav is 900px
+  screen-height    #contacto section.contact "Contacto¿Hablamos?Busco mi próxi": 630px, 0.70 screens; a section is exactly one or two (--h)
+  neighbour        #contacto section.contact "Contacto¿Hablamos?Busco mi próxi": framed, 44px of #experiencia section.paper "Trayectoria.ExperienciaSerendipi" shows
+  neighbour        #contacto section.contact "Contacto¿Hablamos?Busco mi próxi": framed, 92px of the footer shows
+  hero-fold        #inicio section.hero.wrap "Portfolio de desarrollo web2.º d": starts at y 65, not under the nav
+
+1024x768  lines x 30.7 and 993.3, nav 0px, one screen 768px
+  hero 703 tall; h1 107.2px/0.8, 2 lines, 326x204 at 31,347; lead -; buttons -; visual -
+  section #inicio section.hero.wrap "Portfolio de desarrollo web2.º d" y    65  h   703  content 666
+  section #proyectos section.project-scene "Proyecto seleccionadoEn de y   768  h  1558  content 1383
+  section #sobre-mi section.wrap.section "Ismael Reyes PérezSobre mí.E y  2326  h  1214  content 1022
+  section #relieve section.wrap.section "Estudio interactivoRelieve al y  3540  h   582  content 418
+  section #experiencia section.paper "Trayectoria.ExperienciaSerendipi y  4122  h   620  content 634
+  section #contacto section.contact "Contacto¿Hablamos?Busco mi próxi" y  4742  h   482  content 318
+  edge-left        #proyectos div "Quería que el mismo sitio mostra": starts at x 504.1; the lines are 30.7 and the column starts
+  edge-left        #proyectos p "Quería que el mismo sitio mostra": starts at x 504.1; the lines are 30.7 and the column starts
+  edge-left        #proyectos p.stack-line "React / TypeScript / Vite / GSAP": starts at x 504.1; the lines are 30.7 and the column starts
+  edge-left        #sobre-mi p.eyebrow "Ismael Reyes Pérez": starts at x 479.6; the lines are 30.7 and the column starts
+  edge-left        #sobre-mi h2.section-title "Sobre mí.": starts at x 479.6; the lines are 30.7 and the column starts
+  edge-left        #sobre-mi p.body-lead "Estudio 2.º de Desarrollo de Apl": starts at x 479.6; the lines are 30.7 and the column starts
+  edge-left        #relieve figure.massif "Girar montaña 28°": starts at x 479.6; the lines are 30.7 and the column starts
+  edge-left        #experiencia h3 "Formación": starts at x 550.5; the lines are 30.7 and the column starts
+  edge-left        #experiencia p "IES Poeta Paco Mollà · Grado Sup": starts at x 550.5; the lines are 30.7 and the column starts
+  edge-left        #experiencia p "IES Poeta Paco Mollà · Grado Med": starts at x 550.5; the lines are 30.7 and the column starts
+  screen-short     #inicio section.hero.wrap "Portfolio de desarrollo web2.º d": 703px tall; one screen under the nav is 768px
+  screen-height    #proyectos section.project-scene "Proyecto seleccionadoEn desarrol": 1558px, 2.03 screens; a section is exactly one or two (--h)
+  neighbour        #sobre-mi section.wrap.section "Ismael Reyes PérezSobre mí.Estud": framed, 240px of #relieve section.wrap.section "Estudio interactivoRelieve alpin" shows
+  screen-short     #relieve section.wrap.section "Estudio interactivoRelieve alpin": 582px tall; one screen under the nav is 768px
+  neighbour        #relieve section.wrap.section "Estudio interactivoRelieve alpin": framed, 96px of #experiencia section.paper "Trayectoria.ExperienciaSerendipi" shows
+  screen-short     #experiencia section.paper "Trayectoria.ExperienciaSerendipi": 620px tall; one screen under the nav is 768px
+  neighbour        #experiencia section.paper "Trayectoria.ExperienciaSerendipi": framed, 48px of #contacto section.contact "Contacto¿Hablamos?Busco mi próxi" shows
+  screen-short     #contacto section.contact "Contacto¿Hablamos?Busco mi próxi": 482px tall; one screen under the nav is 768px
+  neighbour        #contacto section.contact "Contacto¿Hablamos?Busco mi próxi": framed, 44px of #experiencia section.paper "Trayectoria.ExperienciaSerendipi" shows
+  neighbour        #contacto section.contact "Contacto¿Hablamos?Busco mi próxi": framed, 92px of the footer shows
+  hero-fold        #inicio section.hero.wrap "Portfolio de desarrollo web2.º d": starts at y 65, not under the nav
+
+768x1024  lines x 23 and 745, nav 0px, one screen 1024px
+  hero 959 tall; h1 108.8px/0.8, 2 lines, 326x207 at 23,600; lead -; buttons -; visual -
+  section #inicio section.hero.wrap "Portfolio de desarrollo web2.º d" y    65  h   959  content 922
+  section #proyectos section.project-scene "Proyecto seleccionadoEn de y  1024  h   916  content 829
+  section #sobre-mi section.wrap.section "Ismael Reyes PérezSobre mí.E y  1940  h  1195  content 1045
+  section #relieve section.wrap.section "Estudio interactivoRelieve al y  3135  h   523  content 400
+  section #experiencia section.paper "Trayectoria.ExperienciaSerendipi y  3658  h   566  content 694
+  section #contacto section.contact "Contacto¿Hablamos?Busco mi próxi" y  4225  h   403  content 280
+  edge-left        #proyectos div "Quería que el mismo sitio mostra": starts at x 378.1; the lines are 23 and the column starts
+  edge-left        #proyectos p "Quería que el mismo sitio mostra": starts at x 378.1; the lines are 23 and the column starts
+  edge-left        #proyectos p.stack-line "React / TypeScript / Vite / GSAP": starts at x 378.1; the lines are 23 and the column starts
+  edge-left        #sobre-mi p.eyebrow "Ismael Reyes Pérez": starts at x 359.7; the lines are 23 and the column starts
+  edge-left        #sobre-mi h2.section-title "Sobre mí.": starts at x 359.7; the lines are 23 and the column starts
+  edge-left        #sobre-mi p.body-lead "Estudio 2.º de Desarrollo de Apl": starts at x 359.7; the lines are 23 and the column starts
+  edge-left        #relieve figure.massif "Girar montaña 28°": starts at x 347.2; the lines are 23 and the column starts
+  edge-left        #experiencia h3 "Formación": starts at x 412.9; the lines are 23 and the column starts
+  edge-left        #experiencia p "IES Poeta Paco Mollà · Grado Sup": starts at x 412.9; the lines are 23 and the column starts
+  edge-left        #experiencia p "IES Poeta Paco Mollà · Grado Med": starts at x 412.9; the lines are 23 and the column starts
+  screen-short     #inicio section.hero.wrap "Portfolio de desarrollo web2.º d": 959px tall; one screen under the nav is 1024px
+  screen-short     #proyectos section.project-scene "Proyecto seleccionadoEn desarrol": 916px tall; one screen under the nav is 1024px
+  neighbour        #proyectos section.project-scene "Proyecto seleccionadoEn desarrol": framed, 25px of #sobre-mi section.wrap.section "Ismael Reyes PérezSobre mí.Estud" shows
+  screen-short     #relieve section.wrap.section "Estudio interactivoRelieve alpin": 523px tall; one screen under the nav is 1024px
+  neighbour        #relieve section.wrap.section "Estudio interactivoRelieve alpin": framed, 125px of #experiencia section.paper "Trayectoria.ExperienciaSerendipi" shows
+  screen-short     #experiencia section.paper "Trayectoria.ExperienciaSerendipi": 566px tall; one screen under the nav is 1024px
+  neighbour        #experiencia section.paper "Trayectoria.ExperienciaSerendipi": framed, 115px of #contacto section.contact "Contacto¿Hablamos?Busco mi próxi" shows
+  neighbour        #experiencia section.paper "Trayectoria.ExperienciaSerendipi": framed, 55px of the footer shows
+  screen-short     #contacto section.contact "Contacto¿Hablamos?Busco mi próxi": 403px tall; one screen under the nav is 1024px
+  neighbour        #contacto section.contact "Contacto¿Hablamos?Busco mi próxi": framed, 100px of #experiencia section.paper "Trayectoria.ExperienciaSerendipi" shows
+  neighbour        #contacto section.contact "Contacto¿Hablamos?Busco mi próxi": framed, 92px of the footer shows
+  hero-fold        #inicio section.hero.wrap "Portfolio de desarrollo web2.º d": starts at y 65, not under the nav
+
+390x844  lines x 17.5 and 372.4, nav 0px, one screen 844px
+  hero 782 tall; h1 72px/0.8, 1 lines, 355x58 at 18,598; lead -; buttons -; visual -
+  section #inicio section.hero.wrap "Portfolio de desarrollo web2.º d" y    61  h   782  content 753
+  section #proyectos section.project-scene "Proyecto seleccionadoEn de y   843  h  1311  content 1230
+  section #sobre-mi section.wrap.section "Ismael Reyes PérezSobre mí.E y  2154  h  2013  content 1875
+  section #relieve section.wrap.section "Estudio interactivoRelieve al y  4168  h   669  content 559
+  section #experiencia section.paper "Trayectoria.ExperienciaSerendipi y  4836  h   896  content 965
+  section #contacto section.contact "Contacto¿Hablamos?Busco mi próxi" y  5732  h   427  content 317
+  screen-short     #inicio section.hero.wrap "Portfolio de desarrollo web2.º d": 782px tall; one screen under the nav is 844px
+  neighbour        #proyectos section.project-scene "Proyecto seleccionadoEn desarrol": framed, 209px of #sobre-mi section.wrap.section "Ismael Reyes PérezSobre mí.Estud" shows
+  screen-height    #sobre-mi section.wrap.section "Ismael Reyes PérezSobre mí.Estud": 2013px, 2.39 screens; a section is exactly one or two (--h), or on a phone at least one that its content fills
+  screen-short     #relieve section.wrap.section "Estudio interactivoRelieve alpin": 669px tall; one screen under the nav is 844px
+  screen-height    #relieve section.wrap.section "Estudio interactivoRelieve alpin": 669px, 0.79 screens; a section is exactly one or two (--h), or on a phone at least one that its content fills
+  neighbour        #relieve section.wrap.section "Estudio interactivoRelieve alpin": framed, 70px of #experiencia section.paper "Trayectoria.ExperienciaSerendipi" shows
+  screen-short     #contacto section.contact "Contacto¿Hablamos?Busco mi próxi": 427px tall; one screen under the nav is 844px
+  screen-height    #contacto section.contact "Contacto¿Hablamos?Busco mi próxi": 427px, 0.51 screens; a section is exactly one or two (--h), or on a phone at least one that its content fills
+  neighbour        #contacto section.contact "Contacto¿Hablamos?Busco mi próxi": framed, 75px of #experiencia section.paper "Trayectoria.ExperienciaSerendipi" shows
+  neighbour        #contacto section.contact "Contacto¿Hablamos?Busco mi próxi": framed, 127px of the footer shows
+  hero-fold        #inicio section.hero.wrap "Portfolio de desarrollo web2.º d": starts at y 61, not under the nav
+
+320x640  lines x 14.4 and 305.6, nav 0px, one screen 640px
+  hero 649 tall; h1 72px/0.8, 2 lines, 291x115 at 14,382; lead -; buttons -; visual -
+  section #inicio section.hero.wrap "Portfolio de desarrollo web2.º d" y    61  h   649  content 620
+  section #proyectos section.project-scene "Proyecto seleccionadoEn de y   710  h  1405  content 1324
+  section #sobre-mi section.wrap.section "Ismael Reyes PérezSobre mí.E y  2114  h  2210  content 2072
+  section #relieve section.wrap.section "Estudio interactivoRelieve al y  4324  h   730  content 620
+  section #experiencia section.paper "Trayectoria.ExperienciaSerendipi y  5054  h   921  content 1015
+  section #contacto section.contact "Contacto¿Hablamos?Busco mi próxi" y  5975  h   453  content 343
+  screen-height    #proyectos section.project-scene "Proyecto seleccionadoEn desarrol": 1405px, 2.19 screens; a section is exactly one or two (--h), or on a phone at least one that its content fills
+  screen-height    #sobre-mi section.wrap.section "Ismael Reyes PérezSobre mí.Estud": 2210px, 3.45 screens; a section is exactly one or two (--h), or on a phone at least one that its content fills
+  screen-short     #contacto section.contact "Contacto¿Hablamos?Busco mi próxi": 453px tall; one screen under the nav is 640px
+  screen-height    #contacto section.contact "Contacto¿Hablamos?Busco mi próxi": 453px, 0.71 screens; a section is exactly one or two (--h), or on a phone at least one that its content fills
+  neighbour        #contacto section.contact "Contacto¿Hablamos?Busco mi próxi": framed, 100px of #experiencia section.paper "Trayectoria.ExperienciaSerendipi" shows
+  neighbour        #contacto section.contact "Contacto¿Hablamos?Busco mi próxi": framed, 127px of the footer shows
+  hero-fold        #inicio section.hero.wrap "Portfolio de desarrollo web2.º d": starts at y 61, not under the nav
+  hero-fold        #inicio section.hero.wrap "Portfolio de desarrollo web2.º d": ends at y 710, past the fold (640): 1.01 screens tall
