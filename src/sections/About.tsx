@@ -13,7 +13,7 @@ export const About = () => (
   <section id="sobre-mi" className="wrap section about">
     <ProfileImage />
     <div>
-      <p className="eyebrow">{profile.name}</p>
+      <p className="eyebrow">Perfil</p>
       <SectionHeading title="Sobre mí" />
       <p className="body-lead">{profile.bio}</p>
       <details>

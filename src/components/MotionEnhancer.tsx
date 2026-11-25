@@ -1,82 +1,58 @@
+import { type RefObject } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import developPicture from '../../.agents/skills/design-taste-frontend/assets/moments/picture-develops/moment.js';
-import * as momentLib from '../../.agents/skills/design-taste-frontend/assets/moments/lib.js';
-import '../../.agents/skills/design-taste-frontend/assets/moments/picture-develops/moment.css';
-
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
-export function MotionEnhancer() {
+export function MotionEnhancer({ scope }: { scope: RefObject<HTMLElement | null> }) {
   useGSAP(() => {
-    const media = gsap.matchMedia();
+    const root = scope.current;
+    if (!root?.querySelector('.hero')) return;
+    const media = gsap.matchMedia(root);
+
     media.add('(prefers-reduced-motion: no-preference)', () => {
-      if (!document.querySelector('.cover')) return;
-      gsap
-        .timeline({ defaults: { ease: 'power3.out' } })
-        .from('.vista img', {
-          scale: 1.09,
-          clipPath: 'inset(0 0 16% 0)',
-          duration: 1.35,
-        })
-        .from(
-          '.name-mask > span',
-          { yPercent: 112, stagger: 0.13, duration: 0.92 },
-          0.12,
-        );
-      const portrait = document.querySelector('.portrait-frame');
-      const picture: { destroy?: () => void } | null = portrait
-        ? developPicture(portrait, { look: 'film' }, momentLib)
-        : null;
-      gsap.from('.contact h2 span', {
-        yPercent: 106,
-        rotation: 3,
-        transformOrigin: 'left bottom',
-        scrollTrigger: {
-          trigger: '.contact',
-          start: 'top 92%',
-          end: 'top 65%',
-          scrub: true,
-        },
+      gsap.timeline({ defaults: { ease: 'power3.out' } })
+        .from('.hero-word', { yPercent: 117, skewY: 5, stagger: .13, duration: .92 })
+        .from('.hero-art .signal > span', { xPercent: -100, scaleX: .2, transformOrigin: 'left center', stagger: .075, duration: .65 }, .15);
+
+      gsap.from('.case-poster .poster-type', {
+        xPercent: -36, scale: .82, clipPath: 'inset(0 100% 0 0)', duration: 1,
+        scrollTrigger: { trigger: '.case-poster', start: 'top 88%', once: true },
       });
-      return () => picture?.destroy?.();
+      gsap.from('.contact h2 span', {
+        yPercent: 70, duration: .75, ease: 'power4.out',
+        scrollTrigger: { trigger: '.contact h2', start: 'top 92%', once: true },
+      });
+
+      const refresh = () => ScrollTrigger.refresh();
+      const details = root.querySelectorAll('details');
+      details.forEach(detail => detail.addEventListener('toggle', refresh));
+      return () => details.forEach(detail => detail.removeEventListener('toggle', refresh));
     });
-    media.add(
-      '(min-width: 900px) and (min-height: 640px) and (prefers-reduced-motion: no-preference)',
-      () => {
-        const stage = document.querySelector<HTMLElement>('.project-stage');
-        if (!stage || stage.offsetHeight > innerHeight - 60) return;
-        const sequence = gsap.timeline({
-          scrollTrigger: {
-            trigger: stage,
-            start: 'top 64px',
-            end: '+=65%',
-            pin: true,
-            scrub: 0.35,
-            invalidateOnRefresh: true,
-          },
-        });
-        sequence
-          .fromTo(
-            stage.querySelector('.board'),
-            { rotation: -18, scale: 0.85 },
-            { rotation: 0, scale: 1.12, ease: 'none' },
-          )
-          .from(
-            stage.querySelectorAll('.yard i'),
-            { y: -25, scale: 0.72, stagger: 0.018, ease: 'power2.out' },
-            0,
-          );
-      },
-    );
-    const details = document.querySelectorAll('details');
-    const refresh = () => ScrollTrigger.refresh();
-    details.forEach((item) => item.addEventListener('toggle', refresh));
-    return () => {
-      details.forEach((item) => item.removeEventListener('toggle', refresh));
-      media.revert();
-    };
-  });
+
+    media.add('(min-width: 960px) and (min-height: 680px) and (prefers-reduced-motion: no-preference)', () => {
+      gsap.timeline({
+        defaults: { ease: 'none' },
+        scrollTrigger: { trigger: '.hero', start: 'top 65px', end: '40% 65px', scrub: true },
+      })
+        .to('.hero h1', { xPercent: 2, scale: .94, transformOrigin: 'left center' }, 0)
+        .to('.hero-art', { y: -24 }, 0);
+
+      root.querySelectorAll<HTMLElement>('.project-stage').forEach(stage => {
+        const visual = stage.querySelector('.project-visual');
+        const board = stage.querySelector('.board');
+        if (!visual || !board || stage.offsetHeight >= innerHeight - 68) return;
+        gsap.timeline({ defaults: { ease: 'none' }, scrollTrigger: {
+          trigger: stage, start: 'top 65px', end: () => '+=' + Math.round(innerHeight * .45),
+          pin: true, scrub: .3, invalidateOnRefresh: true,
+        } })
+          .fromTo(visual, { clipPath: 'inset(6% 0 6% 10%)' }, { clipPath: 'inset(0% 0% 0% 0%)' }, 0)
+          .fromTo(board, { rotation: -23, scale: .78 }, { rotation: 0, scale: 1.06 }, 0);
+      });
+    });
+
+    return () => media.revert();
+  }, { scope });
   return null;
 }

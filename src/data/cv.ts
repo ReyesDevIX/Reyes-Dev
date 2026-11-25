@@ -2,8 +2,6 @@
 export const profile = {
   name: 'Ismael Reyes Pérez',
   shortName: 'Ismael Reyes',
-  role: 'Desarrollador web en formación',
-  headline: 'Diseño interfaces y las llevo al código.',
   location: 'Elda, Alicante',
   email: 'ismaelreyeselda@gmail.com',
   github: 'https://github.com/ReyesDevIX',

@@ -1,48 +1,26 @@
-import { ArrowDown, Maximize } from 'lucide-react';
+import { ArrowDown, ArrowUpRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Signal } from '../components/Signal';
 import { profile } from '../data/cv';
 
 export const Hero = () => (
-  <section id="inicio" className="hero wrap" aria-labelledby="nombre">
-    <div className="hero-meta">
-      <span>Portfolio de desarrollo web</span>
-      <span>2.º de DAW · {profile.location}</span>
-    </div>
-    <div className="cover">
-      <picture className="vista">
-        <source media="(max-width:680px)" srcSet="/cumbre-mobile.webp" />
-        <img
-          src="/cumbre.webp"
-          alt="Crestas de montaña entre nubes"
-          fetchPriority="high"
-          width="1536"
-          height="1024"
-        />
-      </picture>
-      <a className="view-relief" href="#relieve">
-        <Maximize size={17} /> Explorar relieve
-      </a>
-      <div className="intro">
-        <h1 id="nombre">
-          <span className="name-mask">
-            <span>Ismael</span>
-          </span>
-          <span className="name-mask">
-            <span>
-              Reyes<span className="period">.</span>
-            </span>
-          </span>
-        </h1>
-        <p className="lead">{profile.headline}</p>
-        <p className="hero-summary">Desarrollador web en formación. Combino diseño de interfaz y frontend para convertir una idea en una web que se pueda usar.</p>
+  <section id="inicio" className="wrap hero" aria-labelledby="nombre">
+    <div className="hero-meta"><span>Diseño de interfaces / Frontend</span><span>{profile.location}</span></div>
+    <h1 id="nombre" aria-label={profile.shortName}>
+      {profile.shortName.split(' ').map(word => (
+        <span className="word-mask" key={word}><span className="hero-word">{word}</span></span>
+      ))}
+    </h1>
+    <div className="hero-bottom">
+      <div className="hero-copy">
+        <p className="lead">Diseño interfaces.<br />Las convierto en código.</p>
+        <p className="hero-summary">Estudio Desarrollo de Aplicaciones Web. Trabajo la interfaz, la interacción y el frontend de cada proyecto.</p>
         <div className="actions">
-          <a className="pill" href="#proyectos">
-            Ver proyectos <ArrowDown size={16} />
-          </a>
-          <a className="text-action" href="#contacto">
-            Hablemos
-          </a>
+          <Link className="pill" to="/#proyectos">Ver proyectos <ArrowDown size={16} aria-hidden="true" /></Link>
+          <Link className="text-action" to="/#contacto">Hablemos <ArrowUpRight size={16} aria-hidden="true" /></Link>
         </div>
       </div>
+      <div className="hero-art" aria-hidden="true"><Signal /></div>
     </div>
   </section>
 );
