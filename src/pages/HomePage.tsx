@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { Download, Github, Youtube } from 'lucide-react';
 import { profile } from '../data/cv';
 import { ContactEmail } from '../components/ContactEmail';
-import { AlpineLandscape } from '../components/AlpineLandscape';
+import { Signal } from '../components/Signal';
 import { Hero } from '../sections/Hero';
 import { Projects } from '../sections/Projects';
 import { About } from '../sections/About';
@@ -10,27 +10,17 @@ import { Experience } from '../sections/Experience';
 
 export const HomePage = () => {
   useEffect(() => {
-    document.title = 'Reyes-Dev · Ismael Reyes, desarrollador web';
+    document.title = 'Reyes Dev · Ismael Reyes, diseño de interfaces y frontend';
   }, []);
   return (
     <>
       <Hero />
       <Projects />
       <About />
-      <section className="wrap section relief" id="relieve">
-        <div>
-          <p className="eyebrow">Estudio interactivo</p>
-          <h2 className="section-title">Relieve alpino.</h2>
-          <p>
-            Arrastra el terreno o utiliza el control de giro para recorrer sus
-            crestas.
-          </p>
-        </div>
-        <AlpineLandscape />
-      </section>
       <Experience />
       <section className="contact" id="contacto">
         <div className="wrap section">
+          <Signal className="contact-signal" />
           <h2>
             <span>¿Hablamos?</span>
           </h2>

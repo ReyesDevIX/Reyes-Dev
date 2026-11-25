@@ -31,3 +31,16 @@ dist
 !/.taste-skill/continuacion/consistency.txt
 !/.taste-skill/continuacion/gate.txt
 !/.taste-skill/continuacion/gate-final.txt
+
+# Evidencias del rediseño experimental
+!/.taste-skill/EXPERIMENTAL.md
+!/.taste-skill/experimental/
+/.taste-skill/experimental/*
+!/.taste-skill/experimental/browser.txt
+!/.taste-skill/experimental/perf.txt
+!/.taste-skill/experimental/layout.txt
+!/.taste-skill/experimental/copy.txt
+!/.taste-skill/experimental/completa-1440.png
+!/.taste-skill/experimental/completa-390.png
+!/.taste-skill/experimental/parchis-*.png
+!/.taste-skill/experimental/transicion-reyes.png

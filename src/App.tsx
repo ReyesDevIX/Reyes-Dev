@@ -8,6 +8,7 @@ import { ProjectPage, MissingPage } from './pages/ProjectPage';
 const Layout = () => {
   const { pathname, hash, key } = useLocation();
   const navigationType = useNavigationType();
+  const main = useRef<HTMLElement>(null);
   const previous = useRef(pathname);
   useLayoutEffect(() => {
     const target = hash ? document.getElementById(hash.slice(1)) : null;
@@ -24,14 +25,14 @@ const Layout = () => {
   return <>
     <a className="skip" href="#contenido">Saltar al contenido</a>
     <Header />
-    <main id="contenido" tabIndex={-1}><Routes>
+    <main ref={main} id="contenido" tabIndex={-1}><Routes>
       <Route index element={<HomePage />} />
       <Route path="/index.html" element={<HomePage />} />
       <Route path="/proyectos/:slug" element={<ProjectPage />} />
       <Route path="*" element={<MissingPage />} />
     </Routes></main>
-    <footer className="wrap footer"><Link to="/">Reyes-Dev<span>.</span></Link><small>© {new Date().getFullYear()} Ismael Reyes Pérez</small><a href="#contenido">Volver arriba ↑</a></footer>
-    <MotionEnhancer key={pathname} />
+    <footer className="wrap footer"><Link to="/">Reyes Dev<span>.</span></Link><small>© {new Date().getFullYear()} Ismael Reyes Pérez</small><a href="#contenido">Volver arriba ↑</a></footer>
+    <MotionEnhancer key={pathname} scope={main} />
   </>;
 };
 export default function App() { return <BrowserRouter><Layout /></BrowserRouter>; }
