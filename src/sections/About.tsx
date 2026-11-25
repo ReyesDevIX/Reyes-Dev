@@ -1,3 +1,4 @@
+import { TechnologyList } from '../components/TechnologyIcon';
 import { profile, technologies, softSkills, languages } from '../data/cv';
 import { ProfileImage } from '../components/ProfileImage';
 import { SectionHeading } from '../components/SectionHeading';
@@ -28,7 +29,7 @@ export const About = () => (
         {skills.map(skill => <div key={skill.title}><dt>{skill.title}</dt><dd>{skill.description}</dd></div>)}
       </dl>
       <p className="eyebrow">Tecnologías y herramientas</p>
-      <div className="tags">{technologies.map(item => <span key={item.name}>{item.name}</span>)}</div>
+      <TechnologyList names={technologies.map(item => item.name)} />
     </div>
   </section>
 );

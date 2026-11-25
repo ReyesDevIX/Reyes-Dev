@@ -1,3 +1,4 @@
+import { TechnologyList } from '../components/TechnologyIcon';
 import { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { ArrowLeft, ArrowUpRight } from 'lucide-react';
@@ -20,7 +21,7 @@ export const ProjectPage = () => {
       {project.sections.map(section => <section key={section.title}><h2>{section.title}</h2><p>{section.text}</p></section>)}
     </div>
     <h2 className="case-stack">Tecnologías del proyecto</h2>
-    <ul className="tags case-tags">{project.stack.map(item => <li key={item}>{item}</li>)}</ul>
+    <TechnologyList names={project.stack} />
     <a className="pill" href={project.link}>{project.linkText} <ArrowUpRight size={16}/></a>
   </article>;
 };

@@ -16,7 +16,7 @@ export function MotionEnhancer({ scope }: { scope: RefObject<HTMLElement | null>
         .from('.hero-word', { yPercent: 117, skewY: 5, stagger: .13, duration: .92 })
         .from('.hero-art .signal > span', { xPercent: -100, scaleX: .2, transformOrigin: 'left center', stagger: .075, duration: .65 }, .15);
 
-      gsap.from('.case-poster .poster-type', {
+      gsap.from('.case-poster .career-shot', {
         xPercent: -36, scale: .82, clipPath: 'inset(0 100% 0 0)', duration: 1,
         scrollTrigger: { trigger: '.case-poster', start: 'top 88%', once: true },
       });
