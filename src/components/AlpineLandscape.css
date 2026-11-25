@@ -12,8 +12,7 @@
 .massif canvas {cursor:grab;touch-action:pan-y;user-select:none}
 .massif canvas:active {cursor:grabbing}
 .massif-fallback {object-fit:cover}
-.massif-title {position:absolute;left:20px;top:17px;display:flex;align-items:center;gap:8px;font:600 11px/1.5 var(--mono);letter-spacing:.1em;text-transform:uppercase;pointer-events:none}
-.massif-controls {position:absolute;inset:auto 16px 13px;display:flex;align-items:center;gap:14px;padding-top:7px;border-top:1px solid #a9c5cb66}
+.massif-controls {position:relative;margin:0 16px 12px;display:flex;align-items:center;gap:14px;padding-top:7px;border-top:1px solid #a9c5cb66}
 .massif-controls label {display:flex;gap:8px;align-items:center;color:#fff;font-size:13px;font-weight:600}
 .massif-controls label span {min-width:4ch;color:#ddfba9;font:12px var(--mono)}
 .massif-controls input {flex:1;min-width:45px;height:36px;margin:0;accent-color:#ddfba9;cursor:pointer}

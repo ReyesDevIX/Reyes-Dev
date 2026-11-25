@@ -42,3 +42,9 @@ Abre la dirección que Vite indique como **Local**. Desde la portada puedes entr
 | `npm run preview` | Sirve la última compilación para revisarla en el navegador. |
 
 El repositorio incluye la [configuración de Vercel](./vercel.json) con el comando de compilación, la carpeta de salida y la redirección necesaria para recargar las rutas internas.
+
+## Dirección artística y validación
+
+El rediseño utiliza la composición fotográfica *Cinema frame*, la paleta *Stone and blueprint* y Hanken Grotesk. La skill oficial está instalada en [.agents/skills/design-taste-frontend](./.agents/skills/design-taste-frontend/SKILL.md) y su revisión está fijada en `skills-lock.json`. La compilación importa el módulo de revelado fotográfico desde esa carpeta.
+
+[Informe del rediseño](./.taste-skill/INFORME.md) · [Capturas originales](./.taste-skill/before/) · [Capturas finales](./.taste-skill/continuacion/)

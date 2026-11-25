@@ -1,16 +1,57 @@
 import { useEffect } from 'react';
-import { Github, Youtube } from 'lucide-react';
+import { Download, Github, Youtube } from 'lucide-react';
 import { profile } from '../data/cv';
 import { ContactEmail } from '../components/ContactEmail';
+import { AlpineLandscape } from '../components/AlpineLandscape';
 import { Hero } from '../sections/Hero';
 import { Projects } from '../sections/Projects';
 import { About } from '../sections/About';
 import { Experience } from '../sections/Experience';
 
 export const HomePage = () => {
-  useEffect(() => { document.title = 'Reyes-Dev · Ismael Reyes, desarrollador web'; }, []);
-  return <><Hero/><Projects/><About/><Experience/>
-    <section className="wrap section contact" id="contacto"><div><p className="eyebrow"><span className="line"/> Contacto</p><h2>¿Hablamos<em>?</em></h2></div>
-    <div className="actions"><ContactEmail/><a className="text-action" href={profile.github}><Github size={16}/>GitHub</a><a className="text-action" href="https://www.youtube.com/@Reyes-Dev"><Youtube size={17}/>YouTube</a></div></section>
-  </>;
+  useEffect(() => {
+    document.title = 'Reyes-Dev · Ismael Reyes, desarrollador web';
+  }, []);
+  return (
+    <>
+      <Hero />
+      <Projects />
+      <About />
+      <section className="wrap section relief" id="relieve">
+        <div>
+          <p className="eyebrow">Estudio interactivo</p>
+          <h2 className="section-title">Relieve alpino.</h2>
+          <p>
+            Arrastra el terreno o utiliza el control de giro para recorrer sus
+            crestas.
+          </p>
+        </div>
+        <AlpineLandscape />
+      </section>
+      <Experience />
+      <section className="contact" id="contacto">
+        <div className="wrap section">
+          <h2>
+            <span>¿Hablamos?</span>
+          </h2>
+          <p className="contact-lead">Busco mi próxima oportunidad en desarrollo web. Si estás incorporando a alguien junior, ofreces prácticas o tienes una web en mente, cuéntame qué necesitas.</p>
+          <div className="actions">
+            <ContactEmail />
+            <a className="text-action" href="/CV-Ismael-Reyes.pdf" download><Download size={16} /> Descargar CV</a>
+            <a className="text-action" href={profile.github}>
+              <Github size={16} />
+              GitHub
+            </a>
+            <a
+              className="text-action"
+              href="https://www.youtube.com/@Reyes-Dev"
+            >
+              <Youtube size={17} />
+              YouTube
+            </a>
+          </div>
+        </div>
+      </section>
+    </>
+  );
 };

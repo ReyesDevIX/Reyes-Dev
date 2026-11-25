@@ -1,0 +1,54 @@
+
+perf dist/index.html @ 1440px
+  PASS  host CPU load (before/after)               18/19 %
+  PASS  total transfer                             361.8 KiB      html 0.8K  css 4.6K  js 139.1K  font 34.1K  img 182.1K  other 1.2K
+  PASS  requests                                   9              7 by load
+  PASS  images bytes                               182.1 KiB      2 files
+  PASS  largest image                              162.3 KiB      127.0.0.1:5740/cumbre.webp
+  PASS  JS parsed                                  404.3 KiB      2 files, 139.1K gz
+  PASS  CSS                                        4.6 KiB        1 files
+  PASS  font families                              1              Hanken
+  PASS  font files                                 1              34.1K
+  PASS  font bytes                                 34.1 KiB
+  PASS  images without width+height                0
+  PASS  below-fold images not lazy                 0
+  PASS  oversized images (natural > 2.2x shown)    0
+  PASS  WebGL live at load                         0
+  PASS  WebGL live at bottom                       0
+  PASS  WebGL peak live                            0              0 contexts made in all
+  PASS  long tasks                                 1              runs 3, 1..2, max 142ms
+  PASS  blocking time                              85 ms          runs 3, 66..92 ms; at load 85ms
+  PASS  FCP (CPU, relative)                        256 ms         runs 3, 224..280
+  PASS  LCP (CPU, relative)                        308 ms         runs 3, 264..336, img
+  PASS  layout shift                               0.004          runs 3, 0.004..0.004; at load 0.004
+  PASS  modules loaded, never mounted              0
+  PASS  broken requests                            0
+  PASS  page height                                7.1 screens    DOM 281 nodes
+
+perf dist/index.html @ 390px
+  PASS  host CPU load (before/after)               18/19 %
+  PASS  total transfer                             219.2 KiB      html 0.8K  css 4.6K  js 139.1K  font 34.1K  img 39.9K  other 0.8K
+  PASS  requests                                   8              6 by load
+  PASS  images bytes                               39.9 KiB       2 files
+  PASS  largest image                              29.9 KiB       127.0.0.1:5740/cumbre-mobile.webp
+  PASS  JS parsed                                  404.3 KiB      2 files, 139.1K gz
+  PASS  CSS                                        4.6 KiB        1 files
+  PASS  font families                              1              Hanken
+  PASS  font files                                 1              34.1K
+  PASS  font bytes                                 34.1 KiB
+  PASS  images without width+height                0
+  PASS  below-fold images not lazy                 0
+  PASS  oversized images (natural > 2.2x shown)    0
+  PASS  WebGL live at load                         0
+  PASS  WebGL live at bottom                       0
+  PASS  WebGL peak live                            0              0 contexts made in all
+  PASS  long tasks                                 1              runs 3, 1..1, max 133ms
+  PASS  blocking time                              74 ms          runs 3, 53..83 ms; at load 74ms
+  PASS  FCP (CPU, relative)                        204 ms         runs 3, 176..220
+  PASS  LCP (CPU, relative)                        224 ms         runs 3, 192..244, img
+  PASS  layout shift                               0.000          runs 3, 0.000..0.000; at load 0.000
+  PASS  modules loaded, never mounted              0
+  PASS  broken requests                            0
+  PASS  page height                                7.3 screens    DOM 280 nodes
+
+SUMMARY dist/index.html: 0 FAIL, 0 WARN  -> PASS

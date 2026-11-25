@@ -1,0 +1,3 @@
+
+== .taste-skill/continuacion/renderizado.html  (681 words)  0 FAIL, 0 WARN
+  INFO copy-rhythm          35 sentences, mean 16.9 words, spread 11.6, 11% of 4 words or fewer

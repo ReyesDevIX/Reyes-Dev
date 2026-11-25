@@ -16,7 +16,11 @@ export const ProjectPage = () => {
   return <article className="wrap section detail"><Link className="text-action" to="/#proyectos"><ArrowLeft size={16}/> Volver a proyectos</Link>
     <p className="eyebrow">{project.category} / {project.status}</p><h1>{project.title}<em>.</em></h1>
     <p className="body-lead">{project.description}</p><Board/>
-    <div className="history"><div><h2>Desarrollo del proyecto</h2><ul>{project.highlights.map(point => <li key={point}>{point}</li>)}</ul></div><div><h2>Tecnologías</h2><div className="tags">{project.stack.map(item => <span key={item}>{item}</span>)}</div></div></div>
+    <div className="case-notes">
+      {project.sections.map(section => <section key={section.title}><h2>{section.title}</h2><p>{section.text}</p></section>)}
+    </div>
+    <h2 className="case-stack">Tecnologías del proyecto</h2>
+    <ul className="tags case-tags">{project.stack.map(item => <li key={item}>{item}</li>)}</ul>
     <a className="pill" href={project.link}>{project.linkText} <ArrowUpRight size={16}/></a>
   </article>;
 };

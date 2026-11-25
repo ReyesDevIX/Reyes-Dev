@@ -1,0 +1,14 @@
+Viewport 320 sin desbordamiento; pin 0
+Viewport 390 sin desbordamiento; pin 0
+390 px / CPU 4x { fcp: 308, transfer: 495338 }
+Viewport 768 sin desbordamiento; pin 0
+Viewport 1024 sin desbordamiento; pin 1
+Viewport 1440 sin desbordamiento; pin 1
+Matrices [
+  'matrix(0.808398, -0.262664, 0.262664, 0.808398, 0, 0)',
+  'matrix(1.04542, -0.0865429, 0.0865429, 1.04542, 0, 0)',
+  'matrix(1.12, 0, 0, 1.12, 0, 0)'
+]
+Contraste de contacto 7.65:1
+Ficha, atrás, redimensionado, acordeón, relieve, correo y descarga PDF correctos
+Cero errores de consola

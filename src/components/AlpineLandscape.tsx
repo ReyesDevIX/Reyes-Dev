@@ -1,5 +1,5 @@
 import { useLayoutEffect, useRef, useState, type PointerEvent } from 'react';
-import { RotateCcw, MountainSnow } from 'lucide-react';
+import { RotateCcw } from 'lucide-react';
 import { createTerrain, drawTerrain } from './terrain';
 
 const initialAngle = 28;
@@ -55,7 +55,6 @@ export const AlpineLandscape = () => {
     if(start?.id===event.pointerId) rotate(start.angle+(event.clientX-start.x)*.65);
   };
   return <figure className="massif">
-    <span className="massif-title"><MountainSnow size={17} aria-hidden="true"/> Relieve alpino</span>
     {available ? <>
       <canvas ref={canvas} role="img" aria-label="Maqueta tridimensional de un macizo con crestas nevadas y estratos de roca"
         onPointerDown={startDrag} onPointerMove={moveDrag} onLostPointerCapture={()=>{drag.current=null;}}/>
@@ -64,6 +63,6 @@ export const AlpineLandscape = () => {
         <input id="mountain-angle" type="range" min="0" max="359" value={angle} aria-valuetext={angle+' grados'} onChange={event=>rotate(Number(event.target.value))}/>
         <button type="button" onClick={()=>rotate(initialAngle)} aria-label="Restablecer vista de la montaña" title="Restablecer vista"><RotateCcw size={17}/></button>
       </figcaption>
-    </> : <img className="massif-fallback" src="/cumbre.jpg" alt="Cumbre alpina entre nubes"/>}
+    </> : <img className="massif-fallback" src="/cumbre.webp" alt="Cumbre alpina entre nubes"/>}
   </figure>;
 };
