@@ -203,3 +203,17 @@ summary:hover { text-decoration: underline; text-underline-offset: .2em; }
 .portfolio-case .feature-copy {min-width:0}
 .portfolio-case h3 {font-size:clamp(2.4rem,4.6vw,5rem);overflow-wrap:anywhere}
 .tech-tip:not(.visible){max-width:0;padding:0;overflow:hidden}
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .hero-letter { -webkit-text-stroke: 1px var(--ink); transition: color .18s ease; }
+  .hero-letter:hover { color: transparent; }
+  .board-frame, .case-poster, .pill { position: relative; }
+  .board-frame::after, .case-poster::after {
+    content: ''; position: absolute; inset: 0; pointer-events: none;
+    background: radial-gradient(ellipse at var(--shine-x,50%) var(--shine-y,50%), color-mix(in srgb,var(--art) 32%,transparent), transparent 62%);
+    opacity: 0; transition: opacity .25s ease;
+  }
+  .board-frame:hover::after, .case-poster:hover::after { opacity: 1; }
+  .pill::before { content: ''; position: absolute; inset: -5px; }
+  .pill { transition-property: background-color,color; }
+}
+.work-heading h2 .heading-glyph { color: inherit; }
