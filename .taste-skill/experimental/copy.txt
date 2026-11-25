@@ -1,0 +1,3 @@
+
+== .taste-skill/experimental/renderizado.html  (631 words)  0 FAIL, 0 WARN
+  INFO copy-rhythm          32 sentences, mean 17.0 words, spread 12.1, 9% of 4 words or fewer

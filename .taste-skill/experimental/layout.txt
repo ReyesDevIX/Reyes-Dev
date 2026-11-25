@@ -1,0 +1,121 @@
+
+1440x900  lines x 64.8 and 1375.2, nav 0px, one screen 900px
+  hero 835 tall; h1 201.6px/0.84, 1 lines, 1310x169 at 65,182; lead -; buttons -; visual -
+  section #inicio section.wrap.hero "Diseño de interfaces / FrontendE" y    65  h   835  content 745
+  section #proyectos section.project-scene "Proyectos.Proyecto colabor y   900  h  1950  content 1711
+  section #sobre-mi section.wrap.section "PerfilSobre mí.Estudio 2.º d y  2850  h  1258  content 1028
+  section #experiencia section.paper "Trayectoria.ExperienciaSerendipi y  4108  h   738  content 682
+  section #contacto section.contact "¿Hablamos?Busco mi próxima oport" y  4846  h   640  content 409
+  edge-left        #proyectos div.feature-copy "Portfolio personalReyes DevConst": starts at x 894.8; the lines are 64.8 and the column starts
+  edge-left        #proyectos p.eyebrow "Portfolio personal": starts at x 894.8; the lines are 64.8 and the column starts
+  edge-left        #proyectos h3 "Reyes Dev": starts at x 894.8; the lines are 64.8 and the column starts
+  edge-left        #proyectos p "Construí este portfolio como una": starts at x 894.8; the lines are 64.8 and the column starts
+  edge-left        #proyectos p.stack-line "React / TypeScript / Vite / GSAP": starts at x 894.8; the lines are 64.8 and the column starts
+  edge-left        #sobre-mi p.eyebrow "Perfil": starts at x 596.8; the lines are 64.8 and the column starts
+  edge-left        #sobre-mi h2.section-title "Sobre mí.": starts at x 596.8; the lines are 64.8 and the column starts
+  edge-left        #sobre-mi p.body-lead "Estudio 2.º de Desarrollo de Apl": starts at x 596.8; the lines are 64.8 and the column starts
+  edge-left        #experiencia h3 "Formación": starts at x 763.2; the lines are 64.8 and the column starts
+  edge-left        #experiencia p "IES Poeta Paco Mollà · Grado Sup": starts at x 763.2; the lines are 64.8 and the column starts
+  edge-left        #experiencia p "IES Poeta Paco Mollà · Grado Med": starts at x 763.2; the lines are 64.8 and the column starts
+  screen-short     #inicio section.wrap.hero "Diseño de interfaces / FrontendE": 835px tall; one screen under the nav is 900px
+  screen-height    #proyectos section.project-scene "Proyectos.Proyecto colaborativo ": 1950px, 2.17 screens; a section is exactly one or two (--h)
+  screen-height    #sobre-mi section.wrap.section "PerfilSobre mí.Estudio 2.º de De": 1258px, 1.40 screens; a section is exactly one or two (--h)
+  screen-short     #experiencia section.paper "Trayectoria.ExperienciaSerendipi": 738px tall; one screen under the nav is 900px
+  screen-height    #experiencia section.paper "Trayectoria.ExperienciaSerendipi": 738px, 0.82 screens; a section is exactly one or two (--h)
+  neighbour        #experiencia section.paper "Trayectoria.ExperienciaSerendipi": framed, 47px of #contacto section.contact "¿Hablamos?Busco mi próxima oport" shows
+  screen-short     #contacto section.contact "¿Hablamos?Busco mi próxima oport": 640px tall; one screen under the nav is 900px
+  screen-height    #contacto section.contact "¿Hablamos?Busco mi próxima oport": 640px, 0.71 screens; a section is exactly one or two (--h)
+  neighbour        #contacto section.contact "¿Hablamos?Busco mi próxima oport": framed, 38px of #experiencia section.paper "Trayectoria.ExperienciaSerendipi" shows
+  neighbour        #contacto section.contact "¿Hablamos?Busco mi próxima oport": framed, 76px of the footer shows
+  hero-fold        #inicio section.wrap.hero "Diseño de interfaces / FrontendE": starts at y 65, not under the nav
+
+1024x768  lines x 46.1 and 977.9, nav 0px, one screen 768px
+  hero 703 tall; h1 143.36px/0.84, 1 lines, 932x120 at 46,172; lead -; buttons -; visual -
+  section #inicio section.wrap.hero "Diseño de interfaces / FrontendE" y    65  h   703  content 632
+  section #proyectos section.project-scene "Proyectos.Proyecto colabor y   768  h  1477  content 1349
+  section #sobre-mi section.wrap.section "PerfilSobre mí.Estudio 2.º d y  2245  h  1114  content 950
+  section #experiencia section.paper "Trayectoria.ExperienciaSerendipi y  3359  h   626  content 630
+  section #contacto section.contact "¿Hablamos?Busco mi próxima oport" y  3985  h   482  content 318
+  edge-left        #proyectos div.feature-copy "Portfolio personalReyes DevConst": starts at x 636.3; the lines are 46.1 and the column starts
+  edge-left        #proyectos p.eyebrow "Portfolio personal": starts at x 636.3; the lines are 46.1 and the column starts
+  edge-left        #proyectos h3 "Reyes Dev": starts at x 636.3; the lines are 46.1 and the column starts
+  edge-left        #proyectos p "Construí este portfolio como una": starts at x 636.3; the lines are 46.1 and the column starts
+  edge-left        #proyectos p.stack-line "React / TypeScript / Vite / GSAP": starts at x 636.3; the lines are 46.1 and the column starts
+  edge-left        #sobre-mi p.eyebrow "Perfil": starts at x 424.4; the lines are 46.1 and the column starts
+  edge-left        #sobre-mi h2.section-title "Sobre mí.": starts at x 424.4; the lines are 46.1 and the column starts
+  edge-left        #sobre-mi p.body-lead "Estudio 2.º de Desarrollo de Apl": starts at x 424.4; the lines are 46.1 and the column starts
+  edge-left        #experiencia h3 "Formación": starts at x 542.7; the lines are 46.1 and the column starts
+  edge-left        #experiencia p "IES Poeta Paco Mollà · Grado Sup": starts at x 542.7; the lines are 46.1 and the column starts
+  edge-left        #experiencia p "IES Poeta Paco Mollà · Grado Med": starts at x 542.7; the lines are 46.1 and the column starts
+  screen-short     #inicio section.wrap.hero "Diseño de interfaces / FrontendE": 703px tall; one screen under the nav is 768px
+  screen-short     #experiencia section.paper "Trayectoria.ExperienciaSerendipi": 626px tall; one screen under the nav is 768px
+  neighbour        #experiencia section.paper "Trayectoria.ExperienciaSerendipi": framed, 60px of #contacto section.contact "¿Hablamos?Busco mi próxima oport" shows
+  screen-short     #contacto section.contact "¿Hablamos?Busco mi próxima oport": 482px tall; one screen under the nav is 768px
+  neighbour        #contacto section.contact "¿Hablamos?Busco mi próxima oport": framed, 44px of #experiencia section.paper "Trayectoria.ExperienciaSerendipi" shows
+  neighbour        #contacto section.contact "¿Hablamos?Busco mi próxima oport": framed, 76px of the footer shows
+  hero-fold        #inicio section.wrap.hero "Diseño de interfaces / FrontendE": starts at y 65, not under the nav
+
+768x1024  lines x 34.6 and 733.4, nav 0px, one screen 1024px
+  hero 959 tall; h1 109.056px/0.84, 1 lines, 699x92 at 35,190; lead -; buttons -; visual -
+  section #inicio section.wrap.hero "Diseño de interfaces / FrontendE" y    65  h   959  content 901
+  section #proyectos section.project-scene "Proyectos.Proyecto colabor y  1024  h  1090  content 994
+  section #sobre-mi section.wrap.section "PerfilSobre mí.Estudio 2.º d y  2114  h  1129  content 1001
+  section #experiencia section.paper "Trayectoria.ExperienciaSerendipi y  3244  h   560  content 672
+  section #contacto section.contact "¿Hablamos?Busco mi próxima oport" y  3804  h   405  content 277
+  edge-left        #proyectos div.feature-copy "Portfolio personalReyes DevConst": starts at x 474.5; the lines are 34.6 and the column starts
+  edge-left        #proyectos p.eyebrow "Portfolio personal": starts at x 474.5; the lines are 34.6 and the column starts
+  edge-left        #proyectos h3 "Reyes Dev": starts at x 474.5; the lines are 34.6 and the column starts
+  edge-left        #proyectos p "Construí este portfolio como una": starts at x 474.5; the lines are 34.6 and the column starts
+  edge-left        #proyectos p.stack-line "React / TypeScript / Vite / GSAP": starts at x 474.5; the lines are 34.6 and the column starts
+  edge-left        #sobre-mi p.eyebrow "Perfil": starts at x 318.3; the lines are 34.6 and the column starts
+  edge-left        #sobre-mi h2.section-title "Sobre mí.": starts at x 318.3; the lines are 34.6 and the column starts
+  edge-left        #sobre-mi p.body-lead "Estudio 2.º de Desarrollo de Apl": starts at x 318.3; the lines are 34.6 and the column starts
+  edge-left        #experiencia h3 "Formación": starts at x 407; the lines are 34.6 and the column starts
+  edge-left        #experiencia p "IES Poeta Paco Mollà · Grado Sup": starts at x 407; the lines are 34.6 and the column starts
+  edge-left        #experiencia p "IES Poeta Paco Mollà · Grado Med": starts at x 407; the lines are 34.6 and the column starts
+  screen-short     #inicio section.wrap.hero "Diseño de interfaces / FrontendE": 959px tall; one screen under the nav is 1024px
+  screen-short     #experiencia section.paper "Trayectoria.ExperienciaSerendipi": 560px tall; one screen under the nav is 1024px
+  neighbour        #experiencia section.paper "Trayectoria.ExperienciaSerendipi": framed, 124px of #contacto section.contact "¿Hablamos?Busco mi próxima oport" shows
+  neighbour        #experiencia section.paper "Trayectoria.ExperienciaSerendipi": framed, 59px of the footer shows
+  screen-short     #contacto section.contact "¿Hablamos?Busco mi próxima oport": 405px tall; one screen under the nav is 1024px
+  neighbour        #contacto section.contact "¿Hablamos?Busco mi próxima oport": framed, 102px of #experiencia section.paper "Trayectoria.ExperienciaSerendipi" shows
+  neighbour        #contacto section.contact "¿Hablamos?Busco mi próxima oport": framed, 76px of the footer shows
+  hero-fold        #inicio section.wrap.hero "Diseño de interfaces / FrontendE": starts at y 65, not under the nav
+
+390x844  lines x 17.5 and 372.4, nav 0px, one screen 844px
+  hero 601 tall; h1 74.1px/0.84, 2 lines, 355x130 at 18,136; lead -; buttons -; visual -
+  section #inicio section.wrap.hero "Diseño de interfaces / FrontendE" y    61  h   601  content 423
+  section #proyectos section.project-scene "Proyectos.Proyecto colabor y   662  h  1352  content 1208
+  section #sobre-mi section.wrap.section "PerfilSobre mí.Estudio 2.º d y  2014  h  1836  content 1708
+  section #experiencia section.paper "Trayectoria.ExperienciaSerendipi y  3850  h   886  content 955
+  section #contacto section.contact "¿Hablamos?Busco mi próxima oport" y  4736  h   469  content 341
+  screen-short     #inicio section.wrap.hero "Diseño de interfaces / FrontendE": 601px tall; one screen under the nav is 844px
+  neighbour        #inicio section.wrap.hero "Diseño de interfaces / FrontendE": framed, 73px of #proyectos section.project-scene "Proyectos.Proyecto colaborativo " shows
+  neighbour        #proyectos section.project-scene "Proyectos.Proyecto colaborativo ": framed, 164px of #sobre-mi section.wrap.section "PerfilSobre mí.Estudio 2.º de De" shows
+  screen-height    #sobre-mi section.wrap.section "PerfilSobre mí.Estudio 2.º de De": 1836px, 2.18 screens; a section is exactly one or two (--h), or on a phone at least one that its content fills
+  screen-short     #contacto section.contact "¿Hablamos?Busco mi próxima oport": 469px tall; one screen under the nav is 844px
+  screen-height    #contacto section.contact "¿Hablamos?Busco mi próxima oport": 469px, 0.56 screens; a section is exactly one or two (--h), or on a phone at least one that its content fills
+  neighbour        #contacto section.contact "¿Hablamos?Busco mi próxima oport": framed, 77px of #experiencia section.paper "Trayectoria.ExperienciaSerendipi" shows
+  neighbour        #contacto section.contact "¿Hablamos?Busco mi próxima oport": framed, 128px of the footer shows
+  hero-fold        #inicio section.wrap.hero "Diseño de interfaces / FrontendE": starts at y 61, not under the nav
+  hero-fold        #inicio section.wrap.hero "Diseño de interfaces / FrontendE": ends at y 662, above the fold (844)
+  hero-fold        #proyectos section.project-scene "Proyectos.Proyecto colaborativo ": shows on the first screen from y 704
+
+320x640  lines x 14.4 and 305.6, nav 0px, one screen 640px
+  hero 573 tall; h1 68.8px/0.84, 2 lines, 291x121 at 14,136; lead -; buttons -; visual -
+  section #inicio section.wrap.hero "Diseño de interfaces / FrontendE" y    61  h   573  content 433
+  section #proyectos section.project-scene "Proyectos.Proyecto colabor y   634  h  1444  content 1301
+  section #sobre-mi section.wrap.section "PerfilSobre mí.Estudio 2.º d y  2078  h  1936  content 1808
+  section #experiencia section.paper "Trayectoria.ExperienciaSerendipi y  4014  h   962  content 1057
+  section #contacto section.contact "¿Hablamos?Busco mi próxima oport" y  4976  h   460  content 332
+  screen-short     #inicio section.wrap.hero "Diseño de interfaces / FrontendE": 573px tall; one screen under the nav is 640px
+  neighbour-ground #inicio section.wrap.hero "Diseño de interfaces / FrontendE": framed, 6px of #proyectos section.project-scene "Proyectos.Proyecto colaborativo "'s ground shows
+  screen-height    #proyectos section.project-scene "Proyectos.Proyecto colaborativo ": 1444px, 2.26 screens; a section is exactly one or two (--h), or on a phone at least one that its content fills
+  screen-height    #sobre-mi section.wrap.section "PerfilSobre mí.Estudio 2.º de De": 1936px, 3.02 screens; a section is exactly one or two (--h), or on a phone at least one that its content fills
+  neighbour        #experiencia section.paper "Trayectoria.ExperienciaSerendipi": framed, 138px of #contacto section.contact "¿Hablamos?Busco mi próxima oport" shows
+  screen-short     #contacto section.contact "¿Hablamos?Busco mi próxima oport": 460px tall; one screen under the nav is 640px
+  screen-height    #contacto section.contact "¿Hablamos?Busco mi próxima oport": 460px, 0.72 screens; a section is exactly one or two (--h), or on a phone at least one that its content fills
+  neighbour        #contacto section.contact "¿Hablamos?Busco mi próxima oport": framed, 102px of #experiencia section.paper "Trayectoria.ExperienciaSerendipi" shows
+  neighbour        #contacto section.contact "¿Hablamos?Busco mi próxima oport": framed, 128px of the footer shows
+  hero-fold        #inicio section.wrap.hero "Diseño de interfaces / FrontendE": starts at y 61, not under the nav
+  hero-fold        #inicio section.wrap.hero "Diseño de interfaces / FrontendE": ends at y 634, above the fold (640)

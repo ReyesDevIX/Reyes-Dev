@@ -1,0 +1,13 @@
+320 px, sin desbordamiento, CTA visible, pin 0 entrada inicial matrix(1, 0.0874887, 0, 1, 0, 67.6041)
+390 px, sin desbordamiento, CTA visible, pin 0 entrada inicial matrix(1, 0.0396013, 0, 1, 0, 33.0257)
+Móvil, CPU 4x { fcp: 68 }
+768 px, sin desbordamiento, CTA visible, pin 0 entrada inicial matrix(1, 0.0371402, 0, 1, 0, 45.5963)
+1024 px, sin desbordamiento, CTA visible, pin 1 entrada inicial matrix(1, 0.039811, 0, 1, 0, 64.2431)
+1440 px, sin desbordamiento, CTA visible, pin 1 entrada inicial matrix(1, 0.0379477, 0, 1, 0, 86.1084)
+Destinos https://github.com/ReyesDevIX/Reyes-Dev https://joseda.education/ https://vinalopoparquesinfantiles.es/ https://github.com/ReyesDevIX https://www.youtube.com/@Reyes-Dev
+Escenas, historial de ruta, foco, correo y descarga verificados [
+  'matrix(0.717994, -0.30477, 0.30477, 0.717994, 0, 0)',
+  'matrix(0.899408, -0.185309, 0.185309, 0.899408, 0, 0)',
+  'matrix(1.06, 0, 0, 1.06, 0, 0)'
+]
+Cero errores de consola y portada básica visible sin JS.

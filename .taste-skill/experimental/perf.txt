@@ -1,0 +1,54 @@
+
+perf dist/index.html @ 1440px
+  PASS  host CPU load (before/after)               23/16 %
+  PASS  total transfer                             193.6 KiB      html 0.8K  css 3.7K  js 133.9K  font 34.1K  img 19.7K  other 1.2K
+  PASS  requests                                   7              5 by load
+  PASS  images bytes                               19.7 KiB       1 files
+  PASS  largest image                              19.7 KiB       127.0.0.1:5740/perfil.webp
+  PASS  JS parsed                                  392.2 KiB      1 files, 133.9K gz
+  PASS  CSS                                        3.7 KiB        1 files
+  PASS  font families                              1              Hanken
+  PASS  font files                                 1              34.1K
+  PASS  font bytes                                 34.1 KiB
+  PASS  images without width+height                0
+  PASS  below-fold images not lazy                 0
+  PASS  oversized images (natural > 2.2x shown)    0
+  PASS  WebGL live at load                         0
+  PASS  WebGL live at bottom                       0
+  PASS  WebGL peak live                            0              0 contexts made in all
+  PASS  long tasks                                 1              runs 3, 0..1, max 59ms
+  PASS  blocking time                              0 ms           runs 3, 0..9 ms; at load 0ms
+  PASS  FCP (CPU, relative)                        40 ms          runs 3, 40..56
+  PASS  LCP (CPU, relative)                        136 ms         runs 3, 132..176, p.lead
+  PASS  layout shift                               0.000          runs 3, 0.000..0.000; at load 0.000
+  PASS  modules loaded, never mounted              0
+  PASS  broken requests                            0
+  PASS  page height                                6.2 screens    DOM 260 nodes
+
+perf dist/index.html @ 390px
+  PASS  host CPU load (before/after)               23/16 %
+  PASS  total transfer                             183.5 KiB      html 0.8K  css 3.7K  js 133.9K  font 34.1K  img 10K  other 0.8K
+  PASS  requests                                   6              4 by load
+  PASS  images bytes                               10 KiB         1 files
+  PASS  largest image                              10 KiB         127.0.0.1:5740/perfil-mobile.webp
+  PASS  JS parsed                                  392.2 KiB      1 files, 133.9K gz
+  PASS  CSS                                        3.7 KiB        1 files
+  PASS  font families                              1              Hanken
+  PASS  font files                                 1              34.1K
+  PASS  font bytes                                 34.1 KiB
+  PASS  images without width+height                0
+  PASS  below-fold images not lazy                 0
+  PASS  oversized images (natural > 2.2x shown)    0
+  PASS  WebGL live at load                         0
+  PASS  WebGL live at bottom                       0
+  PASS  WebGL peak live                            0              0 contexts made in all
+  PASS  long tasks                                 1              runs 3, 1..1, max 61ms
+  PASS  blocking time                              9 ms           runs 3, 9..11 ms; at load 9ms
+  PASS  FCP (CPU, relative)                        44 ms          runs 3, 40..44
+  PASS  LCP (CPU, relative)                        140 ms         runs 3, 140..148, p.hero-summary
+  PASS  layout shift                               0.000          runs 3, 0.000..0.000; at load 0.000
+  PASS  modules loaded, never mounted              0
+  PASS  broken requests                            0
+  PASS  page height                                6.3 screens    DOM 259 nodes
+
+SUMMARY dist/index.html: 0 FAIL, 0 WARN  -> PASS
