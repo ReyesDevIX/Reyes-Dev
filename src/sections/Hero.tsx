@@ -1,4 +1,4 @@
-import { ArrowDown, Download, Maximize } from 'lucide-react';
+import { ArrowDown, Maximize } from 'lucide-react';
 import { profile } from '../data/cv';
 
 export const Hero = () => (
@@ -32,13 +32,14 @@ export const Hero = () => (
             </span>
           </span>
         </h1>
-        <p className="lead">{profile.role}.</p>
+        <p className="lead">{profile.headline}</p>
+        <p className="hero-summary">Desarrollador web en formación. Combino diseño de interfaz y frontend para convertir una idea en una web que se pueda usar.</p>
         <div className="actions">
           <a className="pill" href="#proyectos">
-            Ver proyecto <ArrowDown size={16} />
+            Ver proyectos <ArrowDown size={16} />
           </a>
-          <a className="text-action" href="/CV-Ismael-Reyes.pdf" download>
-            <Download size={16} /> Descargar CV
+          <a className="text-action" href="#contacto">
+            Hablemos
           </a>
         </div>
       </div>

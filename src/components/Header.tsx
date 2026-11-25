@@ -9,6 +9,7 @@ const savedTheme = () => {
 export const Header = () => {
   const [theme, setTheme] = useState(() => document.documentElement.dataset.theme || systemTheme());
   const [open, setOpen] = useState(false);
+  const nav = useRef<HTMLElement>(null);
   const toggle = useRef<HTMLButtonElement>(null);
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
@@ -19,6 +20,9 @@ export const Header = () => {
     query.addEventListener('change', sync);
     return () => query.removeEventListener('change', sync);
   }, []);
+  useEffect(() => {
+    if (open) nav.current?.querySelector('a')?.focus();
+  }, [open]);
   const switchTheme = () => {
     const next = theme === 'dark' ? 'light' : 'dark';
     setTheme(next);
@@ -28,7 +32,7 @@ export const Header = () => {
     if (open && event.key === 'Escape') { setOpen(false); toggle.current?.focus(); }
   }}><div className="wrap bar">
     <Link className="brand" to="/" onClick={() => setOpen(false)}><MountainSnow aria-hidden="true" />Reyes-Dev<span>.</span></Link>
-    <nav id="nav" className={open ? 'nav open' : 'nav'} aria-label="Navegación principal">
+    <nav ref={nav} id="nav" className={open ? 'nav open' : 'nav'} aria-label="Navegación principal">
       {[['Proyectos','proyectos'], ['Sobre mí','sobre-mi'], ['Trayectoria','experiencia'], ['Relieve','relieve']].map(([label,id]) =>
         <Link key={id} to={'/#'+id} onClick={() => setOpen(false)}>{label}</Link>)}
     </nav>

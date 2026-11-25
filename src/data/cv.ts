@@ -3,11 +3,11 @@ export const profile = {
   name: 'Ismael Reyes Pérez',
   shortName: 'Ismael Reyes',
   role: 'Desarrollador web en formación',
-  headline: 'Construyo experiencias web con intención y buen código.',
+  headline: 'Diseño interfaces y las llevo al código.',
   location: 'Elda, Alicante',
   email: 'ismaelreyeselda@gmail.com',
   github: 'https://github.com/ReyesDevIX',
-  bio: 'Soy estudiante de 2.º de Desarrollo de Aplicaciones Web, con formación previa en Sistemas Microinformáticos y Redes. Disfruto creando interfaces, resolviendo problemas reales y aprendiendo a construir aplicaciones bien estructuradas. Busco seguir creciendo dentro de un equipo de desarrollo web.',
+  bio: 'Estudio 2.º de Desarrollo de Aplicaciones Web y tengo formación previa en sistemas y redes. Me gusta pasar de una propuesta de interfaz a una web que se pueda probar. He trabajado en propuestas de diseño, catálogos y depuración de interfaces, y ahora sigo aprendiendo a desarrollar en equipo.',
 };
 
 export const technologies = [
@@ -32,8 +32,13 @@ export const projects = [
     title: 'Parchís multijugador',
     category: 'Proyecto colaborativo',
     status: 'En desarrollo',
-    description: 'Juego de parchís para la web que desarrollo junto a un compañero. Organizamos el proyecto en un monorepo con cliente, servidor y reglas compartidas.',
-    highlights: ['Interfaz inicial mediante pull request y GitHub Flow', 'Arquitectura compartida y preparación de la experiencia multijugador'],
+    description: 'Un proyecto colaborativo para llevar el parchís al navegador. Mi aportación se centró en la interfaz inicial y en el flujo para crear una sala o unirse con un código.',
+    sections: [
+      { title: 'Qué queríamos resolver', text: 'Reunir a un grupo de amigos en una partida desde el navegador, con un código de invitación y sin registro.' },
+      { title: 'Diseño de interfaz', text: 'Separé el acceso y la sala de espera en dos pantallas. La primera ofrece crear una sala o entrar con un código. La segunda destaca el código y distingue al anfitrión de los demás jugadores.' },
+      { title: 'Desarrollo y colaboración', text: 'Preparé la interfaz inicial mediante una pull request. El monorepo separa el cliente, el servidor y las reglas para que el equipo pueda trabajar en cada parte. Express y Socket.IO forman parte de la arquitectura prevista.' },
+      { title: 'Estado actual', text: 'El cliente permite recorrer el flujo de acceso y probar una sala con jugadores simulados. El multijugador en tiempo real sigue en desarrollo.' },
+    ],
     stack: ['JavaScript', 'Vite', 'Node.js', 'Express', 'Socket.IO', 'SVG'],
     link: 'https://github.com/ReyesDevIX/Parchis',
     linkText: 'Ver repositorio',
@@ -95,4 +100,3 @@ export const courses = [
   { title: 'Prompting responsable: maximiza la IA en tu negocio', provider: 'Santander Open Academy · Microsoft · Founderz', detail: 'Mayo 2025 · 8 h' },
   { title: 'Google: Inteligencia Artificial y productividad', provider: 'Santander Open Academy · Google', detail: 'Mayo 2025 · 2 h' },
 ] as const;
-

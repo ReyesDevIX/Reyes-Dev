@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Github, Youtube } from 'lucide-react';
+import { Download, Github, Youtube } from 'lucide-react';
 import { profile } from '../data/cv';
 import { ContactEmail } from '../components/ContactEmail';
 import { AlpineLandscape } from '../components/AlpineLandscape';
@@ -17,7 +17,6 @@ export const HomePage = () => {
       <Hero />
       <Projects />
       <About />
-      <Experience />
       <section className="wrap section relief" id="relieve">
         <div>
           <p className="eyebrow">Estudio interactivo</p>
@@ -29,14 +28,16 @@ export const HomePage = () => {
         </div>
         <AlpineLandscape />
       </section>
+      <Experience />
       <section className="contact" id="contacto">
         <div className="wrap section">
-          <p className="eyebrow">Contacto</p>
           <h2>
             <span>¿Hablamos?</span>
           </h2>
+          <p className="contact-lead">Busco mi próxima oportunidad en desarrollo web. Si estás incorporando a alguien junior, ofreces prácticas o tienes una web en mente, cuéntame qué necesitas.</p>
           <div className="actions">
             <ContactEmail />
+            <a className="text-action" href="/CV-Ismael-Reyes.pdf" download><Download size={16} /> Descargar CV</a>
             <a className="text-action" href={profile.github}>
               <Github size={16} />
               GitHub
