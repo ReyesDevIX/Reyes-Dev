@@ -48,7 +48,14 @@ export const About = () => {
         });
       };
       reveal(root.querySelector('.about-title')!, root.querySelectorAll('.about-title span'), true);
-      reveal(root.querySelector('.about-notes')!, root.querySelectorAll('.about-note'), false);
+      const notes = root.querySelectorAll<HTMLElement>('.about-note');
+      notes.forEach((note, index) => {
+        if (note.getBoundingClientRect().top <= innerHeight * .82) return;
+        gsap.from(note, { y: 18, opacity: 0, duration: .6, ease: 'power3.out',
+          delay: matchMedia('(min-width: 861px)').matches ? index * .09 : 0,
+          clearProps: 'transform,opacity',
+          scrollTrigger: { trigger: note, start: 'top 82%', once: true } });
+      });
     });
     media.add('(min-width: 641px) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference)', () => {
       const controller = new AbortController();
@@ -94,10 +101,11 @@ export const About = () => {
       <Presentation />
     </div>
     <div className="about-notes">
+      <span className="profile-wire" aria-hidden="true" />
       {['Cómo trabajo', 'Aprendizaje', 'Idiomas'].map((title, index) =>
         <article className="about-note" key={title}><div className="about-panel">
           <h3>{title}</h3>
-          {index === 2 ? languages.map(lang => <p key={lang.name}><strong>{lang.name}</strong> · {lang.level}</p>) :
+          {index === 2 ? languages.map(lang => <p key={lang.name}><strong>{lang.name}</strong> <span>{lang.level}</span></p>) :
             softSkills.filter(skill => (skill.title === 'Aprendizaje continuo') === (index === 1)).map(skill =>
               <p key={skill.title}><strong>{skill.title}.</strong> {skill.description}</p>)}
         </div></article>)}
