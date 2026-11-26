@@ -87,6 +87,6 @@ export const languages = [
 ] as const;
 
 export const courses = [
-  { title: 'Prompting responsable: maximiza la IA en tu negocio', provider: 'Santander Open Academy · Microsoft · Founderz', detail: 'Mayo 2025 · 8 h' },
-  { title: 'Google: Inteligencia Artificial y productividad', provider: 'Santander Open Academy · Google', detail: 'Mayo 2025 · 2 h' },
+  { title: 'Prompting responsable: maximiza la IA en tu negocio', provider: 'Santander Open Academy · Microsoft · Founderz', detail: 'Mayo 2025 · 8 h', diploma: 'https://drive.google.com/file/d/1UAd0gDzWryja67IStbVL3QTxpNoZ66Bx/view?usp=sharing' },
+  { title: 'Google: Inteligencia Artificial y productividad', provider: 'Santander Open Academy · Google', detail: 'Mayo 2025 · 2 h', diploma: 'https://drive.google.com/file/d/16UOQChZ4sbbBMmKDUfP4GWhaWsXSU59Q/view?usp=sharing' },
 ] as const;

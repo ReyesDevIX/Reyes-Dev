@@ -1,3 +1,4 @@
+import { FileBadge } from 'lucide-react';
 import { useRef } from 'react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
@@ -39,7 +40,7 @@ export function Experience() {
       {education.map(item => <article className="milestone" key={item.degree}><small>{item.period}</small>
         <div><h4>{item.degree}</h4><p>{item.school} · {item.level}</p></div></article>)}
       <details><summary>Formación complementaria</summary>{courses.map(course => <p key={course.title}>
-        <strong>{course.title}</strong><br />{course.provider} · {course.detail}</p>)}</details>
+        <strong>{course.title}</strong><br />{course.provider} · {course.detail}<br /><a className="diploma-link" href={course.diploma} target="_blank" rel="noopener noreferrer" aria-label={`Ver diploma: ${course.title}`}><FileBadge size={16} aria-hidden="true" /> Ver diploma</a></p>)}</details>
     </div>
   </div></section>;
 }
