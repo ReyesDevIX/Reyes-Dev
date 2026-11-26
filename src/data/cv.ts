@@ -67,14 +67,6 @@ export const experiences = [
     link: 'https://vinalopoparquesinfantiles.es/',
     linkText: 'Visitar Vinalopó Parques Infantiles',
   },
-  {
-    company: 'Vinalopó Parques Infantiles',
-    role: 'Montaje y mantenimiento',
-    period: 'Experiencia presencial',
-    description: [
-      'Colaboré en el montaje y mantenimiento de parques infantiles y en el transporte de materiales para distintos proyectos.',
-    ],
-  },
 ] as const;
 
 export const education = [

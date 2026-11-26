@@ -25,7 +25,7 @@ const keywords = /(sistemas y redes|propuesta de interfaz|depuración de interfa
 
 function Presentation() {
   return <p className="about-copy">{profile.bio.split(keywords).map((part, i) =>
-    i % 2 ? <strong key={part}>{part}</strong> : part
+    i % 2 ? <em key={part}>{part}</em> : part
   )}</p>;
 }
 export const About = () => {
