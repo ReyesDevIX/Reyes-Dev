@@ -27,9 +27,14 @@ export const ProjectPage = () => {
         scrollTrigger: { trigger: '.parchis-diagram', start: 'top 88%', once: true } });
       gsap.from('.parchis-shot img', { clipPath: 'inset(0 8% 12% 8%)', duration: .8,
         scrollTrigger: { trigger: '.parchis-shot', start: 'top 80%', once: true } });
-      page.current?.querySelectorAll('.case-notes section').forEach(section => {
-        gsap.from(section, { y: 16, opacity: .3, duration: .5,
-          scrollTrigger: { trigger: section, start: 'top 82%', once: true } });
+      gsap.from('.story-progress', { scaleY: 0, transformOrigin: 'top', ease: 'none',
+        scrollTrigger: { trigger: '.project-story', start: 'top 80%', end: 'bottom 52%', scrub: true } });
+      page.current?.querySelectorAll('.story-step').forEach((step, index) => {
+        const timeline = gsap.timeline({ defaults: { ease: 'power2.out' },
+          scrollTrigger: { trigger: step, start: 'top 82%', once: true } });
+        timeline.from(step.querySelector('.story-rule'), { scaleX: 0, duration: .6 })
+          .from(step.querySelector('.step-number'), { scale: .94, opacity: .15, duration: .55 }, 0)
+          .from(step.querySelectorAll('h2, p'), { x: index % 2 ? -10 : 10, y: 8, opacity: .15, stagger: .09, duration: .5 }, .08);
       });
     });
     return () => media.revert();
@@ -44,11 +49,20 @@ export const ProjectPage = () => {
       el.style.setProperty('--orbit', ((event.clientX - box.left) / box.width * 16 - 8) + 'deg');
     }} onPointerLeave={event => event.currentTarget.style.removeProperty('--orbit')}><Board /></div></div>
     <figure className="parchis-shot"><img src="/parchis-acceso.webp" alt="Interfaz de acceso con nombre del jugador, creación de sala y código de invitación" width="1080" height="800" loading="lazy" /><figcaption>Interfaz de acceso · Cliente web</figcaption></figure>
-    <div className="case-notes">
-      {project.sections.map(section => <section key={section.title}><h2>{section.title}</h2><p>{section.text}</p></section>)}
+    <div className="project-story">
+      <span className="story-progress" aria-hidden="true" />
+      {project.sections.map((section, index) => {
+        const words = section.title.split(' ');
+        const emphasis = words.pop();
+        return <section className="story-step" key={section.title}>
+          <span className="story-rule" aria-hidden="true" />
+          <span className="step-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+          <div className="step-copy"><h2>{words.join(' ')} <em>{emphasis}</em></h2><p>{section.text}</p></div>
+        </section>;
+      })}
     </div>
-    <h2 className="case-stack">Tecnologías del proyecto</h2>
-    <TechnologyList names={project.stack} />
-    <a className="pill" href={project.link}>{project.linkText} <ArrowUpRight size={16}/></a>
-  </article>;
+    <div className="story-tools">
+      <div><h2 className="case-stack">Tecnologías del proyecto</h2><TechnologyList names={project.stack} /></div>
+      <a className="pill repo-link" href={project.link}>{project.linkText} <ArrowUpRight size={18}/></a>
+    </div>  </article>;
 };

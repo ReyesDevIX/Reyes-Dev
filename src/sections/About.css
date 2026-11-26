@@ -13,3 +13,14 @@
 }
 @media (max-width: 760px) { .about-notes { grid-template-columns: 1fr; gap: .45rem; } }
 .about .about-title { font-weight: 760; letter-spacing: -.07em; }
+.about-float .portrait-frame { position:relative; border-radius:14px; }
+.about-float .portrait-frame::after {
+  content:''; pointer-events:none; position:absolute; inset:0; padding:2px; border-radius:inherit;
+  background:conic-gradient(from var(--portrait-phase,0deg),#12396c,#377bf2 42%,#9bd8ff 60%,#e0f7ff 62%,#418afa 65%,#12396c);
+  mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0); mask-composite:exclude;
+}
+@property --portrait-phase { syntax:'<angle>'; inherits:false; initial-value:0deg; }
+@media(prefers-reduced-motion:no-preference) {
+ .about-float .portrait-frame::after { animation:portrait-circuit 9s linear infinite; }
+ @keyframes portrait-circuit { to { --portrait-phase:360deg; } }
+}
