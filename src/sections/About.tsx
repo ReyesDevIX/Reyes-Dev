@@ -87,7 +87,7 @@ export const About = () => {
   }, { scope: section });
   return (
   <section ref={section} id="sobre-mi" className="wrap section about">
-    <ProfileImage />
+    <div className="about-float"><ProfileImage /></div>
     <div>
       <p className="eyebrow">Perfil</p>
       <div role="heading" aria-level={2} className="about-title"><span>Sobre</span>{' '}<span className="editorial-italic">mí</span></div>

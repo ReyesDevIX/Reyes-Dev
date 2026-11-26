@@ -33,13 +33,19 @@ export function MotionEnhancer({ scope }: { scope: RefObject<HTMLElement | null>
         gsap.from(copy, { y: 18, opacity: .35, duration: .65, ease: 'power2.out',
           scrollTrigger: { trigger: copy, start: 'top 82%', once: true } });
       });
+      const floatFrame = root.querySelector('.about-float');
+      if (floatFrame) {
+        const tween = gsap.to(floatFrame, { y: -21, duration: 4.5, ease: 'sine.inOut', repeat: -1, yoyo: true, paused: true });
+        ScrollTrigger.create({ trigger: floatFrame, start: 'top bottom', end: 'bottom top',
+          onToggle: self => { tween.paused(!self.isActive); } });
+      }
       const portrait = root.querySelector('.portrait-frame');
       if (portrait) gsap.from(portrait, {
         clipPath: 'inset(0 0 15% 0)', y: 12, duration: .75, ease: 'power2.out',
         scrollTrigger: { trigger: portrait, start: 'top 85%', once: true },
       });
       gsap.from('.contact-form', { opacity: .35, y: 12, duration: .55,
-        scrollTrigger: { trigger: '.contact-form', start: 'top 88%', once: true } });
+        clearProps: 'transform,opacity', scrollTrigger: { trigger: '.contact-form', start: 'top 88%', once: true } });
       const headings = [...root.querySelectorAll('h2')].map(heading => {
         const split = SplitText.create(heading, { type: 'chars', charsClass: 'heading-glyph', aria: 'auto' });
         gsap.from(split.chars, {
