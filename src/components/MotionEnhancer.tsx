@@ -15,18 +15,17 @@ export function MotionEnhancer({ scope }: { scope: RefObject<HTMLElement | null>
     media.add('(prefers-reduced-motion: no-preference)', () => {
       if (!root.querySelector('.hero')) return;
       gsap.timeline({ defaults: { ease: 'power3.out' }, scrollTrigger: { trigger: '.hero h1', start: 'top 95%', once: true } })
-        .from('.hero-word', { yPercent: 117, skewY: 5, stagger: .13, duration: .92 })
-        .from('.hero-art .signal > span', { xPercent: -100, scaleX: .2, transformOrigin: 'left center', stagger: .075, duration: .65 }, .15);
+        .from('.hero-word', { yPercent: 117, skewY: 5, stagger: .13, duration: .92 });
 
       gsap.from('.case-poster .career-shot', {
         xPercent: -36, scale: .82, clipPath: 'inset(0 100% 0 0)', duration: 1,
         scrollTrigger: { trigger: '.case-poster', start: 'top 88%', once: true },
       });
-      const signal = root.querySelector('.hero-art .signal');
-      if (signal) {
-        const float = gsap.fromTo(signal, { '--float-y': '0px' }, { '--float-y': '-6px', duration: 2.4, ease: 'sine.inOut', repeat: -1, yoyo: true, paused: true });
+      const portraitArt = root.querySelector('.hero-portrait');
+      if (portraitArt) {
+        const float = gsap.fromTo(portraitArt, { '--float-y': '0px' }, { '--float-y': '-4px', duration: 3.2, ease: 'sine.inOut', repeat: -1, yoyo: true, paused: true });
         ScrollTrigger.create({
-          trigger: signal.parentElement, start: 'top bottom', end: 'bottom top',
+          trigger: portraitArt.parentElement, start: 'top bottom', end: 'bottom top',
           onToggle: self => { float.paused(!self.isActive); },
         });
       }
@@ -63,8 +62,7 @@ export function MotionEnhancer({ scope }: { scope: RefObject<HTMLElement | null>
         defaults: { ease: 'none' },
         scrollTrigger: { trigger: '.hero', start: 'top 65px', end: '40% 65px', scrub: true },
       })
-        .to('.hero h1', { xPercent: 2, scale: .94, transformOrigin: 'left center' }, 0)
-        .to('.hero-art', { y: -24 }, 0);
+        .to('.hero h1', { xPercent: 2, scale: .94, transformOrigin: 'left center' }, 0);
 
       root.querySelectorAll<HTMLElement>('.project-stage').forEach(stage => {
         const visual = stage.querySelector('.project-visual');

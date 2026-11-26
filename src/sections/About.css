@@ -1,15 +1,13 @@
 .about .about-title { font-size: clamp(3.1rem, 7vw, 7rem); line-height: 1.12; margin: 0 0 .24em; }
 .about-title span { display: inline-block; }
 .about-copy { max-width: 59ch; font-size: clamp(1.05rem, 1.45vw, 1.42rem); line-height: 1.62; text-wrap: pretty; }
-.about-copy strong { color: var(--accent); font-weight: 720; }
+.about-copy em { color: var(--accent); font-family: Georgia, serif; font-weight: 500; font-style: italic; }
 .about-notes { grid-column: 1/-1; display: grid; grid-template-columns: 1.35fr 1fr .8fr; gap: clamp(18px, 3vw, 48px); margin-top: clamp(10px, 3vw, 36px); }
 .about-note { perspective: 800px; }
 .about-panel { height: 100%; border-top: 1px solid var(--line); padding-block: 1.15rem; }
 .about-panel h3 { font-size: clamp(1.65rem, 3vw, 3rem); line-height: 1.12; letter-spacing: -.05em; margin-bottom: 1rem; }
 .about-panel p { max-width: 42ch; line-height: 1.55; margin: .45em 0; }
 @media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
-  .about-copy strong { -webkit-text-stroke: .65px var(--accent); transition: color .22s; }
-  @supports (-webkit-text-stroke: 1px blue) { .about-copy strong:hover { color: transparent; } }
   .about-panel { transition: border-color .25s; }
   .about-note:hover .about-panel { border-color: var(--accent); }
 }

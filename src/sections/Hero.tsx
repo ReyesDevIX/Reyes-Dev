@@ -1,6 +1,5 @@
 import { ArrowDown, ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { Signal } from '../components/Signal';
 import { profile } from '../data/cv';
 
 export const Hero = () => (
@@ -20,7 +19,7 @@ export const Hero = () => (
           <Link className="text-action" to="/#contacto">Hablemos <ArrowUpRight size={16} aria-hidden="true" /></Link>
         </div>
       </div>
-      <div className="hero-art" aria-hidden="true"><Signal /></div>
+      <div className="hero-art"><img className="hero-portrait" src="/ismael-ilustracion.webp" width="680" height="848" alt="Retrato ilustrado de Ismael Reyes" fetchPriority="high" /></div>
     </div>
   </section>
 );
