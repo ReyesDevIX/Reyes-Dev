@@ -1,0 +1,32 @@
+.competencies > h3 { line-height: 1.1; }
+.process { display:flex; align-items:center; gap:1em; max-width:42rem; margin:2em 0; color:var(--accent); font:600 1rem var(--mono); }
+.process-line { flex:1; height:2px; background:linear-gradient(90deg,var(--line),var(--accent)); position:relative; }
+.process-line::after { content:''; position:absolute; right:0; top:-2px; width:6px; height:6px; border-radius:50%; background:var(--accent); }
+.studio-grid { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:12px; }
+.studio-card { grid-column:span 2; background:var(--surface); border:1px solid var(--line); padding:clamp(20px,3vw,44px); position:relative; isolation:isolate; }
+.studio-card:first-child,.studio-card:last-child { grid-column:span 3; }
+.studio-card dt { display:grid; gap:1.6rem; font-size:clamp(1.45rem,2.7vw,2.8rem); font-weight:710; letter-spacing:-.05em; line-height:1.1; }
+.studio-card svg { color:var(--accent); }
+.studio-card dd { max-width:55ch; line-height:1.6; margin-top:.8rem; color:var(--muted); }
+@media (hover:hover) and (prefers-reduced-motion:no-preference) {
+ .studio-card:hover::before { content:''; position:absolute; inset:0; z-index:-1; background:radial-gradient(230px at var(--spot-x) var(--spot-y),color-mix(in srgb,var(--accent) 18%,transparent),transparent); }
+ .career-history summary:hover { color:var(--accent); }
+}
+.glyph-lab { margin:1rem 0 2.5rem; }
+.glyph-lab a { display:inline-block; padding:.45rem 0; font:.8rem var(--mono); }
+.gravity-field { position:relative; overflow:hidden; user-select:none; touch-action:pan-y; height:9rem; cursor:crosshair; color:var(--accent); border:1px dashed var(--line); background:radial-gradient(var(--line) 1px,transparent 1px) 0 0/18px 18px; }
+.glyph-label { position:absolute; top:.75rem; left:.75rem; padding:.3em .6em; background:var(--bg); font:600 .85rem var(--mono); }
+.glyph-layer { position:absolute; inset:0; pointer-events:none; }
+.falling-glyph { position:absolute; top:0; left:0; font:700 1em var(--mono); }
+.glyph-face { display:inline-block; transform-origin:bottom; }
+.career-history { position:relative; padding-left:clamp(24px,4vw,60px); max-width:65rem; }
+.history-track { position:absolute; inset:0 auto 0 4px; width:2px; background:var(--line); }
+.history-progress { height:100%; background:var(--accent); }
+.career-history h3 { font-size:clamp(1.75rem,4vw,3.8rem); padding-block:1rem; line-height:1.1; }
+.milestone { position:relative; display:grid; grid-template-columns:minmax(8rem,1fr) 3fr; gap:1rem; padding:1.6rem 0; border-top:1px solid var(--line); }
+.milestone::before { content:''; position:absolute; top:1.9rem; left:calc(-1 * clamp(24px,4vw,60px)); width:10px; height:10px; border:2px solid var(--accent); border-radius:50%; background:var(--bg); }
+.milestone small { font:.8rem/1.5 var(--mono); color:var(--muted); }
+.milestone h4 { font-size:clamp(1.2rem,2.2vw,2rem); line-height:1.18; letter-spacing:-.04em; }
+.career-history details { margin-top:.75rem; }
+.career-history details p,.career-history li { margin:.65em 0; }
+@media(max-width:680px) { .studio-grid { grid-template-columns:1fr; } .studio-grid .studio-card { grid-column:auto; } .milestone { grid-template-columns:1fr; gap:.4rem; } }
