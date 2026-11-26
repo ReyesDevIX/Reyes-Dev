@@ -49,7 +49,7 @@ export function ContactForm() {
     <fieldset disabled={state === 'sending'}>
       <label>Tu correo electrónico<input name="email" type="email" autoComplete="email" maxLength={254} required /></label>
       <label>Asunto<input name="_subject" maxLength={150} required /></label>
-      <label>Mensaje<textarea name="message" rows={5} maxLength={5000} required /></label>
+      <label>Mensaje<textarea name="message" rows={3} maxLength={5000} required /></label>
       <input hidden name="_honey" tabIndex={-1} autoComplete="off" aria-label="Dejar vacío" />
       <small>FormSubmit tratará estos datos para gestionar tu mensaje de contacto.</small>
       <button type="submit">{state === 'sending' ? <><LoaderCircle size={16} /> Enviando…</> : 'Enviar mensaje'}</button>
