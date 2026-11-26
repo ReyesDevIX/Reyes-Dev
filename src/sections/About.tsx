@@ -3,6 +3,9 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './About.css';
+import './Studio.css';
+import GravityLetters from '../components/GravityLetters';
+import { PenTool, Code2, Terminal, GitPullRequest } from 'lucide-react';
 import { TechnologyList } from '../components/TechnologyIcon';
 import { profile, technologies, softSkills, languages } from '../data/cv';
 import { ProfileImage } from '../components/ProfileImage';
@@ -17,6 +20,7 @@ const skills = [
 
 gsap.registerPlugin(useGSAP, ScrollTrigger);
 
+const icons = [PenTool, Code2, Terminal, GitPullRequest];
 const keywords = /(sistemas y redes|propuesta de interfaz|depuración de interfaces|desarrollar en equipo)/g;
 
 function Presentation() {
@@ -30,6 +34,10 @@ export const About = () => {
     const root = section.current!;
     const media = gsap.matchMedia(root);
     media.add('(prefers-reduced-motion: no-preference)', () => {
+      gsap.from('.process-line', {
+        scaleX: 0, transformOrigin: 'left', stagger: .45, duration: .6,
+        scrollTrigger: { trigger: '.process', start: 'top 80%', once: true },
+      });
       const reveal = (trigger: Element, targets: NodeListOf<Element>, title: boolean) => {
         if (trigger.getBoundingClientRect().top <= window.innerHeight * .8) return;
         gsap.from(targets, {
@@ -96,9 +104,30 @@ export const About = () => {
     </div>
     <div className="competencies" id="habilidades">
       <h3>Diseño y desarrollo</h3>
-      <dl className="skill-grid">
-        {skills.map(skill => <div key={skill.title}><dt>{skill.title}</dt><dd>{skill.description}</dd></div>)}
+      <div className="process" aria-label="Proceso de trabajo">
+        <span>Idea</span><i aria-hidden="true" className="process-line" />
+        <span>Diseño</span><i aria-hidden="true" className="process-line" /><span>Código</span>
+      </div>
+      <dl className="studio-grid">
+        {skills.map((skill, i) => {
+          const Icon = icons[i];
+          return <div key={skill.title} className="studio-card" onPointerMove={event => {
+            if (event.pointerType !== 'mouse' || !matchMedia('(prefers-reduced-motion: no-preference)').matches) return;
+            const card = event.currentTarget;
+            const box = card.getBoundingClientRect();
+            card.style.setProperty('--spot-x', (event.clientX - box.left) + 'px');
+            card.style.setProperty('--spot-y', (event.clientY - box.top) + 'px');
+          }}>
+            <dt><Icon aria-hidden="true" /><span>{skill.title}</span></dt><dd>{skill.description}</dd>
+          </div>;
+        })}
       </dl>
+      <aside className="glyph-lab">
+        <GravityLetters items={['<>', '{}', '#', 'A', '→', '/']} maxGlyphs={18} deviceTilt={false} aria-label="Soltar símbolos">
+          <span className="glyph-label">Soltar símbolos ↓</span>
+        </GravityLetters>
+        <a href="https://rareui.com">Gravity Letters · Rare UI ↗</a>
+      </aside>
       <p className="eyebrow">Tecnologías y herramientas</p>
       <TechnologyList names={technologies.map(item => item.name)} />
     </div>
