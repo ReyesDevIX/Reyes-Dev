@@ -13,7 +13,7 @@ export const Hero = () => (
     </h1>
     <div className="hero-bottom">
       <div className="hero-copy">
-        <p className="lead">Diseño interfaces.<br />Las convierto en código.</p>
+        <p className="lead">Diseño <strong>interfaces.</strong><br />Las convierto en <em className="editorial-italic">código.</em></p>
         <p className="hero-summary">Estudio Desarrollo de Aplicaciones Web. Trabajo la interfaz, la interacción y el frontend de cada proyecto.</p>
         <div className="actions">
           <Link className="pill" to="/#proyectos">Ver proyectos <ArrowDown size={16} aria-hidden="true" /></Link>
