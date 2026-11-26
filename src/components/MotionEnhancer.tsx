@@ -21,11 +21,11 @@ export function MotionEnhancer({ scope }: { scope: RefObject<HTMLElement | null>
         xPercent: -36, scale: .82, clipPath: 'inset(0 100% 0 0)', duration: 1,
         scrollTrigger: { trigger: '.case-poster', start: 'top 88%', once: true },
       });
-      const portraitArt = root.querySelector('.hero-portrait');
+      const portraitArt = root.querySelector('.hero-art');
       if (portraitArt) {
-        const float = gsap.fromTo(portraitArt, { '--float-y': '0px' }, { '--float-y': '-4px', duration: 3.2, ease: 'sine.inOut', repeat: -1, yoyo: true, paused: true });
+        const float = gsap.fromTo(portraitArt, { '--float-y': '0px' }, { '--float-y': '-8px', duration: 6, ease: 'sine.inOut', repeat: -1, yoyo: true, paused: true });
         ScrollTrigger.create({
-          trigger: portraitArt.parentElement, start: 'top bottom', end: 'bottom top',
+          trigger: portraitArt, start: 'top bottom', end: 'bottom top',
           onToggle: self => { float.paused(!self.isActive); },
         });
       }
@@ -38,6 +38,8 @@ export function MotionEnhancer({ scope }: { scope: RefObject<HTMLElement | null>
         clipPath: 'inset(0 0 15% 0)', y: 12, duration: .75, ease: 'power2.out',
         scrollTrigger: { trigger: portrait, start: 'top 85%', once: true },
       });
+      gsap.from('.contact-form', { opacity: .35, y: 12, duration: .55,
+        scrollTrigger: { trigger: '.contact-form', start: 'top 88%', once: true } });
       const headings = [...root.querySelectorAll('h2')].map(heading => {
         const split = SplitText.create(heading, { type: 'chars', charsClass: 'heading-glyph', aria: 'auto' });
         gsap.from(split.chars, {

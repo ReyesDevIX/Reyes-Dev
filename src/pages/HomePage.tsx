@@ -1,3 +1,4 @@
+import { ContactForm } from '../components/ContactForm';
 import { useEffect } from 'react';
 import { Download, Github, Youtube } from 'lucide-react';
 import { profile } from '../data/cv';
@@ -25,6 +26,7 @@ export const HomePage = () => {
             <span>¿Hablamos?</span>
           </h2>
           <p className="contact-lead">Busco mi próxima oportunidad en desarrollo web. Si estás incorporando a alguien junior, ofreces prácticas o tienes una web en mente, cuéntame qué necesitas.</p>
+          <ContactForm />
           <div className="actions">
             <ContactEmail />
             <a className="text-action" href="/CV-Ismael-Reyes.pdf" download><Download size={16} /> Descargar CV</a>

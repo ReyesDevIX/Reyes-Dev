@@ -227,19 +227,10 @@ summary:hover { text-decoration: underline; text-underline-offset: .2em; }
 
 
 .hero-art {
-  position: relative; display: grid; place-items: center; isolation: isolate;
-  width: min(100%, 28rem); justify-self: center; padding: 8px;
-}
-.hero-art::before {
-  content: ''; position: absolute; z-index: -1; inset: 12% 9% 1% 17%;
-  border-radius: 50% 50% 4px 4px; background: var(--art);
-}
-.hero-portrait {
-  display: block; width: auto; height: clamp(16rem, 27vw, 22rem);
-  max-width: 100%; object-fit: contain; border-radius: 48% 48% 4px 4px;
+  justify-self: center; width: min(100%, 17.6rem); padding: 4px;
+  background: var(--art); border-radius: 50% 50% 6px 6px / 40% 40% 6px 6px;
   translate: 0 var(--float-y, 0px);
 }
-@media (max-width: 680px) {
-  .hero-art { width: min(100%, 19rem); }
-  .hero-portrait { height: 13.5rem; }
-}
+.hero-portrait { display: block; width: 100%; height: auto; border-radius: inherit; }
+@media (max-width: 680px) { .hero-art { width: min(100%, 11rem); } }
+.diploma-link { display:inline-flex; gap:.4em; align-items:center; margin-top:.4em; color:var(--accent); }

@@ -1,0 +1,15 @@
+.contact-form { width:min(100%,44rem); margin:1.75rem 0; padding:clamp(1.2rem,3vw,2.4rem); color:var(--ink); background:radial-gradient(18rem at var(--glow-x,0%) var(--glow-y,0%),#478cff32,transparent),color-mix(in srgb,var(--surface) 92%,transparent); backdrop-filter:blur(16px); border:1px solid #b9d8ff99; border-radius:1rem; box-shadow:inset 0 1px #ffffff42,0 12px 32px #112c5428; }
+.contact-form fieldset { display:grid; gap:1rem; border:0; margin:0; padding:0; min-width:0; }
+.contact-form label { display:grid; gap:.35rem; font-weight:650; }
+.contact-form input:not([hidden]),.contact-form textarea { width:100%; padding:.7em; color:var(--ink); background:var(--bg); border:1px solid var(--line); border-radius:.4rem; font:inherit; }
+.contact-form textarea { resize:vertical; }
+.contact-form button { justify-self:start; display:inline-flex; align-items:center; gap:.5em; padding:.75em 1.3em; border:0; border-radius:2rem; background:var(--accent); color:var(--accent-ink); font:inherit; font-weight:700; cursor:pointer; }
+.contact-form button:disabled { cursor:wait; }
+.contact-form p:not(:empty) { margin-top:1rem; }
+@media(prefers-reduced-motion:no-preference) {
+ .contact-form :is(input,textarea,button) { transition:box-shadow .2s,transform .2s; }
+ .contact-form :is(input,textarea):focus { box-shadow:0 0 0 3px color-mix(in srgb,var(--accent) 45%,transparent); }
+ .contact-form button:hover:not(:disabled) { transform:translateY(-2px); }
+ .contact-form button svg { animation:contact-spin 1s linear infinite; }
+ @keyframes contact-spin { to { transform:rotate(360deg); } }
+}
