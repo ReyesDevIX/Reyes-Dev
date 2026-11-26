@@ -1,3 +1,7 @@
+import { useRef } from 'react';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import './Parchis.css';
 import { TechnologyList } from '../components/TechnologyIcon';
 import { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
@@ -13,10 +17,33 @@ export const ProjectPage = () => {
   const {slug} = useParams();
   const project = projects.find(item => item.slug === slug);
   useEffect(() => { if (project) document.title = project.title+' · Reyes-Dev'; }, [project]);
+  const page = useRef<HTMLElement>(null);
+  useGSAP(() => {
+    if (!project) return;
+    const media = gsap.matchMedia();
+    media.add('(prefers-reduced-motion: no-preference)', () => {
+      gsap.from('.parchis-intro h1 > *', { y: 22, opacity: 0, duration: .65, stagger: .13 });
+      gsap.from('.parchis-diagram', { clipPath: 'inset(0 0 34% 0)', duration: .85,
+        scrollTrigger: { trigger: '.parchis-diagram', start: 'top 88%', once: true } });
+      gsap.from('.parchis-shot img', { clipPath: 'inset(0 8% 12% 8%)', duration: .8,
+        scrollTrigger: { trigger: '.parchis-shot', start: 'top 80%', once: true } });
+      page.current?.querySelectorAll('.case-notes section').forEach(section => {
+        gsap.from(section, { y: 16, opacity: .3, duration: .5,
+          scrollTrigger: { trigger: section, start: 'top 82%', once: true } });
+      });
+    });
+    return () => media.revert();
+  }, { scope: page, dependencies: [project], revertOnUpdate: true });
   if (!project) return <MissingPage/>;
-  return <article className="wrap section detail"><Link className="text-action" to="/#proyectos"><ArrowLeft size={16}/> Volver a proyectos</Link>
-    <p className="eyebrow">{project.category} / {project.status}</p><h1>{project.title}<em>.</em></h1>
-    <p className="body-lead">{project.description}</p><Board/>
+  return <article ref={page} className="wrap section detail parchis-case"><Link className="text-action" to="/#proyectos"><ArrowLeft size={16}/> Volver a proyectos</Link>
+    <div className="parchis-intro"><header><p className="eyebrow">{project.category} / {project.status}</p><h1><strong>Parchís</strong> <em>multijugador.</em></h1>
+    <p className="body-lead">{project.description}</p></header><div className="parchis-diagram" onPointerMove={event => {
+      if (event.pointerType !== 'mouse') return;
+      const el = event.currentTarget;
+      const box = el.getBoundingClientRect();
+      el.style.setProperty('--orbit', ((event.clientX - box.left) / box.width * 16 - 8) + 'deg');
+    }} onPointerLeave={event => event.currentTarget.style.removeProperty('--orbit')}><Board /></div></div>
+    <figure className="parchis-shot"><img src="/parchis-acceso.webp" alt="Interfaz de acceso con nombre del jugador, creación de sala y código de invitación" width="1080" height="800" loading="lazy" /><figcaption>Interfaz de acceso · Cliente web</figcaption></figure>
     <div className="case-notes">
       {project.sections.map(section => <section key={section.title}><h2>{section.title}</h2><p>{section.text}</p></section>)}
     </div>

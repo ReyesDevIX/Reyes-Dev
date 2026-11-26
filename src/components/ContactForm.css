@@ -32,3 +32,8 @@
  .contact-form button svg { animation:contact-spin 1s linear infinite; }
  @keyframes contact-spin { to { transform:rotate(360deg); } }
 }
+.contact-privacy { font-size:.85rem; margin:0; padding:.2em 0; border:0; }
+@media(min-width:821px) and (hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference) {
+ .contact-form { transition:transform .28s ease-out; }
+ .contact-form:hover:not(:focus-within) { transform:perspective(1100px) rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg)); }
+}
