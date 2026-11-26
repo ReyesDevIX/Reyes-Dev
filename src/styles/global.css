@@ -217,3 +217,11 @@ summary:hover { text-decoration: underline; text-underline-offset: .2em; }
   .pill { transition-property: background-color,color; }
 }
 .work-heading h2 .heading-glyph { color: inherit; }
+
+/* Editorial accents share one serif voice across the introduction and profile. */
+.editorial-italic { font-family: Georgia, "Times New Roman", serif; font-weight: 400; font-style: italic; letter-spacing: -.055em; }
+.hero .lead { font-weight: 450; line-height: 1.08; }
+.hero .lead strong { font-weight: 760; }
+.hero .lead .editorial-italic, .about-title .editorial-italic { color: var(--accent); }
+.type-bridge { font-weight: 400; }
+.hero-art .signal { translate: 0 var(--float-y, 0px); }

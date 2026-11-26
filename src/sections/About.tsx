@@ -90,7 +90,7 @@ export const About = () => {
     <ProfileImage />
     <div>
       <p className="eyebrow">Perfil</p>
-      <div role="heading" aria-level={2} className="about-title"><span>Sobre</span>{' '}<span>mí</span></div>
+      <div role="heading" aria-level={2} className="about-title"><span>Sobre</span>{' '}<span className="editorial-italic">mí</span></div>
       <Presentation />
     </div>
     <div className="about-notes">
@@ -103,7 +103,7 @@ export const About = () => {
         </div></article>)}
     </div>
     <div className="competencies" id="habilidades">
-      <h3>Diseño y desarrollo</h3>
+      <h3>Diseño <span className="type-bridge">y</span> <em className="editorial-italic">desarrollo</em></h3>
       <div className="process" aria-label="Proceso de trabajo">
         <span>Idea</span><i aria-hidden="true" className="process-line" />
         <span>Diseño</span><i aria-hidden="true" className="process-line" /><span>Código</span>

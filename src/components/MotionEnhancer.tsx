@@ -14,13 +14,30 @@ export function MotionEnhancer({ scope }: { scope: RefObject<HTMLElement | null>
 
     media.add('(prefers-reduced-motion: no-preference)', () => {
       if (!root.querySelector('.hero')) return;
-      gsap.timeline({ defaults: { ease: 'power3.out' } })
+      gsap.timeline({ defaults: { ease: 'power3.out' }, scrollTrigger: { trigger: '.hero h1', start: 'top 95%', once: true } })
         .from('.hero-word', { yPercent: 117, skewY: 5, stagger: .13, duration: .92 })
         .from('.hero-art .signal > span', { xPercent: -100, scaleX: .2, transformOrigin: 'left center', stagger: .075, duration: .65 }, .15);
 
       gsap.from('.case-poster .career-shot', {
         xPercent: -36, scale: .82, clipPath: 'inset(0 100% 0 0)', duration: 1,
         scrollTrigger: { trigger: '.case-poster', start: 'top 88%', once: true },
+      });
+      const signal = root.querySelector('.hero-art .signal');
+      if (signal) {
+        const float = gsap.fromTo(signal, { '--float-y': '0px' }, { '--float-y': '-6px', duration: 2.4, ease: 'sine.inOut', repeat: -1, yoyo: true, paused: true });
+        ScrollTrigger.create({
+          trigger: signal.parentElement, start: 'top bottom', end: 'bottom top',
+          onToggle: self => { float.paused(!self.isActive); },
+        });
+      }
+      root.querySelectorAll('.feature-copy').forEach(copy => {
+        gsap.from(copy, { y: 18, opacity: .35, duration: .65, ease: 'power2.out',
+          scrollTrigger: { trigger: copy, start: 'top 82%', once: true } });
+      });
+      const portrait = root.querySelector('.portrait-frame');
+      if (portrait) gsap.from(portrait, {
+        clipPath: 'inset(0 0 15% 0)', y: 12, duration: .75, ease: 'power2.out',
+        scrollTrigger: { trigger: portrait, start: 'top 85%', once: true },
       });
       const headings = [...root.querySelectorAll('h2')].map(heading => {
         const split = SplitText.create(heading, { type: 'chars', charsClass: 'heading-glyph', aria: 'auto' });
