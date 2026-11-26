@@ -1,24 +1,17 @@
-.about-bio { position: relative; }
-.about-bio .bio-sentence { display: block; }
-.about-bio .bio-scan { display: none; }
-@media (min-width: 641px) and (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
-  @supports (mask-image: radial-gradient(black, transparent)) {
-    .about-bio .bio-scan {
-      --scan-x: 0px;
-      --scan-y: 0px;
-      display: block;
-      position: absolute;
-      inset: 0;
-      pointer-events: none;
-      user-select: none;
-      color: var(--art-ink);
-      background: var(--art);
-      mask-image: radial-gradient(circle 96px at var(--scan-x) var(--scan-y), black 66%, transparent);
-      opacity: 0;
-      transition: opacity .16s ease;
-    }
-    .about-bio.scanning .bio-scan { opacity: 1; }
-    .bio-scan mark { background: transparent; color: inherit; text-decoration: underline; text-underline-offset: .13em; -webkit-text-stroke: .45px currentColor; }
-  }
+.about .about-title { font-size: clamp(3.1rem, 7vw, 7rem); line-height: 1.12; margin: 0 0 .24em; }
+.about-title span { display: inline-block; }
+.about-copy { max-width: 59ch; font-size: clamp(1.05rem, 1.45vw, 1.42rem); line-height: 1.62; text-wrap: pretty; }
+.about-copy strong { color: var(--accent); font-weight: 720; }
+.about-notes { grid-column: 1/-1; display: grid; grid-template-columns: 1.35fr 1fr .8fr; gap: clamp(18px, 3vw, 48px); margin-top: clamp(10px, 3vw, 36px); }
+.about-note { perspective: 800px; }
+.about-panel { height: 100%; border-top: 1px solid var(--line); padding-block: 1.15rem; }
+.about-panel h3 { font-size: clamp(1.65rem, 3vw, 3rem); line-height: 1.12; letter-spacing: -.05em; margin-bottom: 1rem; }
+.about-panel p { max-width: 42ch; line-height: 1.55; margin: .45em 0; }
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .about-copy strong { -webkit-text-stroke: .65px var(--accent); transition: color .22s; }
+  @supports (-webkit-text-stroke: 1px blue) { .about-copy strong:hover { color: transparent; } }
+  .about-panel { transition: border-color .25s; }
+  .about-note:hover .about-panel { border-color: var(--accent); }
 }
-.about-bio .scan-line { display: block; }
+@media (max-width: 760px) { .about-notes { grid-template-columns: 1fr; gap: .45rem; } }
+.about .about-title { font-weight: 760; letter-spacing: -.07em; }
