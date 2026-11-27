@@ -14,14 +14,12 @@ export const technologies = [
   { name: 'JavaScript', group: 'Frontend' },
   { name: 'React', group: 'Frontend' },
   { name: 'PHP', group: 'Backend' },
-  { name: 'MVC', group: 'Backend' },
   { name: 'Node.js', group: 'Backend' },
   { name: 'Git', group: 'Herramientas' },
   { name: 'GitHub', group: 'Herramientas' },
   { name: 'WordPress', group: 'Herramientas' },
   { name: 'Elementor', group: 'Herramientas' },
   { name: 'Vite', group: 'Herramientas' },
-  { name: 'Redes locales', group: 'Sistemas' },
 ] as const;
 
 export const projects = [

@@ -32,14 +32,33 @@
  .about-panel::before { left:-5px; top:calc(var(--socket) - 5px); }
 }
 .about .about-title { font-weight: 760; letter-spacing: -.07em; }
-.about-float .portrait-frame { position:relative; border-radius:14px; }
+.about-float .portrait-frame { position:relative; border-radius:14px; box-shadow:0 0 0 1px var(--bg),0 0 0 2px color-mix(in srgb,var(--accent) 50%,transparent); }
 .about-float .portrait-frame::after {
-  content:''; pointer-events:none; position:absolute; inset:0; padding:4px; border-radius:inherit;
-  background:conic-gradient(from var(--portrait-phase,0deg),#18448a,#287cff 36%,#86caff 56%,#e7faff 60%,#428cff 64%,#18448a);
+  content:''; pointer-events:none; position:absolute; inset:0; padding:3px; border-radius:inherit;
+  background:conic-gradient(from var(--portrait-phase,0deg),#143f84,#327fff 25%,#8bcfff 48%,#477ffd 70%,#dbfaff 73%,#2d70ef 76%,#143f84);
   mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0); mask-composite:exclude;
 }
 @property --portrait-phase { syntax:'<angle>'; inherits:false; initial-value:0deg; }
 @media(prefers-reduced-motion:no-preference) {
  .about-float .portrait-frame::after { animation:portrait-circuit 9s linear infinite; }
  @keyframes portrait-circuit { to { --portrait-phase:360deg; } }
+}
+
+.about-panel { display:flex; flex-direction:column; isolation:isolate; box-shadow:0 8px 20px color-mix(in srgb,var(--ink) 5%,transparent); }
+.about-panel p.panel-caption { margin:0; color:var(--muted); font:600 .76rem/1.4 var(--mono); letter-spacing:.075em; text-transform:uppercase; }
+.about-panel h3 { margin:.28em 0 .62em; padding-bottom:.38em; border-bottom:1px solid var(--line); font-size:clamp(2.35rem,4.2vw,4.7rem); letter-spacing:-.065em; }
+.about-note:first-of-type .about-panel { border-top:3px solid var(--accent); }
+.about-note:last-of-type .about-panel { background:var(--bg); }
+.about-note:last-child p.panel-caption { display:block; border:0; padding:0; }
+.about-note p strong { letter-spacing:-.015em; }
+@media(min-width:861px) {
+ .about-note:nth-of-type(2) { top:1.25rem; }
+ .about-note:nth-of-type(2)::before { height:3.25rem; }
+ .about-notes { margin-bottom:1.25rem; }
+}
+@media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference) {
+ .about-panel::after { content:''; position:absolute; inset:0; z-index:-1; pointer-events:none; border-radius:inherit; opacity:0;
+   background:radial-gradient(13rem at var(--light-x,50%) var(--light-y,0%),color-mix(in srgb,var(--accent) 17%,transparent),transparent);
+   transition:opacity .28s; }
+ .about-note:hover .about-panel::after { opacity:1; }
 }
