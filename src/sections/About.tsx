@@ -14,7 +14,7 @@ import { ProfileImage } from '../components/ProfileImage';
 const skills = [
   { title: 'Diseño de interfaces', description: 'Organizo pantallas, jerarquía visual y estados de interfaz. Lo he aplicado al acceso a salas del Parchís y a una primera tienda con WordPress y Elementor.' },
   { title: 'Desarrollo frontend', description: 'Construyo interfaces con React, HTML, CSS y JavaScript. En este portfolio se puede ver cómo adapto la composición, las animaciones y los controles a distintos dispositivos.' },
-  { title: 'Herramientas y desarrollo web', description: 'Trabajo con Git y GitHub para compartir cambios y con Vite para desarrollar y compilar. Mi formación incluye PHP con MVC, Node.js y redes locales.' },
+  { title: 'Herramientas y desarrollo web', description: 'Trabajo con Git y GitHub para compartir cambios y con Vite para desarrollar y compilar. Mi formación incluye PHP y Node.js.' },
   { title: 'Colaboración y depuración', description: 'Comparto propuestas, reviso cambios en equipo y reproduzco problemas visuales. En Joseda Education lo apliqué a fallos de animación y posicionamiento.' },
 ];
 
@@ -61,12 +61,14 @@ export const About = () => {
       const controller = new AbortController();
       const options = { signal: controller.signal };
       root.querySelectorAll<HTMLElement>('.about-note').forEach(note => {
-        const panel = note.firstElementChild!;
+        const panel = note.querySelector<HTMLElement>('.about-panel')!;
         const turn = gsap.quickTo(panel, 'rotationY', { duration: .35 });
         const tip = gsap.quickTo(panel, 'rotationX', { duration: .35 });
         note.addEventListener('pointermove', event => {
           if (event.pointerType !== 'mouse') return;
           const box = note.getBoundingClientRect();
+          panel.style.setProperty('--light-x', (event.clientX - box.left) + 'px');
+          panel.style.setProperty('--light-y', (event.clientY - box.top) + 'px');
           turn(5 * ((event.clientX - box.left) / box.width - .5));
           tip(-5 * ((event.clientY - box.top) / box.height - .5));
         }, options);
@@ -104,7 +106,8 @@ export const About = () => {
       <span className="profile-wire" aria-hidden="true" />
       {['Cómo trabajo', 'Aprendizaje', 'Idiomas'].map((title, index) =>
         <article className="about-note" key={title}><div className="about-panel">
-          <h3>{title}</h3>
+          <p className="panel-caption">{title}</p>
+          <h3>{['Colaboro', 'Aprendo', 'Comunico'][index]}</h3>
           {index === 2 ? languages.map(lang => <p key={lang.name}><strong>{lang.name}</strong> <span>{lang.level}</span></p>) :
             softSkills.filter(skill => (skill.title === 'Aprendizaje continuo') === (index === 1)).map(skill =>
               <p key={skill.title}><strong>{skill.title}.</strong> {skill.description}</p>)}
