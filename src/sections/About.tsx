@@ -48,11 +48,25 @@ export const About = () => {
         });
       };
       reveal(root.querySelector('.about-title')!, root.querySelectorAll('.about-title span'), true);
+    });
+    media.add('(min-width: 861px) and (prefers-reduced-motion: no-preference)', () => {
+      const group = root.querySelector<HTMLElement>('.about-notes')!;
+      const timeline = gsap.timeline({
+        scrollTrigger: { trigger: group, start: 'top 82%', once: true },
+        onComplete: () => group.classList.add('circuit-ready'),
+      });
+      timeline.from('.circuit-trunk', { strokeDashoffset: 1, duration: .45, ease: 'power1.inOut' })
+        .from('.circuit-branch', { strokeDashoffset: 1, duration: .22, stagger: .045 })
+        .from('.circuit-node', { opacity: 0, duration: .16, stagger: .04 }, '-=.14')
+        .from('.about-note', { opacity: 0, y: 12, duration: .45, stagger: .08, clearProps: 'transform,opacity' });
+      return () => group.classList.remove('circuit-ready');
+    });
+    media.add('(max-width: 860px) and (prefers-reduced-motion: no-preference)', () => {
       const notes = root.querySelectorAll<HTMLElement>('.about-note');
-      notes.forEach((note, index) => {
+      notes.forEach(note => {
         if (note.getBoundingClientRect().top <= innerHeight * .82) return;
         gsap.from(note, { y: 18, opacity: 0, duration: .6, ease: 'power3.out',
-          delay: matchMedia('(min-width: 861px)').matches ? index * .09 : 0,
+
           clearProps: 'transform,opacity',
           scrollTrigger: { trigger: note, start: 'top 82%', once: true } });
       });
@@ -104,6 +118,15 @@ export const About = () => {
     </div>
     <div className="about-notes">
       <span className="profile-wire" aria-hidden="true" />
+      <svg className="profile-circuit" aria-hidden="true" focusable="false">
+        <line className="circuit-trunk" x1="0" x2="100%" y1="5" y2="5" pathLength="1" />
+        {['0%', '50%', '100%'].map(x => <g key={x}>
+          <line className="circuit-branch" x1={x} x2={x} y1="5" y2="100%" pathLength="1" />
+          <circle className="circuit-node" cx={x} cy="5" r="3" />
+          <circle className="circuit-node" cx={x} cy="100%" r="3.5" />
+        </g>)}
+        <line className="circuit-pulse" x1="0" x2="100%" y1="5" y2="5" pathLength="1" />
+      </svg>
       {['Cómo trabajo', 'Aprendizaje', 'Idiomas'].map((title, index) =>
         <article className="about-note" key={title}><div className="about-panel">
           <p className="panel-caption">{title}</p>
