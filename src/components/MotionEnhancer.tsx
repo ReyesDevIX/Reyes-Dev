@@ -14,8 +14,6 @@ export function MotionEnhancer({ scope }: { scope: RefObject<HTMLElement | null>
 
     media.add('(prefers-reduced-motion: no-preference)', () => {
       if (!root.querySelector('.hero')) return;
-      gsap.timeline({ defaults: { ease: 'power3.out' }, scrollTrigger: { trigger: '.hero h1', start: 'top 95%', once: true } })
-        .from('.hero-word', { yPercent: 117, skewY: 5, stagger: .13, duration: .92 });
 
       gsap.from('.case-poster .career-shot', {
         xPercent: -36, scale: .82, clipPath: 'inset(0 100% 0 0)', duration: 1,

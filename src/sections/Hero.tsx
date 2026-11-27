@@ -1,10 +1,11 @@
 import { ArrowDown, ArrowUpRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { CodeIntro } from '../components/CodeIntro';
 import { profile } from '../data/cv';
 
 export const Hero = () => (
   <section id="inicio" className="wrap hero" aria-labelledby="nombre">
-    <div className="hero-meta"><span>Diseño de interfaces / Frontend</span><span>{profile.location}</span></div>
+    <div className="hero-meta"><span className="hero-signature"><CodeIntro />Diseño de interfaces / Frontend</span><span>{profile.location}</span></div>
     <h1 id="nombre" aria-label={profile.shortName}>
       {profile.shortName.split(' ').map(word => (
         <span className="word-mask" aria-hidden="true" key={word}><span className="hero-word">{Array.from(word, (letter, index) => <span className="hero-letter" key={index}>{letter}</span>)}</span></span>
